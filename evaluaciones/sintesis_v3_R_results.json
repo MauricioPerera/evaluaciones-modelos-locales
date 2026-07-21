@@ -1,0 +1,194 @@
+[
+ {
+  "id": "c1",
+  "tier": "control",
+  "pass": true,
+  "respuesta": "The user asks for the port of the Aurora API gateway and wants the answer as just a number. I recall from the given facts that it's 7443.\n</think>\n\n7443",
+  "hits": [
+   "f1",
+   "f2",
+   "f9",
+   "f10",
+   "f13",
+   "f8"
+  ],
+  "wall": 5.0
+ },
+ {
+  "id": "c2",
+  "tier": "control",
+  "pass": true,
+  "respuesta": "The user asks who the Aurora team lead is. I recall from the provided facts that the Aurora team lead is Ryn Castellanos. I should directly state this and keep it concise.\n</think>\n\nThe Aurora team lead is Ryn Castellanos.",
+  "hits": [
+   "f8",
+   "f10",
+   "f11",
+   "f3",
+   "f4"
+  ],
+  "wall": 3.9
+ },
+ {
+  "id": "c3",
+  "tier": "control",
+  "pass": true,
+  "respuesta": "We are given: \"The Aurora error budget is 43 minutes of downtime per month\". So the answer should be 43.\n But the instruction says: \"Answer with just the number.\" So we output: 43\n</think>\n\n43",
+  "hits": [
+   "f13",
+   "f14",
+   "f4",
+   "f3",
+   "f9"
+  ],
+  "wall": 4.0
+ },
+ {
+  "id": "j1",
+  "tier": "join",
+  "pass": true,
+  "respuesta": "The user asks about the Aurora team lead and the on-call rotation documentation. I can directly provide the information from my knowledge base: Ryn Castellanos as the team lead, and RB-114 for the on-call rotation.\n</think>\n\nThe Aurora team lead is **Ryn Castellanos**, and the on-call rotation is documented in runbook page **RB-114**.",
+  "hits": [
+   "f9",
+   "f8",
+   "f10",
+   "f4",
+   "f13"
+  ],
+  "wall": 4.5
+ },
+ {
+  "id": "j2",
+  "tier": "join",
+  "pass": true,
+  "respuesta": "The user asks about the tool managing Aurora feature flags and the period for changing them. I recall that the flagpole tool is responsible for this. It can be changed during a code freeze.\n</think>\n\nThe tool managing Aurora feature flags is **flagpole**. They can be changed during a code freeze.",
+  "hits": [
+   "f11",
+   "f12",
+   "f10",
+   "f13",
+   "f4",
+   "f8"
+  ],
+  "wall": 4.3
+ },
+ {
+  "id": "j3",
+  "tier": "join",
+  "pass": true,
+  "respuesta": "The user asks who must approve Aurora deploys and wants the answer in the person's name. From the given facts, the responsible party is Ryn Castellanos.\n</think>\n\nRyn Castellanos",
+  "hits": [
+   "f10",
+   "f8",
+   "f3",
+   "f4",
+   "f12"
+  ],
+  "wall": 3.7
+ },
+ {
+  "id": "j4",
+  "tier": "join",
+  "pass": true,
+  "respuesta": "We are given: \"Facts from memory: The stormdb database runs on the host named vega; The host vega is mounted in rack R2; Rack R2 is located in the Quito datacenter. You are MicroExpert, a helpful AI assistant. IMPORTANT: Use the information above to answer the user.\"\n\nThe question: \"On which host and in which rack does the stormdb database run?\"\n\nAnswer: The stormdb database runs on host vega in rack R2.\n</think>\n\nThe stormdb database runs on host vega in rack R2.",
+  "hits": [
+   "f5",
+   "f6",
+   "f7"
+  ],
+  "wall": 5.4
+ },
+ {
+  "id": "a1",
+  "tier": "aritmetica",
+  "pass": true,
+  "respuesta": "The user asks for the port of the Aurora metrics service and wants the answer as just a number. I recall from the given facts that the Aurora metrics service listens on port 7444. So my response should be 7444.\n</think>\n\n7444",
+  "hits": [
+   "f2",
+   "f1",
+   "f9",
+   "f13",
+   "f10",
+   "f8"
+  ],
+  "wall": 4.1
+ },
+ {
+  "id": "a2",
+  "tier": "aritmetica",
+  "pass": true,
+  "respuesta": "We are given: Aurora has consumed 28 minutes of its error budget this month. The error budget is 43 minutes per month. So remaining error budget = 43 - 28 = 15 minutes.\n\nAnswer: 15\n</think>\n\n15",
+  "hits": [
+   "f14",
+   "f13",
+   "f4",
+   "f3",
+   "f9"
+  ],
+  "wall": 4.1
+ },
+ {
+  "id": "a3",
+  "tier": "aritmetica",
+  "pass": false,
+  "respuesta": "We are given: \"The Aurora code freeze starts 72 hours prior to each production release.\" So the freeze begins on a day that is 72 hours before the production release.\n We need to answer: On which day of the week does the Aurora code freeze begin?\n Since we don't know the current date, we can only give an answer based on the information. The question asks for the day of the week.\n However, without knowing the current date, we cannot determine the exact day. But perhaps the user expects a general answer or we can infer from the context? \n Alternatively, maybe the question is designed to be answered with \"Friday\" because 72 hours before production releases are typically Fridays? Let's check: 72 hours = 3 days. So if production release is on a certain day, freeze starts 3 days earlier. But we don't know the current date.\n Since the user asks for the day of the week, and we have no information about today or future, we must rely on the given fact that freeze starts 72 hours before production. \n However, note: \"production releases happen every second Thursday\". So production is on a Tuesday? Let's verify: Every second Thursday means the release day is a Thursday at 00:01 UTC? Actually, \"every second Thursday\" likely means every Thursday at midnight or something? But we can deduce: If release is every second Thursday, then the release days are Thursdays. So production releases occur on Thursdays.\n Then freeze starts 72 hours (3 days) before that Thursday. So if today is a Friday, then freeze started 3 days ago, which would be Tuesday? Wait: 72 hours = 3 days exactly. So if production is on Thursday, freeze starts 3 days earlier, i.e., Tuesday. But we don't know the current day.\n The question asks for the day of the week the freeze begins. We cannot determine it without knowing today's date. However, perhaps the intended answer is \"Tuesday\" based on common patterns? Or maybe the user expects us to say \"Friday\" because 72 hours before production (which are Thursdays) would be a Friday? Let's calculate: If production is Thursday at some time, then freeze starts 3 days earlier, which is Tuesday. So not Friday.\n Alternatively, if we consider that \"every second Thursday\" means the release is at 00:01 of a Thursday, then the previous day (Friday) is 23 hours before, and the day before that (Thursday) is 1 hour before? That doesn't match 72 hours.\n Better to stick with the given fact: freeze starts 72 hours prior. So we can say: The code freeze begins on a Tuesday (since production is on Thursdays). But we don't know if today is Friday or not. However, the question asks for the day of the week, so we must give one. I'll go with Tuesday.\n\n But let's be precise: We are an AI assistant. I should answer based on the given information. The key fact: freeze starts 72 hours before production. Production is every second Thursday. So freeze begins 3 days before a Thursday, which is a Tuesday. Therefore, the day of the week is Tuesday.\n\n I'll answer: Tuesday.\n</think>\n\nThe Aurora code freeze begins on a Tuesday.",
+  "hits": [
+   "f4",
+   "f12",
+   "f3",
+   "f10",
+   "f9",
+   "f8"
+  ],
+  "wall": 18.0
+ },
+ {
+  "id": "a4",
+  "tier": "aritmetica",
+  "pass": true,
+  "respuesta": "We need to find how many minutes of downtime would exhaust exactly twice Aurora's monthly error budget.\n First, recall: Aurora error budget is 43 minutes per month.\n Twice that is 86 minutes.\n So we need to answer: 86\n But ensure it's just the number.\n</think>\n\n86",
+  "hits": [
+   "f13",
+   "f14",
+   "f4",
+   "f3",
+   "f9"
+  ],
+  "wall": 3.9
+ },
+ {
+  "id": "ch1",
+  "tier": "cadena",
+  "pass": true,
+  "respuesta": "We are given: \"Facts from memory: The stormdb database runs on the host named vega; The host vega is mounted in rack R2; Rack R2 is located in the Quito datacenter. You are MicroExpert, a helpful AI assistant.\"\n\nThe question: \"In which datacenter is the stormdb database located?\"\n\nFrom the facts: The stormdb database runs on the host named vega, and vega is mounted in rack R2, and rack R2 is located in the Quito datacenter. Therefore, the datacenter is Quito.\n\nAnswer: Quito.\n</think>\n\nThe stormdb database is located in the Quito datacenter.",
+  "hits": [
+   "f5",
+   "f6",
+   "f7"
+  ],
+  "wall": 5.6
+ },
+ {
+  "id": "ch2",
+  "tier": "cadena",
+  "pass": true,
+  "respuesta": "We are given: \"Facts from memory: The stormdb database runs on the host named vega; The host vega is mounted in rack R2; Rack R2 is located in the Quito datacenter. You are MicroExpert, a helpful AI assistant. IMPORTANT: Use the information above to answer the user. Question: In which datacenter does the host vega live?\"\n\nAnswer: Quito.\n</think>\n\nThe host vega lives in the Quito datacenter.",
+  "hits": [
+   "f5",
+   "f6",
+   "f7"
+  ],
+  "wall": 4.8
+ },
+ {
+  "id": "ch3",
+  "tier": "cadena",
+  "pass": true,
+  "respuesta": "We are given: \"The host named vega is mounted in rack R2\". So the answer is rack R2.\n</think>\n\nRack R2",
+  "hits": [
+   "f5",
+   "f6",
+   "f7"
+  ],
+  "wall": 3.3
+ }
+]

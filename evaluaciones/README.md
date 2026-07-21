@@ -80,6 +80,8 @@ Jornada de evaluación completa del modelo [`GnLOLot/MiniCPM5-1B-Claude-Opus-Fab
 
 Features implementadas en rag-local (rama `feat/knowledge-contract`, 110/110 tests): validación de contrato por colección (reglas `kc-*`: max_chars, anti-referencias-relativas, tags, min_links; persistido dentro del bundle JVSB) + expansión de links opt-in en query. El contrato rechazó en vivo el hecho relacional que causaba el fallo a1.
 
+**Iteración final** (`threshold` server-side + `hops` multi-salto, [PR #1 de rag-local](https://github.com/MauricioPerera/rag-local/pull/1)): **R 10/11 (91%)** — j4 y ch1 resueltos; el único fallo restante es techo del modelo (aritmética con ruido, pasa en condición O). Evidencia: `sintesis_v3_R_results.json`. Trayectoria completa: 64% → 73% → 91% con O en 100%.
+
 ## Código derivado (mergeado en GitHub)
 
 - [PR #4](https://github.com/MauricioPerera/micro-expert/pull/4): gates de tool-format + opción `builtinTools` + 16 tests. **Mergeado.**
