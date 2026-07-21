@@ -41,6 +41,13 @@ Jornada de evaluación completa del modelo [`GnLOLot/MiniCPM5-1B-Claude-Opus-Fab
 | `fixed_results.json` | Con fix 1 (mandato MCP condicional): 5/10, respuestas ya en lenguaje natural. |
 | `builtin_off_run2.json` / `builtin_off_results.txt` | Con fix 1+2 (`builtinTools: false`): 5/10 estable ×2, **cero artefactos de tool en 24 respuestas**. Los ~5/10 restantes son el techo real del 1B en uso de memoria. |
 
+## 5. Retrieval semántico con rag-local (¿el techo era del modelo o del recall?)
+
+| Archivo | Resultado clave |
+|---|---|
+| [RAG-AB-REPORT.md](RAG-AB-REPORT.md) | Mismo oráculo y modelo, retrieval vía [rag-local](https://github.com/MauricioPerera/rag-local) (embeddinggemma-300m, umbral 0,35 a priori): **10/10** (vs 5-6/10 con RepoMemory) y **0 inyecciones** en preguntas generales — contaminación eliminada ("France → Paris"). Los fallos restantes eran del retrieval, no del modelo. |
+| `rag_ab.py` / `rag_ab_results.json` | Harness (requiere rag-local :8937 + llama-server :8940) y respuestas crudas con scores por pregunta. |
+
 ## Código derivado (mergeado en GitHub)
 
 - [PR #4](https://github.com/MauricioPerera/micro-expert/pull/4): gates de tool-format + opción `builtinTools` + 16 tests. **Mergeado.**
@@ -49,4 +56,4 @@ Jornada de evaluación completa del modelo [`GnLOLot/MiniCPM5-1B-Claude-Opus-Fab
 
 ## Veredicto global del modelo
 
-Bueno para chat/QA local ligero (95-98% en tareas básicas, honesto ante lo que no sabe, ~48 tok/s en CPU); **no apto** como implementador de código con contrato (inmune a feedback / razonamiento que no termina) ni confiable en mapeo a formato MCQ estricto. Con memoria CTT recupera conocimiento sembrado de forma útil (6/10) una vez eliminado el ruido de formato del framework.
+Bueno para chat/QA local ligero (95-98% en tareas básicas, honesto ante lo que no sabe, ~48 tok/s en CPU); **no apto** como implementador de código con contrato (inmune a feedback / razonamiento que no termina) ni confiable en mapeo a formato MCQ estricto. Como asistente de conocimiento sembrado alcanza **10/10** cuando el retrieval es semántico y con umbral de relevancia (rag-local); los 5-6/10 previos eran techo del recall de RepoMemory, no del modelo.
