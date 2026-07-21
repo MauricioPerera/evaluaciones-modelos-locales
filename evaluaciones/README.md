@@ -64,6 +64,13 @@ Jornada de evaluación completa del modelo [`GnLOLot/MiniCPM5-1B-Claude-Opus-Fab
 | [RAG-BONSAI-REPORT.md](RAG-BONSAI-REPORT.md) | **10/10 — empate perfecto con el 1B** a 19× la latencia (56 s vs 3 s por respuesta). El retrieval hace todo el trabajo en lookup factual: un 1B bien alimentado = un 27B bien alimentado. El 27B solo pagaría en síntesis multi-hecho, MCQ estricto o conocimiento sin memoria. |
 | `rag_ab_bonsai.py` / `rag_ab_bonsai_results.json` | Harness adaptado y respuestas crudas. |
 
+## 8. Límite de síntesis multi-hecho del 1B
+
+| Archivo | Resultado clave |
+|---|---|
+| [SINTESIS-REPORT.md](SINTESIS-REPORT.md) | Con contexto perfecto el 1B SÍ sintetiza: **10/11 (91%)** — joins 4/4 y cadenas A→B→C 3/3; único fallo duro la aritmética implícita ("el puerto siguiente a 7443" → responde 7443 o 4444). Con retrieval real cae a **7/11 (64%)** por dos mecanismos: recall multi-hecho incompleto y ruido de contexto que degrada el razonamiento (a3 pasa con 2 hechos, falla con 5). Modo de fallo peligroso detectado: ante hechos faltantes a veces confabula fusiones ("datacenter named vega") en vez de admitir el hueco. |
+| `sintesis_oracle.json` / `sintesis.py` / `sintesis_results.json` | Oráculo de 4 tiers × 2 condiciones (R/O), harness y 28 evaluaciones crudas con atribución retrieval-vs-síntesis. |
+
 ## Código derivado (mergeado en GitHub)
 
 - [PR #4](https://github.com/MauricioPerera/micro-expert/pull/4): gates de tool-format + opción `builtinTools` + 16 tests. **Mergeado.**

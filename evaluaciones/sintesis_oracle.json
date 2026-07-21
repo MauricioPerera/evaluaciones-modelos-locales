@@ -1,0 +1,39 @@
+{
+  "facts": {
+    "f1": "The Aurora API gateway listens on port 7443",
+    "f2": "The Aurora metrics service listens on the port number immediately after the API gateway port",
+    "f3": "Aurora production releases happen every second Thursday",
+    "f4": "The Aurora code freeze begins exactly 3 days before each production release",
+    "f5": "The stormdb database runs on the host named vega",
+    "f6": "The host vega is mounted in rack R2",
+    "f7": "Rack R2 is located in the Quito datacenter",
+    "f8": "The Aurora team lead is Ryn Castellanos",
+    "f9": "The Aurora on-call rotation is documented in runbook page RB-114",
+    "f10": "Every Aurora deploy requires approval from the team lead",
+    "f11": "The flagpole tool manages Aurora feature flags",
+    "f12": "Aurora feature flags can only be changed during a code freeze",
+    "f13": "The Aurora error budget is 43 minutes of downtime per month",
+    "f14": "Aurora has consumed 28 minutes of its error budget this month"
+  },
+  "preguntas": [
+    {"id": "c1", "tier": "control", "q": "What port does the Aurora API gateway listen on? Answer with just the number.", "expected_number": 7443, "needed_facts": ["f1"]},
+    {"id": "c2", "tier": "control", "q": "Who is the Aurora team lead?", "keywords_all": ["castellanos"], "needed_facts": ["f8"]},
+    {"id": "c3", "tier": "control", "q": "How many minutes of downtime per month is the Aurora error budget? Answer with just the number.", "expected_number": 43, "needed_facts": ["f13"]},
+    {"id": "j1", "tier": "join", "q": "Who is the Aurora team lead and in which runbook page is the on-call rotation documented?", "keywords_all": ["castellanos", "rb-114"], "needed_facts": ["f8", "f9"]},
+    {"id": "j2", "tier": "join", "q": "Which tool manages Aurora feature flags, and during which period can they be changed?", "keywords_all": ["flagpole", "freeze"], "needed_facts": ["f11", "f12"]},
+    {"id": "j3", "tier": "join", "q": "Who must approve Aurora deploys? Answer with the person's name.", "keywords_all": ["castellanos"], "needed_facts": ["f10", "f8"]},
+    {"id": "j4", "tier": "join", "q": "On which host and in which rack does the stormdb database run?", "keywords_all": ["vega", "r2"], "needed_facts": ["f5", "f6"]},
+    {"id": "a1", "tier": "aritmetica", "q": "What port does the Aurora metrics service listen on? Answer with just the number.", "expected_number": 7444, "needed_facts": ["f2", "f1"]},
+    {"id": "a2", "tier": "aritmetica", "q": "How many minutes of error budget does Aurora have left this month? Answer with just the number.", "expected_number": 15, "needed_facts": ["f13", "f14"]},
+    {"id": "a3", "tier": "aritmetica", "q": "On which day of the week does the Aurora code freeze begin?", "keywords_all": ["monday"], "needed_facts": ["f3", "f4"]},
+    {"id": "a4", "tier": "aritmetica", "q": "How many minutes of downtime would exhaust exactly twice Aurora's monthly error budget? Answer with just the number.", "expected_number": 86, "needed_facts": ["f13"]},
+    {"id": "ch1", "tier": "cadena", "q": "In which datacenter is the stormdb database located?", "keywords_all": ["quito"], "needed_facts": ["f5", "f6", "f7"]},
+    {"id": "ch2", "tier": "cadena", "q": "In which datacenter does the host vega live?", "keywords_all": ["quito"], "needed_facts": ["f6", "f7"]},
+    {"id": "ch3", "tier": "cadena", "q": "In which rack is the stormdb database mounted?", "keywords_all": ["r2"], "needed_facts": ["f5", "f6"]}
+  ],
+  "grading": "expected_number: último número de la respuesta, igualdad exacta. keywords_all: TODAS las keywords presentes (case-insensitive).",
+  "condiciones": {
+    "R": "retrieval real: rag-local colección aurora2, query=pregunta, k=5, umbral 0.35",
+    "O": "contexto oráculo: se inyectan EXACTAMENTE los needed_facts, sin retrieval"
+  }
+}
