@@ -55,6 +55,13 @@ Jornada de evaluación completa del modelo [`GnLOLot/MiniCPM5-1B-Claude-Opus-Fab
 | [COMPARATIVA-BONSAI-VS-1B.md](COMPARATIVA-BONSAI-VS-1B.md) | Bonsai 27B (2-bit ternario, Vulkan/Arc 140T): **50/50** vs 48-49/50 de los 1B — borra los fallos de MCQ y coding, a 21× el tiempo (95 min vs 4,5). Incluye la lección de despliegue (config correcta = 120× de velocidad) y el desenmascaramiento del drafter DSpark. |
 | `bench_bonsai.py` / `bonsai_results_50.json` | Harness OpenAI-transport (incremental, --resume) y respuestas+razonamiento crudos. |
 
+## 7. Bonsai 27B + rag-local (¿el tamaño aporta al caso de uso micro-expert?)
+
+| Archivo | Resultado clave |
+|---|---|
+| [RAG-BONSAI-REPORT.md](RAG-BONSAI-REPORT.md) | **10/10 — empate perfecto con el 1B** a 19× la latencia (56 s vs 3 s por respuesta). El retrieval hace todo el trabajo en lookup factual: un 1B bien alimentado = un 27B bien alimentado. El 27B solo pagaría en síntesis multi-hecho, MCQ estricto o conocimiento sin memoria. |
+| `rag_ab_bonsai.py` / `rag_ab_bonsai_results.json` | Harness adaptado y respuestas crudas. |
+
 ## Código derivado (mergeado en GitHub)
 
 - [PR #4](https://github.com/MauricioPerera/micro-expert/pull/4): gates de tool-format + opción `builtinTools` + 16 tests. **Mergeado.**
