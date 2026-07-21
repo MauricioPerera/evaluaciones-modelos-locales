@@ -1,0 +1,208 @@
+[
+ {
+  "id": "c1",
+  "tier": "control",
+  "pass": true,
+  "respuesta": "7443",
+  "reasoning_tail": "t the answer**: The first fact directly states \"The Aurora API gateway listens on port 7443\".\n4.  **Format the output**: The user requested \"Answer with just the number.\"\n5.  **Final Answer**: 7443.\u2705\n",
+  "hits": [
+   "f1",
+   "f2",
+   "f9",
+   "f10",
+   "f13",
+   "f8"
+  ],
+  "wall": 57.5
+ },
+ {
+  "id": "c2",
+  "tier": "control",
+  "pass": true,
+  "respuesta": "Based on the information provided, the Aurora team lead is **Ryn Castellanos**.",
+  "reasoning_tail": "stellanos.\"\n\n5.  **Self-Correction/Verification:**\n   - Does the response directly answer the question? Yes.\n   - Is it based solely on the provided facts? Yes.\n   - Any extra fluff? No.\n   - Ready.\u2705\n",
+  "hits": [
+   "f8",
+   "f10",
+   "f11",
+   "f3",
+   "f4"
+  ],
+  "wall": 74.2
+ },
+ {
+  "id": "c3",
+  "tier": "control",
+  "pass": true,
+  "respuesta": "43",
+  "reasoning_tail": "eneration] 43\n   [Done.] \n   *(Note: I'm overthinking a simple extraction task, but it's good to be precise.)* \n   Output: 43\n   [Final Check] Matches fact, matches constraint. Ready. \n   [Output] 43\n",
+  "hits": [
+   "f13",
+   "f14",
+   "f4",
+   "f3",
+   "f9"
+  ],
+  "wall": 142.7
+ },
+ {
+  "id": "j1",
+  "tier": "join",
+  "pass": true,
+  "respuesta": "Based on the provided information:\n- The Aurora team lead is **Ryn Castellanos**.\n- The on-call rotation is documented in **runbook page RB-114**.",
+  "reasoning_tail": "4.\"\n\n5.  **Check Against Constraints:**\n   - Uses only provided information? Yes.\n   - Answers both parts of the question? Yes.\n   - Concise and accurate? Yes.\n\n   All good. Output matches response.\u2705\n",
+  "hits": [
+   "f9",
+   "f8",
+   "f10",
+   "f4",
+   "f13"
+  ],
+  "wall": 91.9
+ },
+ {
+  "id": "j2",
+  "tier": "join",
+  "pass": true,
+  "respuesta": "Based on the provided information:\n\n- **Tool:** The **flagpole tool** manages Aurora feature flags.\n- **Period:** They can only be changed **during a code freeze**, which begins **72 hours prior to each production release**.",
+  "reasoning_tail": "**Check Against Constraints:**\n   - Uses provided facts? Yes.\n   - Answers both parts of the question? Yes.\n   - Accurate according to facts? Yes.\n\n   All good. Output matches the formulated answer.\u2705\n",
+  "hits": [
+   "f11",
+   "f12",
+   "f10",
+   "f13",
+   "f4",
+   "f8"
+  ],
+  "wall": 98.9
+ },
+ {
+  "id": "j3",
+  "tier": "join",
+  "pass": true,
+  "respuesta": "Ryn Castellanos",
+  "reasoning_tail": "s\n\n4.  **Check Constraints:**\n   - Uses provided facts? Yes.\n   - Answers the question? Yes.\n   - Format: Just the name as requested (\"Answer with the person's name.\").\n\n   All good. Output matches.\u2705\n",
+  "hits": [
+   "f10",
+   "f8",
+   "f3",
+   "f4",
+   "f12"
+  ],
+  "wall": 58.4
+ },
+ {
+  "id": "j4",
+  "tier": "join",
+  "pass": true,
+  "respuesta": "Based on the provided information, the stormdb database runs on the host **vega**, which is mounted in **rack R2**.",
+  "reasoning_tail": "nd in which rack does the stormdb database run?\" -> Direct answer expected.\n   All good. \n   [Output] -> The stormdb database runs on the host **vega**, which is mounted in **rack R2**.\u2705\n   *(Done.)*\n",
+  "hits": [
+   "f5",
+   "f6",
+   "f7"
+  ],
+  "wall": 136.1
+ },
+ {
+  "id": "a1",
+  "tier": "aritmetica",
+  "pass": true,
+  "respuesta": "7444",
+  "reasoning_tail": "xtract the answer**: The first fact states \"The Aurora metrics service listens on port 7444\".\n4.  **Format the output**: The user requested \"Answer with just the number.\"\n5.  **Final Answer**: 7444.\u2705\n",
+  "hits": [
+   "f2",
+   "f1",
+   "f9",
+   "f13",
+   "f10",
+   "f8"
+  ],
+  "wall": 59.1
+ },
+ {
+  "id": "a2",
+  "tier": "aritmetica",
+  "pass": true,
+  "respuesta": "15",
+  "reasoning_tail": " = 15\n\n4.  **Format Output:**\n   - Constraint: \"Answer with just the number.\"\n   - Output: 15\n\n5.  **Verify:**\n   - Does it match the facts? Yes.\n   - Does it follow the constraint? Yes.\n   - Ready.\u2705\n",
+  "hits": [
+   "f14",
+   "f13",
+   "f4",
+   "f3",
+   "f9"
+  ],
+  "wall": 63.8
+ },
+ {
+  "id": "a3",
+  "tier": "aritmetica",
+  "pass": true,
+  "respuesta": "Based on the provided information, the Aurora code freeze begins on **Monday**. \n\nThis is because production releases occur every second Thursday, and the code freeze starts 72 hours (3 days) prior to each release.",
+  "reasoning_tail": "on release\" + \"Aurora production releases happen every second Thursday\" -> Thursday - 3 days = Monday. Correct.\n   - No other conflicting info.\n   - Response matches the prompt's constraints. Ready.\u2705\n",
+  "hits": [
+   "f4",
+   "f12",
+   "f3",
+   "f10",
+   "f9",
+   "f8"
+  ],
+  "wall": 128.7
+ },
+ {
+  "id": "a4",
+  "tier": "aritmetica",
+  "pass": true,
+  "respuesta": "86",
+  "reasoning_tail": "\n   - [Done] \n   - *Output Generation* (matches the final answer)\n   - \"86\" (as requested)\n   - All steps verified. No extra text. Ready. \n   - [Output Generation] -> 86\n   - [End of Thought Process]\n",
+  "hits": [
+   "f13",
+   "f14",
+   "f4",
+   "f3",
+   "f9"
+  ],
+  "wall": 123.5
+ },
+ {
+  "id": "ch1",
+  "tier": "cadena",
+  "pass": true,
+  "respuesta": "Based on the provided information, the stormdb database is located in the **Quito datacenter**.",
+  "reasoning_tail": ".\n   - Is it based solely on the provided facts? Yes.\n   - Any extra information needed? No.\n   - Format: Clear and direct.\n\n   Final Answer: The stormdb database is located in the Quito datacenter.\u2705\n",
+  "hits": [
+   "f5",
+   "f6",
+   "f7"
+  ],
+  "wall": 85.4
+ },
+ {
+  "id": "ch2",
+  "tier": "cadena",
+  "pass": true,
+  "respuesta": "Based on the provided information, the host vega is located in the **Quito datacenter**.",
+  "reasoning_tail": "nformation, the host vega is located in the Quito datacenter.\"\n\n5.  **Self-Correction/Verification:**\n   - Does it match the facts? Yes.\n   - Is it direct? Yes.\n   - Any extra fluff? No.\n   - Ready.\u2705\n",
+  "hits": [
+   "f5",
+   "f6",
+   "f7"
+  ],
+  "wall": 71.6
+ },
+ {
+  "id": "ch3",
+  "tier": "cadena",
+  "pass": true,
+  "respuesta": "Based on the provided information, the stormdb database is mounted in **rack R2**.",
+  "reasoning_tail": "ion needed unless requested, but can optionally mention Quito datacenter if relevant, but the question specifically asks for the rack.\n   - Answer is solid.\n\n   Output matches the expected response.\u2705\n",
+  "hits": [
+   "f5",
+   "f6",
+   "f7"
+  ],
+  "wall": 82.0
+ }
+]
