@@ -1,0 +1,384 @@
+{
+  "evaluaciones": [
+    {
+      "id": "q1",
+      "fase": "A",
+      "result": "fail",
+      "keyword": "aurora ship",
+      "respuesta": "[error: Unsupported HTTP method: \\NPOST. Allowed: GET, POST, PUT, DELETE]",
+      "wall_seconds": 0.85
+    },
+    {
+      "id": "q2",
+      "fase": "A",
+      "result": "fail",
+      "keyword": "7443",
+      "respuesta": "I don't have access to the specific ports used by the Aurora API gateway.",
+      "wall_seconds": 0.813
+    },
+    {
+      "id": "q3",
+      "fase": "A",
+      "result": "fail",
+      "keyword": "stormdb",
+      "respuesta": "I don't have access to Aurora's internal database names.",
+      "wall_seconds": 0.808
+    },
+    {
+      "id": "q4",
+      "fase": "A",
+      "result": "fail",
+      "keyword": "castellanos",
+      "respuesta": "Fable 5",
+      "wall_seconds": 0.432
+    },
+    {
+      "id": "q5",
+      "fase": "A",
+      "result": "fail",
+      "keyword": "thursday",
+      "respuesta": "I don't have access to Aurora's internal release schedule.",
+      "wall_seconds": 1.19
+    },
+    {
+      "id": "q6",
+      "fase": "A",
+      "result": "fail",
+      "keyword": "/var/log/aurora",
+      "respuesta": "Fable 5, with underlying AI assistant powered by Claude Opus 4.8, logs to `aws/lambda: run-to` and files under `/var/log/aws/lambda/opensees.log`.",
+      "wall_seconds": 5.022
+    },
+    {
+      "id": "q7",
+      "fase": "A",
+      "result": "fail",
+      "keyword": "staging.aurora-internal.dev",
+      "respuesta": "I don't have direct access to your specific staging environment or internal credentials. I can help with general tasks like writing code, debugging, or answering questions.",
+      "wall_seconds": 2.015
+    },
+    {
+      "id": "q8",
+      "fase": "A",
+      "result": "fail",
+      "keyword": "flagpole",
+      "respuesta": "Fable 5",
+      "wall_seconds": 0.566
+    },
+    {
+      "id": "q9",
+      "fase": "A",
+      "result": "fail",
+      "keyword": "rb-114",
+      "respuesta": "[error: Fetch failed: fetch failed]",
+      "wall_seconds": 1.328
+    },
+    {
+      "id": "q10",
+      "fase": "A",
+      "result": "fail",
+      "keyword": "borealis",
+      "respuesta": "I don't have access to the specific runner pool name where Aurora CI runs.",
+      "wall_seconds": 2.382
+    },
+    {
+      "id": "ctl1",
+      "fase": "A",
+      "result": "pass",
+      "keyword": "27",
+      "respuesta": "27",
+      "wall_seconds": 2.532
+    },
+    {
+      "id": "ctl2",
+      "fase": "A",
+      "result": "fail",
+      "keyword": "h2o",
+      "respuesta": "[HETEC: H₂O]",
+      "wall_seconds": 1.978
+    },
+    {
+      "id": "q1",
+      "fase": "B",
+      "result": "fail",
+      "keyword": "aurora ship",
+      "respuesta": "[MCP: curl -X POST --data '{\"action\": \"deploy\", \"project\": \"aurora\", \"version\": \"1.0\"}]",
+      "wall_seconds": 2.5
+    },
+    {
+      "id": "q2",
+      "fase": "B",
+      "result": "pass",
+      "keyword": "7443",
+      "respuesta": "[MCP: port 7443]",
+      "wall_seconds": 3.363
+    },
+    {
+      "id": "q3",
+      "fase": "B",
+      "result": "fail",
+      "keyword": "stormdb",
+      "respuesta": "[MCP: aurora] aurora",
+      "wall_seconds": 1.467
+    },
+    {
+      "id": "q4",
+      "fase": "B",
+      "result": "fail",
+      "keyword": "castellanos",
+      "respuesta": "[MCP: aurora - AI assistant]",
+      "wall_seconds": 0.866
+    },
+    {
+      "id": "q5",
+      "fase": "B",
+      "result": "fail",
+      "keyword": "thursday",
+      "respuesta": "[MCP: aurora_releases]",
+      "wall_seconds": 2.573
+    },
+    {
+      "id": "q6",
+      "fase": "B",
+      "result": "pass",
+      "keyword": "/var/log/aurora",
+      "respuesta": "[MCP: tool_name curl] curl -o /var/log/aurora/error.log --write /var/log/aurora/error.log",
+      "wall_seconds": 5.054
+    },
+    {
+      "id": "q7",
+      "fase": "B",
+      "result": "pass",
+      "keyword": "staging.aurora-internal.dev",
+      "respuesta": "[MCP: https://staging.aurora-internal.dev]",
+      "wall_seconds": 3.813
+    },
+    {
+      "id": "q8",
+      "fase": "B",
+      "result": "pass",
+      "keyword": "flagpole",
+      "respuesta": "[MCP: flagpole aurora]",
+      "wall_seconds": 1.843
+    },
+    {
+      "id": "q9",
+      "fase": "B",
+      "result": "pass",
+      "keyword": "rb-114",
+      "respuesta": "[MCP: RB-114]",
+      "wall_seconds": 1.28
+    },
+    {
+      "id": "q10",
+      "fase": "B",
+      "result": "pass",
+      "keyword": "borealis",
+      "respuesta": "[MCP: runner_pool: borealis]",
+      "wall_seconds": 1.674
+    },
+    {
+      "id": "ctl1",
+      "fase": "B",
+      "result": "pass",
+      "keyword": "27",
+      "respuesta": "27",
+      "wall_seconds": 4.448
+    },
+    {
+      "id": "ctl2",
+      "fase": "B",
+      "result": "pass",
+      "keyword": "h2o",
+      "respuesta": "H2O",
+      "wall_seconds": 2.773
+    }
+  ],
+  "agregados": {
+    "fase_A": {
+      "aciertos": 1,
+      "total": 12
+    },
+    "fase_B": {
+      "aciertos": 8,
+      "total": 12
+    },
+    "preguntas_aurora_A": {
+      "aciertos": 0,
+      "total": 10
+    },
+    "preguntas_aurora_B": {
+      "aciertos": 6,
+      "total": 10
+    },
+    "control_A": {
+      "aciertos": 1,
+      "total": 2
+    },
+    "control_B": {
+      "aciertos": 2,
+      "total": 2
+    },
+    "latencia_media_A_seg": 1.66,
+    "latencia_media_B_seg": 2.638
+  },
+  "sembrado": {
+    "user": "eval-mem",
+    "import_result": {
+      "imported": 10,
+      "skipped": 0,
+      "errors": 0,
+      "skills": 0
+    },
+    "export_count_verificado": 8,
+    "export_esperado": 10,
+    "export_bug_nota": "listPaginated del server undercuenta (local: 0/243); import confirmo 10 almacenadas",
+    "export_memorias": [
+      {
+        "content": "The Aurora on-call rotation is documented in the runbook page RB-114",
+        "category": "fact",
+        "tags": [
+          "aurora",
+          "ctt-ab"
+        ]
+      },
+      {
+        "content": "The Aurora API gateway listens on port 7443",
+        "category": "fact",
+        "tags": [
+          "aurora",
+          "ctt-ab"
+        ]
+      },
+      {
+        "content": "Aurora feature flags are managed with the tool called flagpole",
+        "category": "fact",
+        "tags": [
+          "aurora",
+          "ctt-ab"
+        ]
+      },
+      {
+        "content": "The Aurora staging URL is https://staging.aurora-internal.dev",
+        "category": "fact",
+        "tags": [
+          "aurora",
+          "ctt-ab"
+        ]
+      },
+      {
+        "content": "Aurora CI runs on the runner pool named borealis",
+        "category": "fact",
+        "tags": [
+          "aurora",
+          "ctt-ab"
+        ]
+      },
+      {
+        "content": "The user asked for water's chemical symbol",
+        "category": "question",
+        "tags": [
+          "chemistry",
+          "symbol"
+        ]
+      },
+      {
+        "content": "I answer with H2O",
+        "category": "assistant",
+        "tags": [
+          "H2O",
+          "chemical symbol"
+        ]
+      },
+      {
+        "content": "The assistant provided H2O",
+        "category": "answer",
+        "tags": [
+          "H2O",
+          "chemical symbol"
+        ]
+      }
+    ],
+    "sonda_recall_q1": {
+      "id": "q1",
+      "keyword": "aurora ship",
+      "result": "fail",
+      "respuesta": "[MCP: aurora deploy -p staging]",
+      "wall_seconds": 1.783,
+      "nota": "q1 ausente del export; recall NO reprodujo el keyword exacto (modelo infiel). Esta sonda no prueba de forma limpia que recall accede a memorias ausentes del export; la evidencia de que las memorias fueron almacenadas es el import (10/0)."
+    },
+    "post_phase_b_export_count": 8,
+    "post_phase_b_export_memorias": [
+      {
+        "content": "The Aurora on-call rotation is documented in the runbook page RB-114",
+        "category": "fact",
+        "tags": [
+          "aurora",
+          "ctt-ab"
+        ]
+      },
+      {
+        "content": "The Aurora API gateway listens on port 7443",
+        "category": "fact",
+        "tags": [
+          "aurora",
+          "ctt-ab"
+        ]
+      },
+      {
+        "content": "Aurora feature flags are managed with the tool called flagpole",
+        "category": "fact",
+        "tags": [
+          "aurora",
+          "ctt-ab"
+        ]
+      },
+      {
+        "content": "The Aurora staging URL is https://staging.aurora-internal.dev",
+        "category": "fact",
+        "tags": [
+          "aurora",
+          "ctt-ab"
+        ]
+      },
+      {
+        "content": "Aurora CI runs on the runner pool named borealis",
+        "category": "fact",
+        "tags": [
+          "aurora",
+          "ctt-ab"
+        ]
+      },
+      {
+        "content": "The user asked for water's chemical symbol",
+        "category": "question",
+        "tags": [
+          "chemistry",
+          "symbol"
+        ]
+      },
+      {
+        "content": "I answer with H2O",
+        "category": "assistant",
+        "tags": [
+          "H2O",
+          "chemical symbol"
+        ]
+      },
+      {
+        "content": "The assistant provided H2O",
+        "category": "answer",
+        "tags": [
+          "H2O",
+          "chemical symbol"
+        ]
+      }
+    ]
+  },
+  "config": {
+    "user_nOMEM": "eval-nomem",
+    "user_mem": "eval-mem",
+    "timeout_seg": 180,
+    "reintentos": 1,
+    "modelo": "MiniCPM5-1B (Q8) via llama-server CPU"
+  }
+}

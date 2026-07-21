@@ -1,0 +1,66 @@
+{
+  "config": {
+    "model": "minicpm5-fable5-thinking",
+    "api": "http://localhost:11434/api/generate",
+    "options": {"temperature": 0, "top_p": 1.0},
+    "strip_thinking": "everything up to and including the last '</think>' is reasoning; grade only what follows"
+  },
+  "math": [
+    {"id": "m1", "prompt": "What is 17 * 24? Answer with just the number.", "expected_number": 408},
+    {"id": "m2", "prompt": "A store has 1000 items and sells 437. How many remain? Answer with just the number.", "expected_number": 563},
+    {"id": "m3", "prompt": "A farmer has 12 cows, buys 7 more, then sells 5. How many cows does he have now? Answer with just the number.", "expected_number": 14},
+    {"id": "m4", "prompt": "What is 15% of 240? Answer with just the number.", "expected_number": 36},
+    {"id": "m5", "prompt": "What is the square root of 144? Answer with just the number.", "expected_number": 12},
+    {"id": "m6", "prompt": "If x + 7 = 19, what is x? Answer with just the number.", "expected_number": 12},
+    {"id": "m7", "prompt": "What is 3 to the power of 4? Answer with just the number.", "expected_number": 81},
+    {"id": "m8", "prompt": "A train travels at 60 km/h for 2.5 hours. How many km does it cover? Answer with just the number.", "expected_number": 150},
+    {"id": "m9", "prompt": "A shirt costs 80 dollars after a 20% discount. What was the original price in dollars? Answer with just the number.", "expected_number": 100},
+    {"id": "m10", "prompt": "What is 7/8 of 96? Answer with just the number.", "expected_number": 84},
+    {"id": "m11", "prompt": "What is the average of 12, 18, 24 and 30? Answer with just the number.", "expected_number": 21},
+    {"id": "m12", "prompt": "If 3 apples cost 2.40 dollars, how much do 7 apples cost in dollars? Answer with just the number.", "expected_number": 5.6},
+    {"id": "m13", "prompt": "A rectangle is 12 cm long and 9 cm wide. What is its perimeter in cm? Answer with just the number.", "expected_number": 42},
+    {"id": "m14", "prompt": "What is 2 to the power of 10? Answer with just the number.", "expected_number": 1024},
+    {"id": "m15", "prompt": "John is twice as old as Mary. Together their ages sum to 36. How old is John? Answer with just the number.", "expected_number": 24}
+  ],
+  "coding": [
+    {"id": "c1", "prompt": "Write a Python function named reverse_string(s) that returns the string s reversed. Return only the code in a python code block.", "tests": ["assert reverse_string('hello') == 'olleh'", "assert reverse_string('') == ''", "assert reverse_string('a') == 'a'"]},
+    {"id": "c2", "prompt": "Write a Python function named is_palindrome(s) that returns True if the lowercase version of s reads the same forwards and backwards, ignoring spaces. Return only the code in a python code block.", "tests": ["assert is_palindrome('Racecar') == True", "assert is_palindrome('hello') == False", "assert is_palindrome('nurses run') == True"]},
+    {"id": "c3", "prompt": "Write a Python function named fizzbuzz(n) that returns a list of strings for 1..n where multiples of 3 are 'Fizz', multiples of 5 are 'Buzz', multiples of both are 'FizzBuzz', and other numbers are the number as a string. Return only the code in a python code block.", "tests": ["assert fizzbuzz(5) == ['1','2','Fizz','4','Buzz']", "assert fizzbuzz(15)[14] == 'FizzBuzz'", "assert fizzbuzz(1) == ['1']"]},
+    {"id": "c4", "prompt": "Write a Python function named sum_evens(nums) that returns the sum of the even numbers in the list nums. Return only the code in a python code block.", "tests": ["assert sum_evens([1,2,3,4]) == 6", "assert sum_evens([]) == 0", "assert sum_evens([1,3,5]) == 0"]},
+    {"id": "c5", "prompt": "Write a Python function named factorial(n) that returns n! for a non-negative integer n. Return only the code in a python code block.", "tests": ["assert factorial(0) == 1", "assert factorial(5) == 120", "assert factorial(1) == 1"]},
+    {"id": "c6", "prompt": "Write a Python function named fib(n) that returns the nth Fibonacci number with fib(0) = 0 and fib(1) = 1. Return only the code in a python code block.", "tests": ["assert fib(0) == 0", "assert fib(1) == 1", "assert fib(10) == 55"]},
+    {"id": "c7", "prompt": "Write a Python function named count_vowels(s) that returns the number of vowels (a, e, i, o, u, case-insensitive) in the string s. Return only the code in a python code block.", "tests": ["assert count_vowels('hello') == 2", "assert count_vowels('') == 0", "assert count_vowels('AEIOU') == 5"]},
+    {"id": "c8", "prompt": "Write a Python function named second_largest(nums) that returns the second largest distinct value in the list nums (assume it exists). Return only the code in a python code block.", "tests": ["assert second_largest([1,2,3]) == 2", "assert second_largest([5,5,4]) == 4", "assert second_largest([10,3,10,7]) == 7"]},
+    {"id": "c9", "prompt": "Write a Python function named flatten(lst) that flattens a list of lists by one level. Return only the code in a python code block.", "tests": ["assert flatten([[1,2],[3]]) == [1,2,3]", "assert flatten([]) == []", "assert flatten([[],[1]]) == [1]"]},
+    {"id": "c10", "prompt": "Write a Python function named word_count(s) that returns a dict mapping each lowercase word in s to how many times it appears (split on whitespace). Return only the code in a python code block.", "tests": ["assert word_count('a b A') == {'a': 2, 'b': 1}", "assert word_count('') == {}", "assert word_count('x') == {'x': 1}"]},
+    {"id": "c11", "prompt": "Write a Python function named is_prime(n) that returns True if the integer n is a prime number, False otherwise. Return only the code in a python code block.", "tests": ["assert is_prime(2) == True", "assert is_prime(1) == False", "assert is_prime(97) == True", "assert is_prime(100) == False"]},
+    {"id": "c12", "prompt": "Write a Python function named remove_duplicates(lst) that returns a new list with duplicates removed, preserving the original order. Return only the code in a python code block.", "tests": ["assert remove_duplicates([1,2,1,3]) == [1,2,3]", "assert remove_duplicates([]) == []", "assert remove_duplicates(['b','a','b']) == ['b','a']"]}
+  ],
+  "instruction_following": [
+    {"id": "i1", "prompt": "Answer with exactly one word: what is the capital of France?", "check": "one_word_equals", "expected": "paris"},
+    {"id": "i2", "prompt": "Reply with ONLY this exact valid JSON object and nothing else: a JSON object with a single key \"status\" whose value is \"ok\".", "check": "json_equals", "expected": {"status": "ok"}},
+    {"id": "i3", "prompt": "List exactly 3 fruits, one per line, no numbering, no extra text.", "check": "n_nonempty_lines", "expected": 3},
+    {"id": "i4", "prompt": "Respond with the single word YES in uppercase and nothing else.", "check": "exact_stripped", "expected": "YES"},
+    {"id": "i5", "prompt": "Write the numbers 1 to 5 separated by commas, nothing else.", "check": "digits_sequence", "expected": "12345"},
+    {"id": "i6", "prompt": "Respond with the single word NO in uppercase and nothing else.", "check": "exact_stripped", "expected": "NO"},
+    {"id": "i7", "prompt": "Write the even numbers from 2 to 10 in increasing order, separated by spaces, nothing else.", "check": "digits_sequence", "expected": "246810"},
+    {"id": "i8", "prompt": "Reply with ONLY a valid JSON object with exactly two keys: \"name\" with value \"test\" and \"count\" with value 3. Nothing else.", "check": "json_equals", "expected": {"name": "test", "count": 3}},
+    {"id": "i9", "prompt": "List exactly 5 colors, one per line, no numbering, no extra text.", "check": "n_nonempty_lines", "expected": 5},
+    {"id": "i10", "prompt": "Answer with exactly one word: what is the largest planet in our solar system?", "check": "one_word_equals", "expected": "jupiter"},
+    {"id": "i11", "prompt": "Count down from 10 to 6, writing the numbers separated by commas, nothing else.", "check": "digits_sequence", "expected": "109876"},
+    {"id": "i12", "prompt": "Reply with ONLY a valid JSON object with a single key \"items\" whose value is the list [1, 2, 3]. Nothing else.", "check": "json_equals", "expected": {"items": [1, 2, 3]}}
+  ],
+  "knowledge": [
+    {"id": "k1", "prompt": "Which planet is the largest in our solar system? A) Earth B) Jupiter C) Mars D) Venus. Answer with the letter only.", "expected_letter": "B"},
+    {"id": "k2", "prompt": "Who wrote the novel '1984'? A) George Orwell B) Aldous Huxley C) Ray Bradbury D) J.K. Rowling. Answer with the letter only.", "expected_letter": "A"},
+    {"id": "k3", "prompt": "Which is the largest ocean on Earth? A) Atlantic B) Indian C) Pacific D) Arctic. Answer with the letter only.", "expected_letter": "C"},
+    {"id": "k4", "prompt": "What is the chemical symbol for gold? A) Ag B) Au C) Gd D) Go. Answer with the letter only.", "expected_letter": "B"},
+    {"id": "k5", "prompt": "Which element has atomic number 1? A) Helium B) Oxygen C) Hydrogen D) Carbon. Answer with the letter only.", "expected_letter": "C"},
+    {"id": "k6", "prompt": "In which year did World War II end? A) 1943 B) 1945 C) 1947 D) 1950. Answer with the letter only.", "expected_letter": "B"},
+    {"id": "k7", "prompt": "Which country has the largest population in the world as of 2024? A) India B) USA C) Indonesia D) Brazil. Answer with the letter only.", "expected_letter": "A"},
+    {"id": "k8", "prompt": "What is the capital of Australia? A) Sydney B) Melbourne C) Canberra D) Perth. Answer with the letter only.", "expected_letter": "C"},
+    {"id": "k9", "prompt": "Which data structure follows the FIFO (first in, first out) principle? A) Stack B) Queue C) Binary tree D) Hash map. Answer with the letter only.", "expected_letter": "B"},
+    {"id": "k10", "prompt": "What does HTTP stand for? A) HyperText Transfer Protocol B) High Transfer Text Protocol C) HyperText Transmission Process D) Home Tool Transfer Protocol. Answer with the letter only.", "expected_letter": "A"},
+    {"id": "k11", "prompt": "Which planet is known as the Red Planet? A) Venus B) Saturn C) Jupiter D) Mars. Answer with the letter only.", "expected_letter": "D"}
+  ]
+}

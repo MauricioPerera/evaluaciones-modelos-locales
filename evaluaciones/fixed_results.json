@@ -1,0 +1,74 @@
+[
+ {
+  "id": "q1",
+  "pass": false,
+  "respuesta": "[error: Fetch failed: fetch failed]",
+  "wall": 2.58
+ },
+ {
+  "id": "q2",
+  "pass": true,
+  "respuesta": "The Aurora API gateway listens on port 7443.",
+  "wall": 2.44
+ },
+ {
+  "id": "q3",
+  "pass": false,
+  "respuesta": "Aurora's primary database is Aurora in the on-premises runner pool.",
+  "wall": 2.75
+ },
+ {
+  "id": "q4",
+  "pass": false,
+  "respuesta": "The Aurora team lead is the micro-expert aurora, based on the provided information.",
+  "wall": 2.69
+ },
+ {
+  "id": "q5",
+  "pass": false,
+  "respuesta": "[error: Unsupported HTTP method: HTTPS://STAGING.AURORA-INTERNAL.DEV;. Allowed: GET, POST, PUT, DELETE]",
+  "wall": 3.45
+ },
+ {
+  "id": "q6",
+  "pass": true,
+  "respuesta": "The error logs from the Aurora API gateway are located in the directory: `/var/log/aurora/` on the host where the worker node is running.",
+  "wall": 1.65
+ },
+ {
+  "id": "q7",
+  "pass": true,
+  "respuesta": "The Aurora staging URL is: https://staging.aurora-internal.dev",
+  "wall": 1.61
+ },
+ {
+  "id": "q8",
+  "pass": true,
+  "respuesta": "The tool that manages Aurora feature flags is flagpole.",
+  "wall": 1.72
+ },
+ {
+  "id": "q9",
+  "pass": false,
+  "respuesta": "[error: Unsupported HTTP method: RETR. Allowed: GET, POST, PUT, DELETE]",
+  "wall": 2.72
+ },
+ {
+  "id": "q10",
+  "pass": true,
+  "respuesta": "Borealis.",
+  "wall": 2.35
+ },
+ {
+  "id": "ctl1",
+  "pass": true,
+  "respuesta": "27",
+  "wall": 2.62
+ },
+ {
+  "id": "ctl2",
+  "pass": true,
+  "respuesta": "[H2O, chemical symbol]",
+  "wall": 1.9
+ }
+]

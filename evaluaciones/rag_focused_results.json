@@ -1,0 +1,74 @@
+[
+ {
+  "id": "q1",
+  "pass": false,
+  "respuesta": "[MCP: bash -c 'cd /workspace/aurora && pod install; cat & | jq -r \"range 0..5 { . -eq \"pod\"; print(.status.phase); }\"']",
+  "wall": 3.92
+ },
+ {
+  "id": "q2",
+  "pass": true,
+  "respuesta": "[MCP: tool_name 7443]",
+  "wall": 2.95
+ },
+ {
+  "id": "q3",
+  "pass": false,
+  "respuesta": "[MCP: aurora]",
+  "wall": 2.65
+ },
+ {
+  "id": "q4",
+  "pass": false,
+  "respuesta": "MCP: flagpole aurora",
+  "wall": 1.99
+ },
+ {
+  "id": "q5",
+  "pass": false,
+  "respuesta": "[MCP: tool_name { \"action\": \"check\", \"args\": [\"check\", \"how\", \"often\"] }]",
+  "wall": 4.57
+ },
+ {
+  "id": "q6",
+  "pass": false,
+  "respuesta": "[MCP: tool_name curl -o /tmp/aurora-error.log]",
+  "wall": 2.66
+ },
+ {
+  "id": "q7",
+  "pass": true,
+  "respuesta": "[MCP: tool_name https://staging.aurora-internal.dev]",
+  "wall": 0.88
+ },
+ {
+  "id": "q8",
+  "pass": true,
+  "respuesta": "[MCP: flagpole ctt-ab]",
+  "wall": 1.89
+ },
+ {
+  "id": "q9",
+  "pass": true,
+  "respuesta": "[MCP: RB-114]",
+  "wall": 1.74
+ },
+ {
+  "id": "q10",
+  "pass": true,
+  "respuesta": "[MCP: runnerpool -name: borealis]",
+  "wall": 4.68
+ },
+ {
+  "id": "ctl1",
+  "pass": true,
+  "respuesta": "27",
+  "wall": 1.33
+ },
+ {
+  "id": "ctl2",
+  "pass": true,
+  "respuesta": "[H2O, chemical symbol]",
+  "wall": 1.44
+ }
+]

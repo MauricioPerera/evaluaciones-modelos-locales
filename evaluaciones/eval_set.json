@@ -1,0 +1,38 @@
+{
+  "config": {
+    "model": "minicpm5-fable5-thinking",
+    "api": "http://localhost:11434/api/generate",
+    "options": {"temperature": 0, "top_p": 1.0},
+    "strip_thinking": "everything up to and including the last '</think>' is reasoning; grade only what follows"
+  },
+  "math": [
+    {"id": "m1", "prompt": "What is 17 * 24? Answer with just the number.", "expected_number": 408},
+    {"id": "m2", "prompt": "A store has 1000 items and sells 437. How many remain? Answer with just the number.", "expected_number": 563},
+    {"id": "m3", "prompt": "A farmer has 12 cows, buys 7 more, then sells 5. How many cows does he have now? Answer with just the number.", "expected_number": 14},
+    {"id": "m4", "prompt": "What is 15% of 240? Answer with just the number.", "expected_number": 36},
+    {"id": "m5", "prompt": "What is the square root of 144? Answer with just the number.", "expected_number": 12},
+    {"id": "m6", "prompt": "If x + 7 = 19, what is x? Answer with just the number.", "expected_number": 12},
+    {"id": "m7", "prompt": "What is 3 to the power of 4? Answer with just the number.", "expected_number": 81},
+    {"id": "m8", "prompt": "A train travels at 60 km/h for 2.5 hours. How many km does it cover? Answer with just the number.", "expected_number": 150}
+  ],
+  "coding": [
+    {"id": "c1", "prompt": "Write a Python function named reverse_string(s) that returns the string s reversed. Return only the code in a python code block.", "tests": ["assert reverse_string('hello') == 'olleh'", "assert reverse_string('') == ''", "assert reverse_string('a') == 'a'"]},
+    {"id": "c2", "prompt": "Write a Python function named is_palindrome(s) that returns True if the lowercase version of s reads the same forwards and backwards, ignoring spaces. Return only the code in a python code block.", "tests": ["assert is_palindrome('Racecar') == True", "assert is_palindrome('hello') == False", "assert is_palindrome('nurses run') == True"]},
+    {"id": "c3", "prompt": "Write a Python function named fizzbuzz(n) that returns a list of strings for 1..n where multiples of 3 are 'Fizz', multiples of 5 are 'Buzz', multiples of both are 'FizzBuzz', and other numbers are the number as a string. Return only the code in a python code block.", "tests": ["assert fizzbuzz(5) == ['1','2','Fizz','4','Buzz']", "assert fizzbuzz(15)[14] == 'FizzBuzz'", "assert fizzbuzz(1) == ['1']"]},
+    {"id": "c4", "prompt": "Write a Python function named sum_evens(nums) that returns the sum of the even numbers in the list nums. Return only the code in a python code block.", "tests": ["assert sum_evens([1,2,3,4]) == 6", "assert sum_evens([]) == 0", "assert sum_evens([1,3,5]) == 0"]},
+    {"id": "c5", "prompt": "Write a Python function named factorial(n) that returns n! for a non-negative integer n. Return only the code in a python code block.", "tests": ["assert factorial(0) == 1", "assert factorial(5) == 120", "assert factorial(1) == 1"]}
+  ],
+  "instruction_following": [
+    {"id": "i1", "prompt": "Answer with exactly one word: what is the capital of France?", "check": "one_word_equals", "expected": "paris"},
+    {"id": "i2", "prompt": "Reply with ONLY this exact valid JSON object and nothing else: a JSON object with a single key \"status\" whose value is \"ok\".", "check": "json_equals", "expected": {"status": "ok"}},
+    {"id": "i3", "prompt": "List exactly 3 fruits, one per line, no numbering, no extra text.", "check": "n_nonempty_lines", "expected": 3},
+    {"id": "i4", "prompt": "Respond with the single word YES in uppercase and nothing else.", "check": "exact_stripped", "expected": "YES"},
+    {"id": "i5", "prompt": "Write the numbers 1 to 5 separated by commas, nothing else.", "check": "digits_sequence", "expected": "12345"}
+  ],
+  "knowledge": [
+    {"id": "k1", "prompt": "Which planet is the largest in our solar system? A) Earth B) Jupiter C) Mars D) Venus. Answer with the letter only.", "expected_letter": "B"},
+    {"id": "k2", "prompt": "Who wrote the novel '1984'? A) George Orwell B) Aldous Huxley C) Ray Bradbury D) J.K. Rowling. Answer with the letter only.", "expected_letter": "A"},
+    {"id": "k3", "prompt": "Which is the largest ocean on Earth? A) Atlantic B) Indian C) Pacific D) Arctic. Answer with the letter only.", "expected_letter": "C"},
+    {"id": "k4", "prompt": "What is the chemical symbol for gold? A) Ag B) Au C) Gd D) Go. Answer with the letter only.", "expected_letter": "B"}
+  ]
+}

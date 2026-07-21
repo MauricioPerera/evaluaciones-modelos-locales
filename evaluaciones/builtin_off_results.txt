@@ -1,0 +1,17 @@
+q1 FAIL | "To deploy the project Aurora, use the following command:\n\n```bash\ncurl -X PUT https://staging.aurora-internal.dev | jq -r '.deployments.aurora' -- inp"
+q2 PASS | 'The Aurora API gateway listens on port 7443.'
+q3 FAIL | 'The primary database for Aurora is the staging database hosted at https://staging.aurora-internal.dev.'
+q4 FAIL | 'The Aurora team lead is a micro-expert named aurora, part of the aurora, and responsible for managing the staging, API gateway, CI, and running on the'
+q5 FAIL | "I don't have direct access to real-time information about the frequency of Aurora releases. My responses are based on the context I have, which includ"
+q6 FAIL | 'The error logs for Aurora are located on the staging server at the following path:  \n`https://staging.aurora-internal.dev`'
+q7 PASS | 'The Aurora staging URL is https://staging.aurora-internal.dev.'
+q8 PASS | 'The tool that manages Aurora feature flags is flagpole, which is used for managing the Aurora staging URL and other flags that control the deployment '
+q9 PASS | 'The runbook page that documents the Aurora on-call rotation is **RB-114**.'
+q10 PASS | 'The runner pool where Aurora CI runs is the Borealis.'
+ctl1 PASS | '27'
+ctl2 FAIL | Traceback (most recent call last):
+  File "<stdin>", line 17, in <module>
+  File "C:\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2082' in position 35: character maps to <undefined>

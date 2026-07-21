@@ -1,0 +1,31 @@
+{
+  "facts_proyecto_ficticio": [
+    "The deploy command for project Aurora is: aurora ship --stage prod",
+    "The Aurora API gateway listens on port 7443",
+    "Aurora's primary database is called stormdb and runs PostgreSQL 16",
+    "The Aurora team lead is Ryn Castellanos",
+    "Aurora releases go out every second Thursday",
+    "Aurora error logs live in /var/log/aurora/errors.jsonl",
+    "The Aurora staging URL is https://staging.aurora-internal.dev",
+    "Aurora feature flags are managed with the tool called flagpole",
+    "The Aurora on-call rotation is documented in the runbook page RB-114",
+    "Aurora CI runs on the runner pool named borealis"
+  ],
+  "preguntas": [
+    {"id": "q1", "q": "What is the deploy command for project Aurora?", "keyword": "aurora ship"},
+    {"id": "q2", "q": "What port does the Aurora API gateway listen on?", "keyword": "7443"},
+    {"id": "q3", "q": "What is the name of Aurora's primary database?", "keyword": "stormdb"},
+    {"id": "q4", "q": "Who is the Aurora team lead?", "keyword": "castellanos"},
+    {"id": "q5", "q": "How often do Aurora releases go out?", "keyword": "thursday"},
+    {"id": "q6", "q": "Where do Aurora error logs live?", "keyword": "/var/log/aurora"},
+    {"id": "q7", "q": "What is the Aurora staging URL?", "keyword": "staging.aurora-internal.dev"},
+    {"id": "q8", "q": "What tool manages Aurora feature flags?", "keyword": "flagpole"},
+    {"id": "q9", "q": "Which runbook page documents the Aurora on-call rotation?", "keyword": "rb-114"},
+    {"id": "q10", "q": "What is the name of the runner pool where Aurora CI runs?", "keyword": "borealis"}
+  ],
+  "control": [
+    {"id": "ctl1", "q": "What is 12 + 15? Answer with just the number.", "keyword": "27"},
+    {"id": "ctl2", "q": "What is the chemical symbol for water?", "keyword": "h2o"}
+  ],
+  "grading": "pass = keyword aparece (case-insensitive) en la respuesta del assistant"
+}
