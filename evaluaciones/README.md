@@ -1,5 +1,7 @@
 # Evaluaciones — MiniCPM5-1B-Claude-Opus-Fable5-Thinking (GGUF)
 
+> Repo publicado: [github.com/MauricioPerera/evaluaciones-modelos-locales](https://github.com/MauricioPerera/evaluaciones-modelos-locales)
+
 Jornada de evaluación completa del modelo [`GnLOLot/MiniCPM5-1B-Claude-Opus-Fable5-Thinking-GGUF`](https://huggingface.co/GnLOLot/MiniCPM5-1B-Claude-Opus-Fable5-Thinking-GGUF) (Q8_0, ~1B params) realizada el 2026-07-20. Metodología: PM (Claude) autora oráculos congelados y verifica; implementación delegada a devs GLM-5.2 efímeros; calificación 100% por máquina.
 
 ## 1. Análisis del repositorio
