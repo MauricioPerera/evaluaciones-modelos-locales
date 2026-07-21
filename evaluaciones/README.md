@@ -66,8 +66,26 @@ Jornada de evaluación completa del modelo [`GnLOLot/MiniCPM5-1B-Claude-Opus-Fab
 
 - [PR #4](https://github.com/MauricioPerera/micro-expert/pull/4): gates de tool-format + opción `builtinTools` + 16 tests. **Mergeado.**
 - [PR #6](https://github.com/MauricioPerera/micro-expert/pull/6): tests herméticos de agent-loop. **Mergeado** (cierra #5).
-- Issues abiertos con diagnóstico: [#1](https://github.com/MauricioPerera/micro-expert/issues/1) (lifecycle `ask`/auto-mining), [#2](https://github.com/MauricioPerera/micro-expert/issues/2) (export pierde memorias), [#3](https://github.com/MauricioPerera/micro-expert/issues/3) (umbral de relevancia del recall).
+- [PR #7](https://github.com/MauricioPerera/micro-expert/pull/7): opción `relevanceThreshold` — inyección de recall gateada por score + 7 tests. **Mergeado** (cierra #3).
+- Issues abiertos con diagnóstico: [#1](https://github.com/MauricioPerera/micro-expert/issues/1) (lifecycle `ask`/auto-mining), [#2](https://github.com/MauricioPerera/micro-expert/issues/2) (export pierde memorias).
 
 ## Veredicto global del modelo
 
 Bueno para chat/QA local ligero (95-98% en tareas básicas, honesto ante lo que no sabe, ~48 tok/s en CPU); **no apto** como implementador de código con contrato (inmune a feedback / razonamiento que no termina) ni confiable en mapeo a formato MCQ estricto. Como asistente de conocimiento sembrado alcanza **10/10** cuando el retrieval es semántico y con umbral de relevancia (rag-local); los 5-6/10 previos eran techo del recall de RepoMemory, no del modelo.
+
+## Veredicto final: ¿qué modelo para micro-expert?
+
+**MiniCPM5-1B, sin ambigüedad.** La evidencia decisiva: con el retrieval bien hecho (rag-local o `relevanceThreshold` de PR #7), **ambos modelos sacan 10/10** en lookup de conocimiento sembrado — el caso de uso central de micro-expert — y a igualdad de calidad el 1B gana en todo lo demás:
+
+| Criterio (uso micro-expert) | MiniCPM5-1B (Q8) | Bonsai 27B (ternario) |
+|---|---|---|
+| Lookup factual con buen retrieval | 10/10 | 10/10 (empate) |
+| Latencia por respuesta | **~3 s** | ~56 s (19×) |
+| RAM residente | **~1,2 GB** | ~7,8 GB |
+| Honestidad sin datos | Verificada | Verificada |
+| Encaje con la filosofía del framework (sub-1B, edge) | **Exacto** | La excede 4× |
+| Stack de despliegue | llama-server estándar | Fork PrismML + Vulkan |
+
+**Cuándo reconsiderar a Bonsai** (queda listo en `C:\models\`): síntesis multi-hecho con razonamiento, MCQ/formato estricto confiable (11/11 vs 10/11), o conocimiento general sin memoria — aceptando ~1 min por respuesta.
+
+**Config recomendada final** (toda medida): micro-expert + MiniCPM5-1B V1 + `builtinTools: false` + `relevanceThreshold` calibrado (o rag-local host-side para retrieval semántico completo) = 10/10 con 0 contaminación a 3 s por respuesta.
