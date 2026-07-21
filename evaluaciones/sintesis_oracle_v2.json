@@ -1,0 +1,28 @@
+{
+  "nota": "Oráculo re-modelado bajo knowledge contract. MISMAS 14 preguntas que sintesis_oracle.json (congeladas). Cambian: los hechos (absolutos, con links markdown a concept-ids para las cadenas) y la colección (aurora3, creada CON contrato). f2 re-modelado de relacional a absoluto (el viejo violaría kc-relative). f4 reformulado a horas para cumplir el regex conservando síntesis real. Tier efectivo de a1 pasa de aritmética a lookup — ese ES el efecto medible del contrato.",
+  "contract": {
+    "max_chars": 200,
+    "forbid_relative": true,
+    "allowed_tags": ["aurora2", "infra", "people", "process"],
+    "min_links": 0
+  },
+  "facts_md": {
+    "f1": "The Aurora API gateway listens on port 7443",
+    "f2": "The Aurora metrics service listens on port 7444",
+    "f3": "Aurora production releases happen every second Thursday",
+    "f4": "The Aurora code freeze starts 72 hours prior to each production release",
+    "f5": "The stormdb database runs on the host named [vega](f6)",
+    "f6": "The host vega is mounted in rack [R2](f7)",
+    "f7": "Rack R2 is located in the Quito datacenter",
+    "f8": "The Aurora team lead is Ryn Castellanos",
+    "f9": "The Aurora on-call rotation is documented in runbook page RB-114",
+    "f10": "Every Aurora deploy requires approval from the Aurora [team lead](f8)",
+    "f11": "The flagpole tool manages Aurora feature flags",
+    "f12": "Aurora feature flags can only be changed during a [code freeze](f4)",
+    "f13": "The Aurora error budget is 43 minutes of downtime per month",
+    "f14": "Aurora has consumed 28 minutes of its error budget this month"
+  },
+  "query_options": {"k": 5, "threshold": 0.35, "expand_links": true},
+  "preguntas_ref": "usar las 14 de sintesis_oracle.json sin cambios (ids, tiers, keywords, expected_number). needed_facts actualizados solo para a1: [f2].",
+  "needed_facts_overrides": {"a1": ["f2"]}
+}

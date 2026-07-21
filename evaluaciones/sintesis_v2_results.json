@@ -1,0 +1,1343 @@
+{
+  "meta": {
+    "modelo": "minicpm5-fable5-thinking",
+    "coleccion": "aurora3",
+    "k": 5,
+    "umbral": 0.35,
+    "expand_links": true,
+    "decisiones": {
+      "temperature": "temp 0: se mide capacidad de sintesis, no protocolo previo; anulado el ruido del muestreo.",
+      "delimitador_respuesta": "El spec decia razonamiento terminando en 'VIOUS'; el modelo real emite un tag de cierre de razonamiento (construido via chr). Se extrae la respuesta tras la ultima ocurrencia de ese tag; si no aparece, se cae a 'VIOUS' y luego a la respuesta cruda. El ultimo numero extraido coincide en ambos caminos.",
+      "keywords_sobre_final": "keywords_all se evaluan sobre el texto final (post-reasoning), consistente con expected_number.",
+      "knowledge_contract": "Coleccion aurora3 creada con el contract de sintesis_oracle_v2.json (max_chars=200, forbid_relative=true, allowed_tags=aurora2/infra/people/process, min_links=0). Si el contrato rechazara algun fact del oraculo v2 seria abort (bug del oraculo del PM).",
+      "expand_links": "Condicion R: query con expand_links=true. Umbral 0.35 se aplica SOLO a hits normales; los docs con expanded=true se inyectan SIEMPRE (score=null). Es el feature medido.",
+      "render_links": "En ambas condiciones, al armar 'Facts from memory:' los links markdown se renderizan a texto plano ([vega](f6) -> vega) para que el modelo no vea sintaxis de links.",
+      "override_a1": "needed_facts se toman de sintesis_oracle.json salvo a1, donde el override del oraculo v2 lo cambia a [f2] (f2 ahora absoluto: port 7444). Tier efectivo de a1 pasa de aritmetica a lookup."
+    }
+  },
+  "count_aurora3": 14,
+  "count_create": 14,
+  "count_evidence": "[{\"id\": \"f13\", \"score\": 0.623013679421199, \"title\": \"The Aurora error budget is 43 minutes of downtime per month\", \"type\": \"fact\", \"tags\": [], \"description\": \"The Aurora error budget is 43 minutes of downtime per month\", \"md\": \"---\\ntype: fact\\ntitle: The Aurora error budget is 43 minutes of downtime per month\\ndescription: The Aurora error budget is 43 minutes of downtime per month\\ntags: []\\n---\\nThe Aurora error budget is 43 minutes of downtime per month\\n\"}, {\"id\": \"f10\", \"score\": 0.5564849802260722, \"title\": \"Every Aurora deploy requires approval from the Aurora team l\", \"type\": \"fact\", \"tags\": [], \"description\": \"Every Aurora deploy requires approval from the Aurora [team lead](f8)\", \"md\": \"---\\ntype: fact\\ntitle: Every Aurora deploy requires approval from the Aurora team l\\ndescript",
+  "contract": {
+    "max_chars": 200,
+    "forbid_relative": true,
+    "allowed_tags": [
+      "aurora2",
+      "infra",
+      "people",
+      "process"
+    ],
+    "min_links": 0
+  },
+  "evaluaciones": [
+    {
+      "id": "c1",
+      "tier": "control",
+      "condicion": "R",
+      "resultado": "pass",
+      "respuesta": "The user asks for the port of the Aurora API gateway and wants the answer as just a number. I recall from the given facts that it's 7443.\n</think>\n\n7443",
+      "respuesta_final": "7443",
+      "grading_detail": 7443,
+      "scores": [
+        {
+          "id": "f1",
+          "score": 0.8155803228359036,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora API gateway listens on port 7443"
+        },
+        {
+          "id": "f2",
+          "score": 0.6403228450018429,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora metrics service listens on port 7444"
+        },
+        {
+          "id": "f9",
+          "score": 0.43055926360016533,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora on-call rotation is documented in runbook page RB-114"
+        },
+        {
+          "id": "f10",
+          "score": 0.42065910255420574,
+          "expanded": false,
+          "via": null,
+          "description": "Every Aurora deploy requires approval from the Aurora [team lead](f8)"
+        },
+        {
+          "id": "f13",
+          "score": 0.38212947951328335,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora error budget is 43 minutes of downtime per month"
+        },
+        {
+          "id": "f8",
+          "score": null,
+          "expanded": true,
+          "via": "f10",
+          "description": "The Aurora team lead is Ryn Castellanos"
+        }
+      ],
+      "facts_inyectados": [
+        "f1",
+        "f2",
+        "f9",
+        "f10",
+        "f13",
+        "f8"
+      ],
+      "expandidos": [
+        "f8"
+      ],
+      "needed_facts": [
+        "f1"
+      ],
+      "retrieval_completo": true,
+      "wall_seconds": 3.83
+    },
+    {
+      "id": "c1",
+      "tier": "control",
+      "condicion": "O",
+      "resultado": "pass",
+      "respuesta": "The user is asking for the port number that the Aurora API gateway listens on and wants the answer in just a number.\nI should directly provide the port value: 7443.\n</think>\n\n7443",
+      "respuesta_final": "7443",
+      "grading_detail": 7443,
+      "scores": [],
+      "facts_inyectados": [
+        "f1"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f1"
+      ],
+      "retrieval_completo": null,
+      "wall_seconds": 3.63
+    },
+    {
+      "id": "c2",
+      "tier": "control",
+      "condicion": "R",
+      "resultado": "pass",
+      "respuesta": "The user asks who the Aurora team lead is. I recall from the provided facts that the Aurora team lead is Ryn Castellanos. I should directly state this and keep it concise.\n</think>\n\nThe Aurora team lead is Ryn Castellanos.",
+      "respuesta_final": "The Aurora team lead is Ryn Castellanos.",
+      "grading_detail": [
+        "castellanos"
+      ],
+      "scores": [
+        {
+          "id": "f8",
+          "score": 0.7550970525007782,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora team lead is Ryn Castellanos"
+        },
+        {
+          "id": "f10",
+          "score": 0.6280577865826732,
+          "expanded": false,
+          "via": null,
+          "description": "Every Aurora deploy requires approval from the Aurora [team lead](f8)"
+        },
+        {
+          "id": "f11",
+          "score": 0.4932818491808316,
+          "expanded": false,
+          "via": null,
+          "description": "The flagpole tool manages Aurora feature flags"
+        },
+        {
+          "id": "f3",
+          "score": 0.45772998348763344,
+          "expanded": false,
+          "via": null,
+          "description": "Aurora production releases happen every second Thursday"
+        },
+        {
+          "id": "f4",
+          "score": 0.44928807038982915,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora code freeze starts 72 hours prior to each production release"
+        }
+      ],
+      "facts_inyectados": [
+        "f8",
+        "f10",
+        "f11",
+        "f3",
+        "f4"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f8"
+      ],
+      "retrieval_completo": true,
+      "wall_seconds": 3.93
+    },
+    {
+      "id": "c2",
+      "tier": "control",
+      "condicion": "O",
+      "resultado": "pass",
+      "respuesta": "The user asks who the Aurora team lead is. I recall from my training that the Aurora team lead is Ryn Castellanos. I should provide this directly and clearly.\n</think>\n\nThe Aurora team lead is Ryn Castellanos.",
+      "respuesta_final": "The Aurora team lead is Ryn Castellanos.",
+      "grading_detail": [
+        "castellanos"
+      ],
+      "scores": [],
+      "facts_inyectados": [
+        "f8"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f8"
+      ],
+      "retrieval_completo": null,
+      "wall_seconds": 3.66
+    },
+    {
+      "id": "c3",
+      "tier": "control",
+      "condicion": "R",
+      "resultado": "pass",
+      "respuesta": "We are given: \"The Aurora error budget is 43 minutes of downtime per month\". So the answer should be 43.\n But the instruction says: \"Answer with just the number.\" So we output: 43\n</think>\n\n43",
+      "respuesta_final": "43",
+      "grading_detail": 43,
+      "scores": [
+        {
+          "id": "f13",
+          "score": 0.8783547485539966,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora error budget is 43 minutes of downtime per month"
+        },
+        {
+          "id": "f14",
+          "score": 0.7394228662757661,
+          "expanded": false,
+          "via": null,
+          "description": "Aurora has consumed 28 minutes of its error budget this month"
+        },
+        {
+          "id": "f4",
+          "score": 0.4908227390291735,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora code freeze starts 72 hours prior to each production release"
+        },
+        {
+          "id": "f3",
+          "score": 0.46128943456165145,
+          "expanded": false,
+          "via": null,
+          "description": "Aurora production releases happen every second Thursday"
+        },
+        {
+          "id": "f9",
+          "score": 0.45810703025483546,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora on-call rotation is documented in runbook page RB-114"
+        }
+      ],
+      "facts_inyectados": [
+        "f13",
+        "f14",
+        "f4",
+        "f3",
+        "f9"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f13"
+      ],
+      "retrieval_completo": true,
+      "wall_seconds": 4.02
+    },
+    {
+      "id": "c3",
+      "tier": "control",
+      "condicion": "O",
+      "resultado": "pass",
+      "respuesta": "The user asks for the Aurora error budget in minutes per month and wants the answer as just a number.\nI recall from the given facts that the Aurora error budget is 43 minutes per month.\nThus, I should respond with \"43\".\n</think>\n\n43",
+      "respuesta_final": "43",
+      "grading_detail": 43,
+      "scores": [],
+      "facts_inyectados": [
+        "f13"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f13"
+      ],
+      "retrieval_completo": null,
+      "wall_seconds": 3.85
+    },
+    {
+      "id": "j1",
+      "tier": "join",
+      "condicion": "R",
+      "resultado": "pass",
+      "respuesta": "The user asks about the Aurora team lead and the on-call rotation documentation. I can directly provide the information from my knowledge base: Ryn Castellanos as the team lead, and RB-114 for the on-call rotation.\n</think>\n\nThe Aurora team lead is **Ryn Castellanos**, and the on-call rotation is documented in runbook page **RB-114**.",
+      "respuesta_final": "The Aurora team lead is **Ryn Castellanos**, and the on-call rotation is documented in runbook page **RB-114**.",
+      "grading_detail": [
+        "castellanos",
+        "rb-114"
+      ],
+      "scores": [
+        {
+          "id": "f9",
+          "score": 0.7468715012571702,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora on-call rotation is documented in runbook page RB-114"
+        },
+        {
+          "id": "f8",
+          "score": 0.5982930151799158,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora team lead is Ryn Castellanos"
+        },
+        {
+          "id": "f10",
+          "score": 0.5690857883034642,
+          "expanded": false,
+          "via": null,
+          "description": "Every Aurora deploy requires approval from the Aurora [team lead](f8)"
+        },
+        {
+          "id": "f4",
+          "score": 0.4533352370971075,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora code freeze starts 72 hours prior to each production release"
+        },
+        {
+          "id": "f13",
+          "score": 0.4505235581045373,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora error budget is 43 minutes of downtime per month"
+        }
+      ],
+      "facts_inyectados": [
+        "f9",
+        "f8",
+        "f10",
+        "f4",
+        "f13"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f8",
+        "f9"
+      ],
+      "retrieval_completo": true,
+      "wall_seconds": 4.54
+    },
+    {
+      "id": "j1",
+      "tier": "join",
+      "condicion": "O",
+      "resultado": "pass",
+      "respuesta": "The user asks about the Aurora team lead and the on-call rotation documentation. I have the relevant information from my training: Ryn Castellanos leads the Aurora team, and the on-call rotation is documented in RB-114.\n</think>\n\nThe Aurora team lead is Ryn Castellanos, and the on-call rotation is documented in runbook page RB-114.",
+      "respuesta_final": "The Aurora team lead is Ryn Castellanos, and the on-call rotation is documented in runbook page RB-114.",
+      "grading_detail": [
+        "castellanos",
+        "rb-114"
+      ],
+      "scores": [],
+      "facts_inyectados": [
+        "f8",
+        "f9"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f8",
+        "f9"
+      ],
+      "retrieval_completo": null,
+      "wall_seconds": 4.36
+    },
+    {
+      "id": "j2",
+      "tier": "join",
+      "condicion": "R",
+      "resultado": "pass",
+      "respuesta": "The user asks about the tool managing Aurora feature flags and the period for changing them. I recall that the flagpole tool is responsible for this. It can be changed during a code freeze.\n</think>\n\nThe tool managing Aurora feature flags is **flagpole**. They can be changed during a code freeze.",
+      "respuesta_final": "The tool managing Aurora feature flags is **flagpole**. They can be changed during a code freeze.",
+      "grading_detail": [
+        "flagpole",
+        "freeze"
+      ],
+      "scores": [
+        {
+          "id": "f11",
+          "score": 0.7682970204345153,
+          "expanded": false,
+          "via": null,
+          "description": "The flagpole tool manages Aurora feature flags"
+        },
+        {
+          "id": "f12",
+          "score": 0.7398930329566528,
+          "expanded": false,
+          "via": null,
+          "description": "Aurora feature flags can only be changed during a [code freeze](f4)"
+        },
+        {
+          "id": "f10",
+          "score": 0.44773324785725016,
+          "expanded": false,
+          "via": null,
+          "description": "Every Aurora deploy requires approval from the Aurora [team lead](f8)"
+        },
+        {
+          "id": "f13",
+          "score": 0.41517121356672493,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora error budget is 43 minutes of downtime per month"
+        },
+        {
+          "id": "f4",
+          "score": 0.4051092908434082,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora code freeze starts 72 hours prior to each production release"
+        },
+        {
+          "id": "f8",
+          "score": null,
+          "expanded": true,
+          "via": "f10",
+          "description": "The Aurora team lead is Ryn Castellanos"
+        }
+      ],
+      "facts_inyectados": [
+        "f11",
+        "f12",
+        "f10",
+        "f13",
+        "f4",
+        "f8"
+      ],
+      "expandidos": [
+        "f8"
+      ],
+      "needed_facts": [
+        "f11",
+        "f12"
+      ],
+      "retrieval_completo": true,
+      "wall_seconds": 4.21
+    },
+    {
+      "id": "j2",
+      "tier": "join",
+      "condicion": "O",
+      "resultado": "pass",
+      "respuesta": "The user is asking about the tool that manages Aurora feature flags and the time window for changing them. I recall from my training that the flagpole tool handles these features and changes occur during a code freeze.\n</think>\n\nThe tool managing Aurora feature flags is **flagpole**. They can be changed during a code freeze.",
+      "respuesta_final": "The tool managing Aurora feature flags is **flagpole**. They can be changed during a code freeze.",
+      "grading_detail": [
+        "flagpole",
+        "freeze"
+      ],
+      "scores": [],
+      "facts_inyectados": [
+        "f11",
+        "f12"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f11",
+        "f12"
+      ],
+      "retrieval_completo": null,
+      "wall_seconds": 4.07
+    },
+    {
+      "id": "j3",
+      "tier": "join",
+      "condicion": "R",
+      "resultado": "pass",
+      "respuesta": "The user asks who must approve Aurora deploys and wants the answer in the person's name. From the given facts, the responsible party is Ryn Castellanos.\n</think>\n\nRyn Castellanos",
+      "respuesta_final": "Ryn Castellanos",
+      "grading_detail": [
+        "castellanos"
+      ],
+      "scores": [
+        {
+          "id": "f10",
+          "score": 0.6750998141111015,
+          "expanded": false,
+          "via": null,
+          "description": "Every Aurora deploy requires approval from the Aurora [team lead](f8)"
+        },
+        {
+          "id": "f8",
+          "score": 0.4998177913497148,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora team lead is Ryn Castellanos"
+        },
+        {
+          "id": "f3",
+          "score": 0.42366979625438933,
+          "expanded": false,
+          "via": null,
+          "description": "Aurora production releases happen every second Thursday"
+        },
+        {
+          "id": "f4",
+          "score": 0.41888391448487755,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora code freeze starts 72 hours prior to each production release"
+        },
+        {
+          "id": "f12",
+          "score": 0.40784773403297564,
+          "expanded": false,
+          "via": null,
+          "description": "Aurora feature flags can only be changed during a [code freeze](f4)"
+        }
+      ],
+      "facts_inyectados": [
+        "f10",
+        "f8",
+        "f3",
+        "f4",
+        "f12"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f10",
+        "f8"
+      ],
+      "retrieval_completo": true,
+      "wall_seconds": 3.73
+    },
+    {
+      "id": "j3",
+      "tier": "join",
+      "condicion": "O",
+      "resultado": "pass",
+      "respuesta": "The user asks who must approve Aurora deploys and wants the answer as the person's name. I should directly respond Ryn Castellanos.\n</think>\n\nRyn Castellanos",
+      "respuesta_final": "Ryn Castellanos",
+      "grading_detail": [
+        "castellanos"
+      ],
+      "scores": [],
+      "facts_inyectados": [
+        "f10",
+        "f8"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f10",
+        "f8"
+      ],
+      "retrieval_completo": null,
+      "wall_seconds": 3.49
+    },
+    {
+      "id": "j4",
+      "tier": "join",
+      "condicion": "R",
+      "resultado": "fail",
+      "respuesta": "We are given that the stormdb database runs on the host named vega.\n The question asks: On which host and in which rack does the stormdb database run?\n Since we know it runs on vega, we can answer directly.\n However, note that the question might be testing if we understand the host name.\n We should state: Host: vega; Rack: unknown (or not specified).\n But the instruction says to use the information from memory. We have: host = vega.\n So answer: The stormdb database runs on host vega and in an unspecified rack.\n</think>\n\nThe stormdb database runs on host **vega** and in an unspecified rack.",
+      "respuesta_final": "The stormdb database runs on host **vega** and in an unspecified rack.",
+      "grading_detail": [
+        "vega",
+        "r2"
+      ],
+      "scores": [
+        {
+          "id": "f5",
+          "score": 0.708798667988106,
+          "expanded": false,
+          "via": null,
+          "description": "The stormdb database runs on the host named [vega](f6)"
+        },
+        {
+          "id": "f6",
+          "score": 0.3351496761898397,
+          "expanded": false,
+          "via": null,
+          "description": "The host vega is mounted in rack [R2](f7)"
+        },
+        {
+          "id": "f7",
+          "score": 0.3313945436536794,
+          "expanded": false,
+          "via": null,
+          "description": "Rack R2 is located in the Quito datacenter"
+        },
+        {
+          "id": "f2",
+          "score": 0.2630859986009443,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora metrics service listens on port 7444"
+        },
+        {
+          "id": "f9",
+          "score": 0.24745558457059305,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora on-call rotation is documented in runbook page RB-114"
+        }
+      ],
+      "facts_inyectados": [
+        "f5"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f5",
+        "f6"
+      ],
+      "retrieval_completo": false,
+      "wall_seconds": 5.74
+    },
+    {
+      "id": "j4",
+      "tier": "join",
+      "condicion": "O",
+      "resultado": "pass",
+      "respuesta": "We are given: \"Facts from memory: The stormdb database runs on the host named vega and in which rack is it in.\"\n So the answer should be: Host: vega, Rack: R2.\n</think>\n\nThe stormdb database runs on the host **vega** in rack **R2**.",
+      "respuesta_final": "The stormdb database runs on the host **vega** in rack **R2**.",
+      "grading_detail": [
+        "vega",
+        "r2"
+      ],
+      "scores": [],
+      "facts_inyectados": [
+        "f5",
+        "f6"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f5",
+        "f6"
+      ],
+      "retrieval_completo": null,
+      "wall_seconds": 4.09
+    },
+    {
+      "id": "a1",
+      "tier": "aritmetica",
+      "condicion": "R",
+      "resultado": "pass",
+      "respuesta": "The user asks for the port of the Aurora metrics service and wants the answer as just a number. I recall from the given facts that the Aurora metrics service listens on port 7444. So my response should be 7444.\n</think>\n\n7444",
+      "respuesta_final": "7444",
+      "grading_detail": 7444,
+      "scores": [
+        {
+          "id": "f2",
+          "score": 0.8242766238456006,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora metrics service listens on port 7444"
+        },
+        {
+          "id": "f1",
+          "score": 0.6534089543836118,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora API gateway listens on port 7443"
+        },
+        {
+          "id": "f9",
+          "score": 0.43787800390509585,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora on-call rotation is documented in runbook page RB-114"
+        },
+        {
+          "id": "f13",
+          "score": 0.4292951005829674,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora error budget is 43 minutes of downtime per month"
+        },
+        {
+          "id": "f10",
+          "score": 0.4284435746994575,
+          "expanded": false,
+          "via": null,
+          "description": "Every Aurora deploy requires approval from the Aurora [team lead](f8)"
+        },
+        {
+          "id": "f8",
+          "score": null,
+          "expanded": true,
+          "via": "f10",
+          "description": "The Aurora team lead is Ryn Castellanos"
+        }
+      ],
+      "facts_inyectados": [
+        "f2",
+        "f1",
+        "f9",
+        "f13",
+        "f10",
+        "f8"
+      ],
+      "expandidos": [
+        "f8"
+      ],
+      "needed_facts": [
+        "f2"
+      ],
+      "retrieval_completo": true,
+      "wall_seconds": 4.03
+    },
+    {
+      "id": "a1",
+      "tier": "aritmetica",
+      "condicion": "O",
+      "resultado": "pass",
+      "respuesta": "The user is asking for the port number of the Aurora metrics service and wants the answer in just a number.\nI recall from the previous context that the Aurora metrics service listens on port 7444.\nThus, I should respond with 7444.\n</think>\n\n7444",
+      "respuesta_final": "7444",
+      "grading_detail": 7444,
+      "scores": [],
+      "facts_inyectados": [
+        "f2"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f2"
+      ],
+      "retrieval_completo": null,
+      "wall_seconds": 3.87
+    },
+    {
+      "id": "a2",
+      "tier": "aritmetica",
+      "condicion": "R",
+      "resultado": "pass",
+      "respuesta": "We are given: Aurora has consumed 28 minutes of its error budget this month. The error budget is 43 minutes per month. So remaining error budget = 43 - 28 = 15 minutes.\n\nAnswer: 15\n</think>\n\n15",
+      "respuesta_final": "15",
+      "grading_detail": 15,
+      "scores": [
+        {
+          "id": "f14",
+          "score": 0.8054345470548758,
+          "expanded": false,
+          "via": null,
+          "description": "Aurora has consumed 28 minutes of its error budget this month"
+        },
+        {
+          "id": "f13",
+          "score": 0.7706855714931299,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora error budget is 43 minutes of downtime per month"
+        },
+        {
+          "id": "f4",
+          "score": 0.4925005757370167,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora code freeze starts 72 hours prior to each production release"
+        },
+        {
+          "id": "f3",
+          "score": 0.47103585714983365,
+          "expanded": false,
+          "via": null,
+          "description": "Aurora production releases happen every second Thursday"
+        },
+        {
+          "id": "f9",
+          "score": 0.4436141365512707,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora on-call rotation is documented in runbook page RB-114"
+        }
+      ],
+      "facts_inyectados": [
+        "f14",
+        "f13",
+        "f4",
+        "f3",
+        "f9"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f13",
+        "f14"
+      ],
+      "retrieval_completo": true,
+      "wall_seconds": 4.04
+    },
+    {
+      "id": "a2",
+      "tier": "aritmetica",
+      "condicion": "O",
+      "resultado": "pass",
+      "respuesta": "We are given: \"The Aurora error budget is 43 minutes of downtime per month\" and \"Aurora has consumed 28 minutes of its error budget this month\". We need to answer: \"How many minutes of error budget does Aurora have left this month? Answer with just the number.\"\n\nSo, error budget = 43 minutes. Consumed this month = 28 minutes. Left = 43 - 28 = 15 minutes.\n\nAnswer: 15\n</think>\n\n15",
+      "respuesta_final": "15",
+      "grading_detail": 15,
+      "scores": [],
+      "facts_inyectados": [
+        "f13",
+        "f14"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f13",
+        "f14"
+      ],
+      "retrieval_completo": null,
+      "wall_seconds": 4.89
+    },
+    {
+      "id": "a3",
+      "tier": "aritmetica",
+      "condicion": "R",
+      "resultado": "fail",
+      "respuesta": "We are given: \"The Aurora code freeze starts 72 hours prior to each production release.\" So the freeze begins on a day that is 72 hours before the production release.\n We need to answer: On which day of the week does the Aurora code freeze begin?\n Since we don't know the current date, we can only give an answer based on the information. The question asks for the day of the week.\n However, without knowing the current date, we cannot determine the exact day. But perhaps the user expects a general answer or we can infer from the context? \n Alternatively, maybe the question is designed to be answered with \"Friday\" because 72 hours before production releases are typically Fridays? Let's check: 72 hours = 3 days. So if production release is on a certain day, freeze starts 3 days earlier. But we don't know the current date.\n Since the user asks for the day of the week, and we have no information about today or future, we must rely on the given fact that freeze starts 72 hours before production. \n However, note: \"production releases happen every second Thursday\". So production is on a Tuesday? Let's verify: Every second Thursday means the release day is a Thursday at 00:01 UTC? Actually, \"every second Thursday\" likely means every Thursday at midnight or something? But we can deduce: If release is every second Thursday, then the release days are Thursdays. So production releases occur on Thursdays.\n Then freeze starts 72 hours (3 days) before that Thursday. So if today is a Friday, then freeze started 3 days ago, which would be Tuesday? Wait: 72 hours = 3 days exactly. So if production is on Thursday, freeze starts 3 days earlier, i.e., Tuesday. But we don't know the current day.\n The question asks for the day of the week the freeze begins. We cannot determine it without knowing today's date. However, perhaps the intended answer is \"Tuesday\" based on common patterns? Or maybe the user expects us to say \"Friday\" because 72 hours before production (which are Thursdays) would be a Friday? Let's calculate: If production is Thursday at some time, then freeze starts 3 days earlier, which is Tuesday. So not Friday.\n Alternatively, if we consider that \"every second Thursday\" means the release is at 00:01 of a Thursday, then the previous day (Friday) is 23 hours before, and the day before that (Thursday) is 1 hour before? That doesn't match 72 hours.\n Better to stick with the given fact: freeze starts 72 hours prior. So we can say: The code freeze begins on a Tuesday (since production is on Thursdays). But we don't know if today is Friday or not. However, the question asks for the day of the week, so we must give one. I'll go with Tuesday.\n\n But let's be precise: We are an AI assistant. I should answer based on the given information. The key fact: freeze starts 72 hours before production. Production is every second Thursday. So freeze begins 3 days before a Thursday, which is a Tuesday. Therefore, the day of the week is Tuesday.\n\n I'll answer: Tuesday.\n</think>\n\nThe Aurora code freeze begins on a Tuesday.",
+      "respuesta_final": "The Aurora code freeze begins on a Tuesday.",
+      "grading_detail": [
+        "monday"
+      ],
+      "scores": [
+        {
+          "id": "f4",
+          "score": 0.7147537820101489,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora code freeze starts 72 hours prior to each production release"
+        },
+        {
+          "id": "f12",
+          "score": 0.5450035780909651,
+          "expanded": false,
+          "via": null,
+          "description": "Aurora feature flags can only be changed during a [code freeze](f4)"
+        },
+        {
+          "id": "f3",
+          "score": 0.5139430240526068,
+          "expanded": false,
+          "via": null,
+          "description": "Aurora production releases happen every second Thursday"
+        },
+        {
+          "id": "f10",
+          "score": 0.42707271351968285,
+          "expanded": false,
+          "via": null,
+          "description": "Every Aurora deploy requires approval from the Aurora [team lead](f8)"
+        },
+        {
+          "id": "f9",
+          "score": 0.4229866416581088,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora on-call rotation is documented in runbook page RB-114"
+        },
+        {
+          "id": "f8",
+          "score": null,
+          "expanded": true,
+          "via": "f10",
+          "description": "The Aurora team lead is Ryn Castellanos"
+        }
+      ],
+      "facts_inyectados": [
+        "f4",
+        "f12",
+        "f3",
+        "f10",
+        "f9",
+        "f8"
+      ],
+      "expandidos": [
+        "f8"
+      ],
+      "needed_facts": [
+        "f3",
+        "f4"
+      ],
+      "retrieval_completo": true,
+      "wall_seconds": 18.04
+    },
+    {
+      "id": "a3",
+      "tier": "aritmetica",
+      "condicion": "O",
+      "resultado": "pass",
+      "respuesta": "We are told: \"Aurora production releases happen every second Thursday\" and \"The Aurora code freeze starts 72 hours prior to each production release.\"\n\nSo, production release is every second Thursday. Code freeze starts 72 hours before that.\n\nWe need to find the day of the week when the code freeze begins.\n\nFirst, determine what \"second Thursday\" means relative to a specific date? The problem doesn't specify an absolute date. So we must work with the information given: Aurora releases every second Thursday. Code freeze starts 72 hours before that release.\n\nLet's break down:\n\n- Release day: Every second Thursday of the week (i.e., Thursday at times when it is exactly two days after a Monday? Actually, \"second Thursday\" means the Thursday that follows a Monday? Or simply the Thursday in the week that comes after the previous Thursday? Typically, \"second Thursday\" refers to the Thursday of the week that occurs after the first Thursday. For example, if today is Wednesday, then second Thursday is in the next week. But we don't have an anchor date.\n\nWe can think: The release happens at times like 8:00 AM on a Thursday (if we assume Monday is day 1). Actually, \"every second Thursday\" could mean every 24 hours after a certain point? Or specifically, every 48 hours from a Monday? Let's clarify:\n\nCommon interpretation: \"Every second Thursday\" means every Thursday that occurs two days after the previous Thursday. So if we consider a week starting on Monday, then first Thursday is day 4 of the week (Monday=1, Tuesday=2, Wednesday=3, Thursday=4), second Thursday is day 8 of the week. So \"every second Thursday\" means every Thursday at times corresponding to days 4 and 8 of the week.\n\nBut we don't need exact time; we just need the day of the week for freeze start.\n\nCode freeze: 72 hours before production release. 72 hours = 3 days (since 24 hours per day). So freeze starts on the same day as the release? No, 72 hours before means 3 days earlier. For example, if release is Thursday at 8 AM, freeze is at midnight of the previous day.\n\nSo: Release day: Thursday. Freeze start day: Thursday minus 3 days = Tuesday (since Thursday - 1 day = Wednesday, -2 days = Tuesday). But careful: \"72 hours before\" means exactly 3 calendar days earlier? Actually, 24 hours per day, so 72 hours is 3 full days. So if release occurs at time T on a Thursday, freeze occurs at time T - 3 days, which is also a Thursday (since subtracting 3 days from any date gives the same weekday). Wait: Subtracting 3 days from a Thursday gives Tuesday? Let's check: Thursday minus 1 day = Wednesday; minus 2 days = Tuesday; minus 3 days = Monday. So actually, if release is on Thursday at 8 AM, freeze is at 5 PM of the previous day (Tuesday). But we are asked for the day of the week.\n\nSo: Release day: Thursday. Freeze start day: Thursday - 3 days = Monday? Let's compute precisely:\n\nLet release date be D (Thursday). Then freeze occurs on D - 72 hours = D - 3 days. So if D is a Thursday, then D - 1 day = Wednesday, D - 2 days = Tuesday, D - 3 days = Monday. So freeze starts on a Monday.\n\nBut wait: \"72 hours before\" could be interpreted as exactly 72 hours prior, which might not be an exact calendar date if we consider time of day? But the question asks for \"day of the week\", so we care about the weekday.\n\nThus: Release is Thursday. Freeze starts on Monday (since 3 days earlier).\n\nBut let's double-check with the given information: Aurora releases every second Thursday, code freeze starts 72 hours before. So freeze start day = release day - 3 days. Since release is Thursday, freeze start is Monday.\n\nHowever, we must be cautious: \"second Thursday\" might mean something else? For example, if today is Wednesday, then second Thursday is in the next week (Thursday of the following week). But that would shift the reference point. The problem likely assumes a consistent interpretation: Aurora releases on Thursdays at specific times (e.g., 8 AM), and code freeze starts 72 hours before those release times.\n\nGiven the ambiguity, we should stick to the simplest interpretation: Release day = Thursday; freeze start day = Monday.\n\nBut let's see if there is any other nuance: \"Aurora production releases happen every second Thursday\" could also mean that the release occurs at intervals of 48 hours (since two Thursdays in a week). So release times are on Thursdays, spaced by ",
+      "respuesta_final": "We are told: \"Aurora production releases happen every second Thursday\" and \"The Aurora code freeze starts 72 hours prior to each production release.\"\n\nSo, production release is every second Thursday. Code freeze starts 72 hours before that.\n\nWe need to find the day of the week when the code freeze begins.\n\nFirst, determine what \"second Thursday\" means relative to a specific date? The problem doesn't specify an absolute date. So we must work with the information given: Aurora releases every second Thursday. Code freeze starts 72 hours before that release.\n\nLet's break down:\n\n- Release day: Every second Thursday of the week (i.e., Thursday at times when it is exactly two days after a Monday? Actually, \"second Thursday\" means the Thursday that follows a Monday? Or simply the Thursday in the week that comes after the previous Thursday? Typically, \"second Thursday\" refers to the Thursday of the week that occurs after the first Thursday. For example, if today is Wednesday, then second Thursday is in the next week. But we don't have an anchor date.\n\nWe can think: The release happens at times like 8:00 AM on a Thursday (if we assume Monday is day 1). Actually, \"every second Thursday\" could mean every 24 hours after a certain point? Or specifically, every 48 hours from a Monday? Let's clarify:\n\nCommon interpretation: \"Every second Thursday\" means every Thursday that occurs two days after the previous Thursday. So if we consider a week starting on Monday, then first Thursday is day 4 of the week (Monday=1, Tuesday=2, Wednesday=3, Thursday=4), second Thursday is day 8 of the week. So \"every second Thursday\" means every Thursday at times corresponding to days 4 and 8 of the week.\n\nBut we don't need exact time; we just need the day of the week for freeze start.\n\nCode freeze: 72 hours before production release. 72 hours = 3 days (since 24 hours per day). So freeze starts on the same day as the release? No, 72 hours before means 3 days earlier. For example, if release is Thursday at 8 AM, freeze is at midnight of the previous day.\n\nSo: Release day: Thursday. Freeze start day: Thursday minus 3 days = Tuesday (since Thursday - 1 day = Wednesday, -2 days = Tuesday). But careful: \"72 hours before\" means exactly 3 calendar days earlier? Actually, 24 hours per day, so 72 hours is 3 full days. So if release occurs at time T on a Thursday, freeze occurs at time T - 3 days, which is also a Thursday (since subtracting 3 days from any date gives the same weekday). Wait: Subtracting 3 days from a Thursday gives Tuesday? Let's check: Thursday minus 1 day = Wednesday; minus 2 days = Tuesday; minus 3 days = Monday. So actually, if release is on Thursday at 8 AM, freeze is at 5 PM of the previous day (Tuesday). But we are asked for the day of the week.\n\nSo: Release day: Thursday. Freeze start day: Thursday - 3 days = Monday? Let's compute precisely:\n\nLet release date be D (Thursday). Then freeze occurs on D - 72 hours = D - 3 days. So if D is a Thursday, then D - 1 day = Wednesday, D - 2 days = Tuesday, D - 3 days = Monday. So freeze starts on a Monday.\n\nBut wait: \"72 hours before\" could be interpreted as exactly 72 hours prior, which might not be an exact calendar date if we consider time of day? But the question asks for \"day of the week\", so we care about the weekday.\n\nThus: Release is Thursday. Freeze starts on Monday (since 3 days earlier).\n\nBut let's double-check with the given information: Aurora releases every second Thursday, code freeze starts 72 hours before. So freeze start day = release day - 3 days. Since release is Thursday, freeze start is Monday.\n\nHowever, we must be cautious: \"second Thursday\" might mean something else? For example, if today is Wednesday, then second Thursday is in the next week (Thursday of the following week). But that would shift the reference point. The problem likely assumes a consistent interpretation: Aurora releases on Thursdays at specific times (e.g., 8 AM), and code freeze starts 72 hours before those release times.\n\nGiven the ambiguity, we should stick to the simplest interpretation: Release day = Thursday; freeze start day = Monday.\n\nBut let's see if there is any other nuance: \"Aurora production releases happen every second Thursday\" could also mean that the release occurs at intervals of 48 hours (since two Thursdays in a week). So release times are on Thursdays, spaced by",
+      "grading_detail": [
+        "monday"
+      ],
+      "scores": [],
+      "facts_inyectados": [
+        "f3",
+        "f4"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f3",
+        "f4"
+      ],
+      "retrieval_completo": null,
+      "wall_seconds": 25.53
+    },
+    {
+      "id": "a4",
+      "tier": "aritmetica",
+      "condicion": "R",
+      "resultado": "pass",
+      "respuesta": "We need to find how many minutes of downtime would exhaust exactly twice Aurora's monthly error budget.\n First, recall: Aurora error budget is 43 minutes per month.\n Twice that is 86 minutes.\n So we need to answer: 86\n But ensure it's just the number.\n</think>\n\n86",
+      "respuesta_final": "86",
+      "grading_detail": 86,
+      "scores": [
+        {
+          "id": "f13",
+          "score": 0.8012119982213054,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora error budget is 43 minutes of downtime per month"
+        },
+        {
+          "id": "f14",
+          "score": 0.6962413459356556,
+          "expanded": false,
+          "via": null,
+          "description": "Aurora has consumed 28 minutes of its error budget this month"
+        },
+        {
+          "id": "f4",
+          "score": 0.48818620811227,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora code freeze starts 72 hours prior to each production release"
+        },
+        {
+          "id": "f3",
+          "score": 0.4695697091339282,
+          "expanded": false,
+          "via": null,
+          "description": "Aurora production releases happen every second Thursday"
+        },
+        {
+          "id": "f9",
+          "score": 0.4391535363773032,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora on-call rotation is documented in runbook page RB-114"
+        }
+      ],
+      "facts_inyectados": [
+        "f13",
+        "f14",
+        "f4",
+        "f3",
+        "f9"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f13"
+      ],
+      "retrieval_completo": true,
+      "wall_seconds": 3.88
+    },
+    {
+      "id": "a4",
+      "tier": "aritmetica",
+      "condicion": "O",
+      "resultado": "pass",
+      "respuesta": "We need to find how many minutes of downtime would exhaust exactly twice Aurora's monthly error budget.\n Aurora's monthly error budget is 43 minutes.\n Twice that is 86 minutes.\n So answer: 86\n</think>\n\n86",
+      "respuesta_final": "86",
+      "grading_detail": 86,
+      "scores": [],
+      "facts_inyectados": [
+        "f13"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f13"
+      ],
+      "retrieval_completo": null,
+      "wall_seconds": 3.56
+    },
+    {
+      "id": "ch1",
+      "tier": "cadena",
+      "condicion": "R",
+      "resultado": "fail",
+      "respuesta": "We are given that the stormdb database runs on the host named vega and is mounted in rack R2.\n The question asks: In which datacenter is the stormdb database located?\n Since we know it's on host vega and in rack R2, we can infer the datacenter is likely R2.\n However, to be precise, we should state that based on the information provided, the stormdb database is located in datacenter R2.\n</think>\n\nThe stormdb database is located in datacenter R2.",
+      "respuesta_final": "The stormdb database is located in datacenter R2.",
+      "grading_detail": [
+        "quito"
+      ],
+      "scores": [
+        {
+          "id": "f5",
+          "score": 0.6115307640662573,
+          "expanded": false,
+          "via": null,
+          "description": "The stormdb database runs on the host named [vega](f6)"
+        },
+        {
+          "id": "f7",
+          "score": 0.32083583591096515,
+          "expanded": false,
+          "via": null,
+          "description": "Rack R2 is located in the Quito datacenter"
+        },
+        {
+          "id": "f2",
+          "score": 0.23619225096690882,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora metrics service listens on port 7444"
+        },
+        {
+          "id": "f13",
+          "score": 0.19997311233919762,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora error budget is 43 minutes of downtime per month"
+        },
+        {
+          "id": "f1",
+          "score": 0.19449046891962068,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora API gateway listens on port 7443"
+        },
+        {
+          "id": "f6",
+          "score": null,
+          "expanded": true,
+          "via": "f5",
+          "description": "The host vega is mounted in rack [R2](f7)"
+        }
+      ],
+      "facts_inyectados": [
+        "f5",
+        "f6"
+      ],
+      "expandidos": [
+        "f6"
+      ],
+      "needed_facts": [
+        "f5",
+        "f6",
+        "f7"
+      ],
+      "retrieval_completo": false,
+      "wall_seconds": 4.91
+    },
+    {
+      "id": "ch1",
+      "tier": "cadena",
+      "condicion": "O",
+      "resultado": "pass",
+      "respuesta": "We are given: \"Facts from memory: The stormdb database runs on the host named vega; The host vega is mounted in rack R2; Rack R2 is located in the Quito datacenter. You are MicroExpert, a helpful AI assistant.\"\n\nThe question: \"In which datacenter is the stormdb database located?\"\n\nFrom the facts: The stormdb database runs on the host named vega, and vega is mounted in rack R2, and rack R2 is located in the Quito datacenter. Therefore, the datacenter is Quito.\n\nAnswer: Quito.\n</think>\n\nThe stormdb database is located in the Quito datacenter.",
+      "respuesta_final": "The stormdb database is located in the Quito datacenter.",
+      "grading_detail": [
+        "quito"
+      ],
+      "scores": [],
+      "facts_inyectados": [
+        "f5",
+        "f6",
+        "f7"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f5",
+        "f6",
+        "f7"
+      ],
+      "retrieval_completo": null,
+      "wall_seconds": 5.84
+    },
+    {
+      "id": "ch2",
+      "tier": "cadena",
+      "condicion": "R",
+      "resultado": "pass",
+      "respuesta": "We are given: \"Facts from memory: The stormdb database runs on the host named vega; The host vega is mounted in rack R2; Rack R2 is located in the Quito datacenter. You are MicroExpert, a helpful AI assistant. IMPORTANT: Use the information above to answer the user. Question: In which datacenter does the host vega live?\"\n\nAnswer: Quito.\n</think>\n\nThe host vega lives in the Quito datacenter.",
+      "respuesta_final": "The host vega lives in the Quito datacenter.",
+      "grading_detail": [
+        "quito"
+      ],
+      "scores": [
+        {
+          "id": "f5",
+          "score": 0.564612999012841,
+          "expanded": false,
+          "via": null,
+          "description": "The stormdb database runs on the host named [vega](f6)"
+        },
+        {
+          "id": "f6",
+          "score": 0.5593154057286379,
+          "expanded": false,
+          "via": null,
+          "description": "The host vega is mounted in rack [R2](f7)"
+        },
+        {
+          "id": "f7",
+          "score": 0.37477775065840696,
+          "expanded": false,
+          "via": null,
+          "description": "Rack R2 is located in the Quito datacenter"
+        },
+        {
+          "id": "f2",
+          "score": 0.2171751908725397,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora metrics service listens on port 7444"
+        },
+        {
+          "id": "f1",
+          "score": 0.20451577760431267,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora API gateway listens on port 7443"
+        }
+      ],
+      "facts_inyectados": [
+        "f5",
+        "f6",
+        "f7"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f6",
+        "f7"
+      ],
+      "retrieval_completo": true,
+      "wall_seconds": 4.68
+    },
+    {
+      "id": "ch2",
+      "tier": "cadena",
+      "condicion": "O",
+      "resultado": "pass",
+      "respuesta": "The user asks where the host vega lives. I need to use the provided facts: host vega is mounted in rack R2, and rack R2 is located in the Quito datacenter. So the answer is Quito.\n</think>\n\nQuito",
+      "respuesta_final": "Quito",
+      "grading_detail": [
+        "quito"
+      ],
+      "scores": [],
+      "facts_inyectados": [
+        "f6",
+        "f7"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f6",
+        "f7"
+      ],
+      "retrieval_completo": null,
+      "wall_seconds": 3.95
+    },
+    {
+      "id": "ch3",
+      "tier": "cadena",
+      "condicion": "R",
+      "resultado": "pass",
+      "respuesta": "We are given: \"The host named vega is mounted in rack R2\". So the answer is rack R2.\n</think>\n\nRack R2",
+      "respuesta_final": "Rack R2",
+      "grading_detail": [
+        "r2"
+      ],
+      "scores": [
+        {
+          "id": "f5",
+          "score": 0.6150454443618155,
+          "expanded": false,
+          "via": null,
+          "description": "The stormdb database runs on the host named [vega](f6)"
+        },
+        {
+          "id": "f6",
+          "score": 0.3891637055978626,
+          "expanded": false,
+          "via": null,
+          "description": "The host vega is mounted in rack [R2](f7)"
+        },
+        {
+          "id": "f7",
+          "score": 0.3778267551588613,
+          "expanded": false,
+          "via": null,
+          "description": "Rack R2 is located in the Quito datacenter"
+        },
+        {
+          "id": "f2",
+          "score": 0.2589670993565745,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora metrics service listens on port 7444"
+        },
+        {
+          "id": "f9",
+          "score": 0.24580384140219677,
+          "expanded": false,
+          "via": null,
+          "description": "The Aurora on-call rotation is documented in runbook page RB-114"
+        }
+      ],
+      "facts_inyectados": [
+        "f5",
+        "f6",
+        "f7"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f5",
+        "f6"
+      ],
+      "retrieval_completo": true,
+      "wall_seconds": 3.25
+    },
+    {
+      "id": "ch3",
+      "tier": "cadena",
+      "condicion": "O",
+      "resultado": "pass",
+      "respuesta": "We are given that the stormdb database runs on the host named vega and is mounted in rack R2.\n The question asks: In which rack is the stormdb database mounted?\n Answer: Rack R2.\n</think>\n\nRack R2",
+      "respuesta_final": "Rack R2",
+      "grading_detail": [
+        "r2"
+      ],
+      "scores": [],
+      "facts_inyectados": [
+        "f5",
+        "f6"
+      ],
+      "expandidos": [],
+      "needed_facts": [
+        "f5",
+        "f6"
+      ],
+      "retrieval_completo": null,
+      "wall_seconds": 3.64
+    }
+  ],
+  "agregados": {
+    "by_tier_cond": {
+      "aritmetica": {
+        "R": {
+          "pass": 3,
+          "total": 4,
+          "pct": 75.0
+        },
+        "O": {
+          "pass": 4,
+          "total": 4,
+          "pct": 100.0
+        }
+      },
+      "cadena": {
+        "R": {
+          "pass": 2,
+          "total": 3,
+          "pct": 66.7
+        },
+        "O": {
+          "pass": 3,
+          "total": 3,
+          "pct": 100.0
+        }
+      },
+      "control": {
+        "R": {
+          "pass": 3,
+          "total": 3,
+          "pct": 100.0
+        },
+        "O": {
+          "pass": 3,
+          "total": 3,
+          "pct": 100.0
+        }
+      },
+      "join": {
+        "R": {
+          "pass": 3,
+          "total": 4,
+          "pct": 75.0
+        },
+        "O": {
+          "pass": 4,
+          "total": 4,
+          "pct": 100.0
+        }
+      }
+    },
+    "by_cond": {
+      "R": {
+        "pass": 11,
+        "total": 14,
+        "pct": 78.6
+      },
+      "O": {
+        "pass": 14,
+        "total": 14,
+        "pct": 100.0
+      }
+    },
+    "atribucion_fallos_ids": {
+      "retrieval_fail": [
+        "j4",
+        "ch1"
+      ],
+      "sintesis_fail_R": [
+        "a3"
+      ],
+      "sintesis_fail_O": [],
+      "success": [
+        "c1",
+        "c1",
+        "c2",
+        "c2",
+        "c3",
+        "c3",
+        "j1",
+        "j1",
+        "j2",
+        "j2",
+        "j3",
+        "j3",
+        "j4",
+        "a1",
+        "a1",
+        "a2",
+        "a2",
+        "a3",
+        "a4",
+        "a4",
+        "ch1",
+        "ch2",
+        "ch2",
+        "ch3",
+        "ch3"
+      ]
+    },
+    "atribucion_fallos_counts": {
+      "retrieval_fail": 2,
+      "sintesis_fail_R": 1,
+      "sintesis_fail_O": 0,
+      "success": 25
+    }
+  }
+}

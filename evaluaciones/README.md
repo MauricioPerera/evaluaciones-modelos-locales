@@ -71,6 +71,15 @@ Jornada de evaluación completa del modelo [`GnLOLot/MiniCPM5-1B-Claude-Opus-Fab
 | [SINTESIS-REPORT.md](SINTESIS-REPORT.md) | Con contexto perfecto el 1B SÍ sintetiza: **10/11 (91%)** — joins 4/4 y cadenas A→B→C 3/3; único fallo duro la aritmética implícita ("el puerto siguiente a 7443" → responde 7443 o 4444). Con retrieval real cae a **7/11 (64%)** por dos mecanismos: recall multi-hecho incompleto y ruido de contexto que degrada el razonamiento (a3 pasa con 2 hechos, falla con 5). Modo de fallo peligroso detectado: ante hechos faltantes a veces confabula fusiones ("datacenter named vega") en vez de admitir el hueco. |
 | `sintesis_oracle.json` / `sintesis.py` / `sintesis_results.json` | Oráculo de 4 tiers × 2 condiciones (R/O), harness y 28 evaluaciones crudas con atribución retrieval-vs-síntesis. |
 
+## 9. Knowledge contract en rag-local + re-validación de síntesis
+
+| Archivo | Resultado clave |
+|---|---|
+| [SINTESIS-V2-REPORT.md](SINTESIS-V2-REPORT.md) | Con hechos bajo contrato (absolutos + links) y expansión de 1 salto: **O 14/14 (techo perfecto)** y R 8/11 de síntesis (73%, vs 64% v1) — mejora real pero bajo la predicción de ~90%. El gap restante, descompuesto forensicamente: (1) bug de interfaz umbral/expansión — el engine no expande docs que ya están entre los k crudos sub-umbral y el cliente los descarta (j4: f6 a 0,335 vs umbral 0,35); (2) cadenas de 3 necesitan 2 saltos (ch1); (3) la aritmética del 1B se degrada con ruido (a3: Thursday−72h = "Tuesday" con 6 hechos; correcto con 2). |
+| `sintesis_oracle_v2.json` / `sintesis_v2.py` / `sintesis_v2_results.json` | Oráculo re-modelado bajo contrato, harness y 28 evaluaciones crudas. |
+
+Features implementadas en rag-local (rama `feat/knowledge-contract`, 110/110 tests): validación de contrato por colección (reglas `kc-*`: max_chars, anti-referencias-relativas, tags, min_links; persistido dentro del bundle JVSB) + expansión de links opt-in en query. El contrato rechazó en vivo el hecho relacional que causaba el fallo a1.
+
 ## Código derivado (mergeado en GitHub)
 
 - [PR #4](https://github.com/MauricioPerera/micro-expert/pull/4): gates de tool-format + opción `builtinTools` + 16 tests. **Mergeado.**
