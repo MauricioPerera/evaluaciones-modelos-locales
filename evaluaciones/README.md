@@ -96,6 +96,10 @@ Features implementadas en rag-local (rama `feat/knowledge-contract`, 110/110 tes
 - [PR #4](https://github.com/MauricioPerera/micro-expert/pull/4): gates de tool-format + opción `builtinTools` + 16 tests. **Mergeado.**
 - [PR #6](https://github.com/MauricioPerera/micro-expert/pull/6): tests herméticos de agent-loop. **Mergeado** (cierra #5).
 - [PR #7](https://github.com/MauricioPerera/micro-expert/pull/7): opción `relevanceThreshold` — inyección de recall gateada por score + 7 tests. **Mergeado** (cierra #3).
+- [PR #8](https://github.com/MauricioPerera/micro-expert/pull/8) y [PR #9](https://github.com/MauricioPerera/micro-expert/pull/9): docs — config recomendada para modelos chicos y patrón host-side con rag-local. **Mergeados.**
+- [PR #10](https://github.com/MauricioPerera/micro-expert/pull/10): **retrieval provider enchufable** — config `retrieval.provider = "rag-local"` nativo (solo el recall es enchufable; sesiones/mining/packs siguen en RepoMemory; degradación graciosa si rag-local cae). Validado E2E con la técnica del dato único ("Zephyr → delta-9", hecho que solo existía en la colección rag-local) + kill de la dependencia en vivo. Suite 326/326. **Mergeado.** Con esto el stack medido en las secciones 5-9 (10/10 lookup, 91% síntesis) se activa por config, sin código host.
+- [PR #11](https://github.com/MauricioPerera/micro-expert/pull/11): docs del bloque `retrieval` (ejemplo, alcance, escalas de score, resiliencia). **Mergeado.**
+- rag-local: [PR #1](https://github.com/MauricioPerera/rag-local/pull/1) (knowledge contracts + expansión con threshold/hops) y [PR #2](https://github.com/MauricioPerera/rag-local/pull/2) (docs). **Mergeados.**
 - Issues abiertos con diagnóstico: [#1](https://github.com/MauricioPerera/micro-expert/issues/1) (lifecycle `ask`/auto-mining), [#2](https://github.com/MauricioPerera/micro-expert/issues/2) (export pierde memorias).
 
 ## Veredicto global del modelo
