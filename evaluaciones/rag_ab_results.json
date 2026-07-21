@@ -1,0 +1,241 @@
+{
+  "agregados": {
+    "aurora_pass": 10,
+    "aurora_total": 10,
+    "control_pass": 1,
+    "control_total": 2,
+    "sondas_pass": 2,
+    "sondas_total": 2,
+    "inyecciones_en_no_aurora": 0,
+    "threshold": 0.35,
+    "k": 3,
+    "count_aurora": 10,
+    "count_evidence": "[{\"id\": \"f1\", \"score\": 0.6509745778144859, \"title\": \"aurora ship --stage prod\", \"type\": \"fact\", \"tags\": [], \"description\": \"The deploy command for project Aurora is: aurora ship --stage prod\", \"md\": \"---\\ntype: fact\\ntitle: aurora ship --stage prod\\ndescription: The deploy command for project Aurora is: aurora ship --stage prod\\ntags:\\n  - aurora\\n---\\nThe deploy command for project Aurora is: aurora ship --stage prod\\n\"}, {\"id\": \"f3\", \"score\": 0.5712913853315696, \"title\": \"Aurora's primary database is called stormdb and runs Postgre\", \"type\": \"fact\", \"tags\": [], \"description\": \"Aurora's prima"
+  },
+  "resultados": [
+    {
+      "id": "q1",
+      "kind": "aurora",
+      "question": "What is the deploy command for project Aurora?",
+      "keyword": "aurora ship",
+      "pass": true,
+      "respuesta": "The deploy command for project Aurora is: aurora ship --stage prod.",
+      "scores_topk": [
+        0.8377,
+        0.5694,
+        0.4916
+      ],
+      "facts_inyectados": 3,
+      "wall_seconds": 0.836,
+      "error": null
+    },
+    {
+      "id": "q2",
+      "kind": "aurora",
+      "question": "What port does the Aurora API gateway listen on?",
+      "keyword": "7443",
+      "pass": true,
+      "respuesta": "The Aurora API gateway listens on port 7443.",
+      "scores_topk": [
+        0.8292,
+        0.5214,
+        0.4779
+      ],
+      "facts_inyectados": 3,
+      "wall_seconds": 0.791,
+      "error": null
+    },
+    {
+      "id": "q3",
+      "kind": "aurora",
+      "question": "What is the name of Aurora's primary database?",
+      "keyword": "stormdb",
+      "pass": true,
+      "respuesta": "Aurora's primary database is StormDB, which runs on PostgreSQL 16.",
+      "scores_topk": [
+        0.7741,
+        0.5321,
+        0.5233
+      ],
+      "facts_inyectados": 3,
+      "wall_seconds": 1.109,
+      "error": null
+    },
+    {
+      "id": "q4",
+      "kind": "aurora",
+      "question": "Who is the Aurora team lead?",
+      "keyword": "castellanos",
+      "pass": true,
+      "respuesta": "The Aurora team lead is Ryn Castellanos.",
+      "scores_topk": [
+        0.7551,
+        0.5134,
+        0.4934
+      ],
+      "facts_inyectados": 3,
+      "wall_seconds": 0.753,
+      "error": null
+    },
+    {
+      "id": "q5",
+      "kind": "aurora",
+      "question": "How often do Aurora releases go out?",
+      "keyword": "thursday",
+      "pass": true,
+      "respuesta": "Aurora releases go out every second Thursday.",
+      "scores_topk": [
+        0.8332,
+        0.5233,
+        0.4906
+      ],
+      "facts_inyectados": 3,
+      "wall_seconds": 0.709,
+      "error": null
+    },
+    {
+      "id": "q6",
+      "kind": "aurora",
+      "question": "Where do Aurora error logs live?",
+      "keyword": "/var/log/aurora",
+      "pass": true,
+      "respuesta": "The Aurora error logs live in /var/log/aurora/errors.jsonl.",
+      "scores_topk": [
+        0.7928,
+        0.5773,
+        0.4973
+      ],
+      "facts_inyectados": 3,
+      "wall_seconds": 0.965,
+      "error": null
+    },
+    {
+      "id": "q7",
+      "kind": "aurora",
+      "question": "What is the Aurora staging URL?",
+      "keyword": "staging.aurora-internal.dev",
+      "pass": true,
+      "respuesta": "The Aurora staging URL is: https://staging.aurora-internal.dev",
+      "scores_topk": [
+        0.8499,
+        0.6487,
+        0.5373
+      ],
+      "facts_inyectados": 3,
+      "wall_seconds": 0.927,
+      "error": null
+    },
+    {
+      "id": "q8",
+      "kind": "aurora",
+      "question": "What tool manages Aurora feature flags?",
+      "keyword": "flagpole",
+      "pass": true,
+      "respuesta": "The tool that manages Aurora feature flags is **flagpole**.",
+      "scores_topk": [
+        0.8508,
+        0.4941,
+        0.4926
+      ],
+      "facts_inyectados": 3,
+      "wall_seconds": 0.846,
+      "error": null
+    },
+    {
+      "id": "q9",
+      "kind": "aurora",
+      "question": "Which runbook page documents the Aurora on-call rotation?",
+      "keyword": "rb-114",
+      "pass": true,
+      "respuesta": "The runbook page that documents the Aurora on-call rotation is **RB-114**.",
+      "scores_topk": [
+        0.8657,
+        0.5025,
+        0.5011
+      ],
+      "facts_inyectados": 3,
+      "wall_seconds": 0.955,
+      "error": null
+    },
+    {
+      "id": "q10",
+      "kind": "aurora",
+      "question": "What is the name of the runner pool where Aurora CI runs?",
+      "keyword": "borealis",
+      "pass": true,
+      "respuesta": "The runner pool where Aurora CI runs is named borealis.",
+      "scores_topk": [
+        0.8402,
+        0.4796,
+        0.4662
+      ],
+      "facts_inyectados": 3,
+      "wall_seconds": 0.921,
+      "error": null
+    },
+    {
+      "id": "ctl1",
+      "kind": "control",
+      "question": "What is 12 + 15? Answer with just the number.",
+      "keyword": "27",
+      "pass": true,
+      "respuesta": "27",
+      "scores_topk": [
+        0.1141,
+        0.0827,
+        0.0799
+      ],
+      "facts_inyectados": 0,
+      "wall_seconds": 0.398,
+      "error": null
+    },
+    {
+      "id": "ctl2",
+      "kind": "control",
+      "question": "What is the chemical symbol for water?",
+      "keyword": "h2o",
+      "pass": false,
+      "respuesta": "H₂O",
+      "scores_topk": [
+        0.1023,
+        0.0842,
+        0.0836
+      ],
+      "facts_inyectados": 0,
+      "wall_seconds": 0.347,
+      "error": null
+    },
+    {
+      "id": "sonda_paris",
+      "kind": "sonda",
+      "question": "What is the capital of France? Answer with one word.",
+      "keyword": "paris",
+      "pass": true,
+      "respuesta": "Paris",
+      "scores_topk": [
+        0.1081,
+        0.092,
+        0.0876
+      ],
+      "facts_inyectados": 0,
+      "wall_seconds": 0.272,
+      "error": null
+    },
+    {
+      "id": "sonda_nacl",
+      "kind": "sonda",
+      "question": "What is the chemical formula of table salt? Answer briefly.",
+      "keyword": "nacl",
+      "pass": true,
+      "respuesta": "NaCl",
+      "scores_topk": [
+        0.0442,
+        0.0258,
+        0.0081
+      ],
+      "facts_inyectados": 0,
+      "wall_seconds": 0.264,
+      "error": null
+    }
+  ]
+}
