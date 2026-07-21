@@ -48,6 +48,13 @@ Jornada de evaluación completa del modelo [`GnLOLot/MiniCPM5-1B-Claude-Opus-Fab
 | [RAG-AB-REPORT.md](RAG-AB-REPORT.md) | Mismo oráculo y modelo, retrieval vía [rag-local](https://github.com/MauricioPerera/rag-local) (embeddinggemma-300m, umbral 0,35 a priori): **10/10** (vs 5-6/10 con RepoMemory) y **0 inyecciones** en preguntas generales — contaminación eliminada ("France → Paris"). Los fallos restantes eran del retrieval, no del modelo. |
 | `rag_ab.py` / `rag_ab_results.json` | Harness (requiere rag-local :8937 + llama-server :8940) y respuestas crudas con scores por pregunta. |
 
+## 6. Head-to-head: Ternary Bonsai 27B vs MiniCPM5-1B
+
+| Archivo | Resultado clave |
+|---|---|
+| [COMPARATIVA-BONSAI-VS-1B.md](COMPARATIVA-BONSAI-VS-1B.md) | Bonsai 27B (2-bit ternario, Vulkan/Arc 140T): **50/50** vs 48-49/50 de los 1B — borra los fallos de MCQ y coding, a 21× el tiempo (95 min vs 4,5). Incluye la lección de despliegue (config correcta = 120× de velocidad) y el desenmascaramiento del drafter DSpark. |
+| `bench_bonsai.py` / `bonsai_results_50.json` | Harness OpenAI-transport (incremental, --resume) y respuestas+razonamiento crudos. |
+
 ## Código derivado (mergeado en GitHub)
 
 - [PR #4](https://github.com/MauricioPerera/micro-expert/pull/4): gates de tool-format + opción `builtinTools` + 16 tests. **Mergeado.**

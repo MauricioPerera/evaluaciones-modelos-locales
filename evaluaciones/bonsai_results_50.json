@@ -1,0 +1,700 @@
+{
+  "config": {
+    "endpoint": "http://127.0.0.1:8942/v1/chat/completions",
+    "transport": "openai_chat_completions",
+    "temperature": 0,
+    "top_p": 1.0,
+    "max_tokens": 6144,
+    "request_timeout_s": 900
+  },
+  "items": [
+    {
+      "id": "m1",
+      "category": "math",
+      "status": "pass",
+      "expected": 408,
+      "respuesta_calificada": "408",
+      "raw_content": "408",
+      "reasoning_tail": "= 408. Correct.\n\n3.  **Apply Constraint:**\n   - The user explicitly requested: \"Answer with just the number.\"\n   - So, the output should be exactly \"408\" with no extra text.\n\n4.  **Final Output Generation:**\n   - Output: 408\n   - Verify constraint: Only the number is provided. Matches requirement.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.4875,
+      "wall_seconds": 58.2938,
+      "detail": null
+    },
+    {
+      "id": "m2",
+      "category": "math",
+      "status": "pass",
+      "expected": 563,
+      "respuesta_calificada": "563",
+      "raw_content": "563",
+      "reasoning_tail": "3\n   - Check: 437 + 563 = 1000. Correct.\n\n3.  **Format Output:**\n   - Constraint says \"Answer with just the number.\"\n   - So, output should be exactly \"563\".\n\n4.  **Final Response Generation:**\n   - Output: 563\n   - Double-check constraint: \"Answer with just the number.\" -> Matches.\n   - All good.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.4926,
+      "wall_seconds": 56.9831,
+      "detail": null
+    },
+    {
+      "id": "m3",
+      "category": "math",
+      "status": "pass",
+      "expected": 14,
+      "respuesta_calificada": "14",
+      "raw_content": "14",
+      "reasoning_tail": "- After selling: 19 - 5 = 14\n\n3.  **Check Constraint:**\n   - The user explicitly requested: \"Answer with just the number.\"\n   - So the output should be exactly \"14\" with no extra text.\n\n4.  **Final Output Generation:**\n   - Output: 14\n   - Verify: Matches calculation, matches constraint. All good.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.4126,
+      "wall_seconds": 48.719,
+      "detail": null
+    },
+    {
+      "id": "m4",
+      "category": "math",
+      "status": "pass",
+      "expected": 36,
+      "respuesta_calificada": "36",
+      "raw_content": "36",
+      "reasoning_tail": " / 100 = 36\n   - Alternatively: 10% of 240 = 24, 5% of 240 = 12, so 15% = 24 + 12 = 36.\n\n3.  **Format Output:**\n   - Constraint says \"Answer with just the number.\"\n   - So, output should be exactly \"36\".\n\n4.  **Final Check:**\n   - Calculation is correct.\n   - Format matches constraint.\n   - Ready.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.4803,
+      "wall_seconds": 64.5574,
+      "detail": null
+    },
+    {
+      "id": "m5",
+      "category": "math",
+      "status": "pass",
+      "expected": 12,
+      "respuesta_calificada": "12",
+      "raw_content": "12",
+      "reasoning_tail": "hinking Process:\n1.  **Identify the core question**: The user is asking for the square root of 144.\n2.  **Calculate/Verify**: $\\sqrt{144} = 12$ because $12 \\times 12 = 144$.\n3.  **Format the output**: The user explicitly requested \"Answer with just the number.\"\n4.  **Final Output Generation**: 12.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5182,
+      "wall_seconds": 27.2771,
+      "detail": null
+    },
+    {
+      "id": "m6",
+      "category": "math",
+      "status": "pass",
+      "expected": 12,
+      "respuesta_calificada": "12",
+      "raw_content": "12",
+      "reasoning_tail": "the Equation:**\n   - x + 7 = 19\n   - Subtract 7 from both sides: x = 19 - 7\n   - x = 12\n\n3.  **Check Constraint:**\n   - \"Answer with just the number.\"\n   - So the output should be exactly \"12\" with no extra text.\n\n4.  **Formulate Output:**\n   - 12\n\n   All steps verified. Output matches constraint.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5055,
+      "wall_seconds": 40.6782,
+      "detail": null
+    },
+    {
+      "id": "m7",
+      "category": "math",
+      "status": "pass",
+      "expected": 81,
+      "respuesta_calificada": "81",
+      "raw_content": "81",
+      "reasoning_tail": "3\n   - 3 Ãƒâ€” 3 = 9\n   - 9 Ãƒâ€” 3 = 27\n   - 27 Ãƒâ€” 3 = 81\n\n3.  **Format the Output:**\n   - Constraint says \"Answer with just the number.\"\n   - So, output should be exactly \"81\" with no extra text.\n\n4.  **Final Check:**\n   - Calculation: 3^4 = 81. Correct.\n   - Format: Just the number. Correct.\n   - Ready.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.4995,
+      "wall_seconds": 51.1259,
+      "detail": null
+    },
+    {
+      "id": "m8",
+      "category": "math",
+      "status": "pass",
+      "expected": 150,
+      "respuesta_calificada": "150",
+      "raw_content": "150",
+      "reasoning_tail": "*\n   - Formula: Distance = Speed Ãƒâ€” Time\n   - Calculation: 60 km/h Ãƒâ€” 2.5 h = 150 km\n\n3.  **Format Output:**\n   - Constraint says \"Answer with just the number.\"\n   - So, output should be \"150\"\n\n4.  **Verify:**\n   - 60 * 2.5 = 150. Correct.\n   - No units, just the number as requested.\n\n   Output: 150Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.4758,
+      "wall_seconds": 45.0864,
+      "detail": null
+    },
+    {
+      "id": "m9",
+      "category": "math",
+      "status": "pass",
+      "expected": 100,
+      "respuesta_calificada": "100",
+      "raw_content": "100",
+      "reasoning_tail": "ification during generation prep*: \n   The prompt says \"Answer with just the number.\" I will output exactly \"100\". No extra text. All good. \n   Proceeds. \n   [Output Generation] 100\n   [Final Check] 80 / 0.8 = 100. Correct. Matches constraint. Correct.Ã¢Å“â€¦\n   Output matches.Ã¢Å“â€¦\n   Done. \n   [Output] 100\n",
+      "tokens_por_segundo": 4.4399,
+      "wall_seconds": 119.0105,
+      "detail": null
+    },
+    {
+      "id": "m10",
+      "category": "math",
+      "status": "pass",
+      "expected": 84,
+      "respuesta_calificada": "84",
+      "raw_content": "84",
+      "reasoning_tail": "6) / 8 = 672 / 8 = 84\n\n4.  **Verify Result:**\n   - 8/8 of 96 is 96\n   - 1/8 of 96 is 12\n   - 7/8 is 96 - 12 = 84. Correct.\n\n5.  **Format Output:**\n   - Constraint: \"Answer with just the number.\"\n   - Output: 84\n\n6.  **Final Check:**\n   - Math is correct.\n   - Format matches constraint.\n   - Ready.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.481,
+      "wall_seconds": 69.3652,
+      "detail": null
+    },
+    {
+      "id": "m11",
+      "category": "math",
+      "status": "pass",
+      "expected": 21,
+      "respuesta_calificada": "21",
+      "raw_content": "21",
+      "reasoning_tail": " 30 = 84\n   - Count: 4\n   - Average: 84 / 4 = 21\n\n3.  **Format Output:**\n   - Constraint says \"Answer with just the number.\"\n   - So, output should be exactly \"21\".\n\n4.  **Final Check:**\n   - Calculation: (12+18+24+30)/4 = 84/4 = 21. Correct.\n   - Format: Just the number. Correct.\n   - Output: 21.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5382,
+      "wall_seconds": 53.9928,
+      "detail": null
+    },
+    {
+      "id": "m12",
+      "category": "math",
+      "status": "pass",
+      "expected": 5.6,
+      "respuesta_calificada": "5.60",
+      "raw_content": "5.60",
+      "reasoning_tail": " decimal places, so \"5.60\" is appropriate. I'll stick with 5.60.\n\n5.  **Double Check:**\n   - 3 apples = $2.40 Ã¢â€ â€™ 1 apple = $0.80\n   - 7 apples = 7 * $0.80 = $5.60\n   - Matches.\n   - Output format: just the number.\n\n   Final answer: 5.60 (or 5.6, but 5.60 is standard for currency). I'll output 5.60.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.6173,
+      "wall_seconds": 78.8522,
+      "detail": null
+    },
+    {
+      "id": "m13",
+      "category": "math",
+      "status": "pass",
+      "expected": 42,
+      "respuesta_calificada": "42",
+      "raw_content": "42",
+      "reasoning_tail": " The number is 42.\n\n5.  **Format the Output:**\n    *   The user requested \"Answer with just the number.\"\n    *   So, I should output \"42\".\n\n6.  **Final Check:**\n    *   Rectangle sides: 12, 9, 12, 9.\n    *   Sum: $12 + 9 + 12 + 9 = 42$.\n    *   Correct.\n\n7.  **Construct Final Response:**\n    *   42\n",
+      "tokens_por_segundo": 4.5943,
+      "wall_seconds": 102.8868,
+      "detail": null
+    },
+    {
+      "id": "m14",
+      "category": "math",
+      "status": "pass",
+      "expected": 1024,
+      "respuesta_calificada": "1024",
+      "raw_content": "1024",
+      "reasoning_tail": "^5 = 32\n   - 2^6 = 64\n   - 2^7 = 128\n   - 2^8 = 256\n   - 2^9 = 512\n   - 2^10 = 1024\n\n3.  **Format the Output:**\n   - Constraint says \"Answer with just the number.\"\n   - So, output should be exactly: 1024\n\n4.  **Final Check:**\n   - Calculation is correct.\n   - Format matches constraint.\n   - Ready.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5373,
+      "wall_seconds": 65.4284,
+      "detail": null
+    },
+    {
+      "id": "m15",
+      "category": "math",
+      "status": "pass",
+      "expected": 24,
+      "respuesta_calificada": "24",
+      "raw_content": "24",
+      "reasoning_tail": " = 24\n\n4.  **Verify:**\n   - John is 24, Mary is 12.\n   - John is twice as old as Mary? 24 = 2 * 12. Yes.\n   - Sum is 36? 24 + 12 = 36. Yes.\n   - Question asks for John's age: 24.\n\n5.  **Format Output:**\n   - Constraint: \"Answer with just the number.\"\n   - Output: 24\n\n   All steps check out. Ready.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.3996,
+      "wall_seconds": 78.8755,
+      "detail": null
+    },
+    {
+      "id": "c1",
+      "category": "coding",
+      "status": "pass",
+      "expected": [
+        "assert reverse_string('hello') == 'olleh'",
+        "assert reverse_string('') == ''",
+        "assert reverse_string('a') == 'a'"
+      ],
+      "respuesta_calificada": "```python\ndef reverse_string(s):\n    return s[::-1]\n```",
+      "raw_content": "```python\ndef reverse_string(s):\n    return s[::-1]\n```",
+      "reasoning_tail": " matches all requirements. Proceed. \n   Self-Correction/Verification during thought: \n   - The prompt says \"Return only the code in a python code block.\" I will strictly output just that.\n   - The code is correct and handles all standard string inputs.\n   - No extra explanations needed.\n\n   Ready.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.4603,
+      "wall_seconds": 90.5153,
+      "detail": null
+    },
+    {
+      "id": "c2",
+      "category": "coding",
+      "status": "pass",
+      "expected": [
+        "assert is_palindrome('Racecar') == True",
+        "assert is_palindrome('hello') == False",
+        "assert is_palindrome('nurses run') == True"
+      ],
+      "respuesta_calificada": "```python\ndef is_palindrome(s):\n    cleaned = s.lower().replace(' ', '')\n    return cleaned == cleaned[::-1]\n```",
+      "raw_content": "```python\ndef is_palindrome(s):\n    cleaned = s.lower().replace(' ', '')\n    return cleaned == cleaned[::-1]\n```",
+      "reasoning_tail": "]: \"Write a Python function named is_palindrome(s) that returns True if the lowercase version of s reads the same forwards and backwards, ignoring spaces. Return only the code in a python code block.\"\n   All constraints met. Output matches.Ã¢Å“â€¦\n   Proceeds. \n   [Output Generation] -> *Proceeds* (done)\n",
+      "tokens_por_segundo": 4.4342,
+      "wall_seconds": 297.8201,
+      "detail": null
+    },
+    {
+      "id": "c4",
+      "category": "coding",
+      "status": "pass",
+      "expected": [
+        "assert sum_evens([1,2,3,4]) == 6",
+        "assert sum_evens([]) == 0",
+        "assert sum_evens([1,3,5]) == 0"
+      ],
+      "respuesta_calificada": "```python\ndef sum_evens(nums):\n    return sum(num for num in nums if num % 2 == 0)\n```",
+      "raw_content": "```python\ndef sum_evens(nums):\n    return sum(num for num in nums if num % 2 == 0)\n```",
+      "reasoning_tail": "eds*\n   - *(Self-Correction/Verification during generation prep)*: The prompt says \"Return only the code in a python code block.\" I will make sure there's absolutely no other text. Just the code block.\n   - All good.Ã¢Å“â€¦\n   - Output matches response.Ã¢Å“â€¦\n   - Done. \n   - [Output Generation] -> *Proceeds*\n",
+      "tokens_por_segundo": 4.5094,
+      "wall_seconds": 188.9221,
+      "detail": null
+    },
+    {
+      "id": "c5",
+      "category": "coding",
+      "status": "pass",
+      "expected": [
+        "assert factorial(0) == 1",
+        "assert factorial(5) == 120",
+        "assert factorial(1) == 1"
+      ],
+      "respuesta_calificada": "```python\ndef factorial(n):\n    result = 1\n    for i in range(2, n + 1):\n        result *= i\n    return result\n```",
+      "raw_content": "```python\ndef factorial(n):\n    result = 1\n    for i in range(2, n + 1):\n        result *= i\n    return result\n```",
+      "reasoning_tail": "*= i\n       return result\n   ```\n   Perfect.Ã¢Å“â€¦\n   [Final Check of the Prompt]: \"Write a Python function named factorial(n) that returns n! for a non-negative integer n. Return only the code in a python code block.\"\n   Matches exactly. No extra text. Ready. \n   Output matches response.Ã¢Å“â€¦\n   [Proceeds]\n",
+      "tokens_por_segundo": 4.5075,
+      "wall_seconds": 200.2832,
+      "detail": null
+    },
+    {
+      "id": "c6",
+      "category": "coding",
+      "status": "pass",
+      "expected": [
+        "assert fib(0) == 0",
+        "assert fib(1) == 1",
+        "assert fib(10) == 55"
+      ],
+      "respuesta_calificada": "```python\ndef fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n```",
+      "raw_content": "```python\ndef fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n```",
+      "reasoning_tail": " Ã¢Å“â€œ\n   - Only code in python block Ã¢Å“â€œ\n   Perfect. \n   Proceeds. \n   [Output] -> *generates response*\n   *(Note: I'll make sure there's absolutely no extra text as requested.)*\n   \"Return only the code in a python code block.\" -> I will strictly follow this.\n   Done. \n   [Output Generation] (Proceeds)\n",
+      "tokens_por_segundo": 4.4761,
+      "wall_seconds": 315.5142,
+      "detail": null
+    },
+    {
+      "id": "c7",
+      "category": "coding",
+      "status": "pass",
+      "expected": [
+        "assert count_vowels('hello') == 2",
+        "assert count_vowels('') == 0",
+        "assert count_vowels('AEIOU') == 5"
+      ],
+      "respuesta_calificada": "```python\ndef count_vowels(s):\n    return sum(1 for char in s.lower() if char in 'aeiou')\n```",
+      "raw_content": "```python\ndef count_vowels(s):\n    return sum(1 for char in s.lower() if char in 'aeiou')\n```",
+      "reasoning_tail": "e:\n   ```python\n   def count_vowels(s):\n       return sum(1 for char in s.lower() if char in 'aeiou')\n   ```\n   Perfect.Ã¢Å“â€¦\n   Proceeds. \n   [Output Generation] -> *Proceeds*\n   *(Note: I'll make sure the formatting is exactly as requested.)*\n   All good. \n   [Output] -> *See response.* \n   *(Done.)*\n",
+      "tokens_por_segundo": 4.4953,
+      "wall_seconds": 207.1872,
+      "detail": null
+    },
+    {
+      "id": "c9",
+      "category": "coding",
+      "status": "pass",
+      "expected": [
+        "assert flatten([[1,2],[3]]) == [1,2,3]",
+        "assert flatten([]) == []",
+        "assert flatten([[],[1]]) == [1]"
+      ],
+      "respuesta_calificada": "```python\ndef flatten(lst):\n    return [item for sublist in lst for item in sublist]\n```",
+      "raw_content": "```python\ndef flatten(lst):\n    return [item for sublist in lst for item in sublist]\n```",
+      "reasoning_tail": "t matches. \n   [Done.] \n   *Self-Correction/Note during thought*: Sometimes users want type hints or docstrings, but the prompt is strict. I'll keep it minimal and exact. The list comprehension is standard and efficient. I'll output exactly that.Ã¢Å“â€¦\n   Proceeds. \n   [Output Generation] -> *Proceeds.*\n",
+      "tokens_por_segundo": 4.5118,
+      "wall_seconds": 211.6402,
+      "detail": null
+    },
+    {
+      "id": "c11",
+      "category": "coding",
+      "status": "pass",
+      "expected": [
+        "assert is_prime(2) == True",
+        "assert is_prime(1) == False",
+        "assert is_prime(97) == True",
+        "assert is_prime(100) == False"
+      ],
+      "respuesta_calificada": "```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    for i in range(3, int(n**0.5) + 1, 2):\n        if n % i == 0:\n            return False\n    return True\n```",
+      "raw_content": "```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    for i in range(3, int(n**0.5) + 1, 2):\n        if n % i == 0:\n            return False\n    return True\n```",
+      "reasoning_tail": "<= 1:\n           return False\n       if n == 2:\n           return True\n       if n % 2 == 0:\n           return False\n       for i in range(3, int(n**0.5) + 1, 2):\n           if n % i == 0:\n               return False\n       return True\n   ```\n   Perfect.Ã¢Å“â€¦\n   Output matches.Ã¢Å“â€¦\n   Proceeds. \n   [Done]\n",
+      "tokens_por_segundo": 4.4923,
+      "wall_seconds": 301.433,
+      "detail": null
+    },
+    {
+      "id": "c12",
+      "category": "coding",
+      "status": "pass",
+      "expected": [
+        "assert remove_duplicates([1,2,1,3]) == [1,2,3]",
+        "assert remove_duplicates([]) == []",
+        "assert remove_duplicates(['b','a','b']) == ['b','a']"
+      ],
+      "respuesta_calificada": "```python\ndef remove_duplicates(lst):\n    seen = set()\n    result = []\n    for item in lst:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result\n```",
+      "raw_content": "```python\ndef remove_duplicates(lst):\n    seen = set()\n    result = []\n    for item in lst:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result\n```",
+      "reasoning_tail": "text. Perfect. \n   *Self-Correction/Verification during generation prep*: \n   The prompt says \"Return only the code in a python code block.\" I will strictly follow that. No markdown outside the code block. I'll make sure the formatting is exact.\n   Ready. \n   Output matches response.Ã¢Å“â€¦\n   [Proceeds]\n",
+      "tokens_por_segundo": 4.4592,
+      "wall_seconds": 290.5036,
+      "detail": null
+    },
+    {
+      "id": "i1",
+      "category": "instruction_following",
+      "status": "pass",
+      "expected": "paris",
+      "respuesta_calificada": "Paris",
+      "raw_content": "Paris",
+      "reasoning_tail": "ly.\n\n4.  **Formulate Output:**\n   - Just \"Paris\" (no extra text, punctuation if possible, but the constraint says exactly one word, so I'll output just the word).\n\n5.  **Final Verification:**\n   - Question: capital of France? -> Paris\n   - Constraint: exactly one word -> Paris\n   - Output matches.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5383,
+      "wall_seconds": 43.4773,
+      "detail": null
+    },
+    {
+      "id": "i2",
+      "category": "instruction_following",
+      "status": "pass",
+      "expected": {
+        "status": "ok"
+      },
+      "respuesta_calificada": "{\"status\": \"ok\"}",
+      "raw_content": "{\"status\": \"ok\"}",
+      "reasoning_tail": "t and nothing else\".) \n   Proceeds. \n   [Final Check] \n   Input: \"Reply with ONLY this exact valid JSON object and nothing else: a JSON object with a single key \"status\" whose value is \"ok\".\"\n   Output: `{\"status\": \"ok\"}`\n   Matches perfectly.Ã¢Å“â€¦\n   Done. \n   [Output Generation] -> `{\"status\": \"ok\"}`\n",
+      "tokens_por_segundo": 4.5029,
+      "wall_seconds": 142.0632,
+      "detail": null
+    },
+    {
+      "id": "i3",
+      "category": "instruction_following",
+      "status": "pass",
+      "expected": 3,
+      "respuesta_calificada": "Apple\nBanana\nCherry",
+      "raw_content": "Apple\nBanana\nCherry",
+      "reasoning_tail": " - Apple\n   - Banana\n   - Cherry\n   (Any three common fruits work)\n\n4.  **Format Output:**\n   Apple\n   Banana\n   Cherry\n\n5.  **Verify Constraints:**\n   - Exactly 3 fruits? Yes.\n   - One per line? Yes.\n   - No numbering? Yes.\n   - No extra text? Yes.\n\n   All constraints met. Output matches exactly.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5397,
+      "wall_seconds": 54.2681,
+      "detail": null
+    },
+    {
+      "id": "i4",
+      "category": "instruction_following",
+      "status": "pass",
+      "expected": "YES",
+      "respuesta_calificada": "YES",
+      "raw_content": "YES",
+      "reasoning_tail": "ES\"\n   - Must be in uppercase\n   - Must contain absolutely nothing else (no punctuation, no extra text, no formatting)\n3.  **Formulate Response:** \"YES\"\n4.  **Verify Constraints:** \n   - Single word? Yes.\n   - Uppercase? Yes.\n   - Nothing else? Yes.\n5.  **Output Generation:** Output exactly \"YES\".Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5499,
+      "wall_seconds": 37.1236,
+      "detail": null
+    },
+    {
+      "id": "i5",
+      "category": "instruction_following",
+      "status": "pass",
+      "expected": "12345",
+      "respuesta_calificada": "1, 2, 3, 4, 5",
+      "raw_content": "1, 2, 3, 4, 5",
+      "reasoning_tail": "lanations.\n\n3.  **Check Constraints:**\n   - \"nothing else\" means absolutely no extra characters, words, or formatting.\n   - I will output exactly: `1, 2, 3, 4, 5`\n\n4.  **Final Output Generation:**\n   - Just the string: 1, 2, 3, 4, 5\n   - Double-check: Matches request exactly. No extra text. Ready.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5309,
+      "wall_seconds": 80.795,
+      "detail": null
+    },
+    {
+      "id": "i6",
+      "category": "instruction_following",
+      "status": "pass",
+      "expected": "NO",
+      "respuesta_calificada": "NO",
+      "raw_content": "NO",
+      "reasoning_tail": "nation.\n\n   All constraints met. Proceed. \n   Output: NO\n   *(Self-Correction/Refinement during thought)*: I should make sure I don't add any formatting like backticks or quotes. Just the raw text \"NO\". The prompt says \"nothing else\", so I will strictly output just those two characters.\n\n   Ready.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5391,
+      "wall_seconds": 68.9115,
+      "detail": null
+    },
+    {
+      "id": "i7",
+      "category": "instruction_following",
+      "status": "pass",
+      "expected": "246810",
+      "respuesta_calificada": "2 4 6 8 10",
+      "raw_content": "2 4 6 8 10",
+      "reasoning_tail": "/Refinement during thought: I should make sure there's no trailing space or newline if possible, but standard output is fine. The prompt says \"nothing else\", so I'll just output the exact string.)\n   Ready.Ã¢Å“â€¦\n   Output matches response.Ã¢Å“â€¦\n   Proceeds. \n   [Output Generation] -> `2 4 6 8 10`\n   [Done]\n",
+      "tokens_por_segundo": 4.5119,
+      "wall_seconds": 92.698,
+      "detail": null
+    },
+    {
+      "id": "i8",
+      "category": "instruction_following",
+      "status": "pass",
+      "expected": {
+        "name": "test",
+        "count": 3
+      },
+      "respuesta_calificada": "{\"name\": \"test\", \"count\": 3}",
+      "raw_content": "{\"name\": \"test\", \"count\": 3}",
+      "reasoning_tail": " \"count\": 3}`\n   [Done] \n   *Self-Correction/Verification during generation prep*: \n   The prompt says \"Reply with ONLY a valid JSON object...\". I will output exactly that string. No markdown. No newlines. Perfect.Ã¢Å“â€¦\n   Proceeds. \n   [Output Generation] -> `{\"name\": \"test\", \"count\": 3}`\n   *(Done.)*\n",
+      "tokens_por_segundo": 4.5118,
+      "wall_seconds": 166.4685,
+      "detail": null
+    },
+    {
+      "id": "i9",
+      "category": "instruction_following",
+      "status": "pass",
+      "expected": 5,
+      "respuesta_calificada": "Red\nBlue\nGreen\nYellow\nPurple",
+      "raw_content": "Red\nBlue\nGreen\nYellow\nPurple",
+      "reasoning_tail": "that capitalization doesn't matter, but standard capitalization is fine. The prompt says \"no extra text\", so I'll strictly output just the five words on separate lines. All constraints met.Ã¢Å“â€¦\n   Output matches exactly.Ã¢Å“â€¦\n   Proceed. \n   Output:\n   Red\n   Blue\n   Green\n   Yellow\n   Purple\n   *(Done.)*\n",
+      "tokens_por_segundo": 4.5344,
+      "wall_seconds": 87.3378,
+      "detail": null
+    },
+    {
+      "id": "i10",
+      "category": "instruction_following",
+      "status": "pass",
+      "expected": "jupiter",
+      "respuesta_calificada": "Jupiter",
+      "raw_content": "Jupiter",
+      "reasoning_tail": "nstraints met. Proceed. \n   Self-Correction/Refinement during thought: Should I include a period? The prompt says \"exactly one word\", so punctuation might violate it. I'll output just \"Jupiter\".\n   Final: JupiterÃ¢Å“â€¦\n   Output matches response.Ã¢Å“â€¦\n   Proceed. \n   [Output Generation] -> Jupiter\n   [Done]\n",
+      "tokens_por_segundo": 4.5425,
+      "wall_seconds": 62.7953,
+      "detail": null
+    },
+    {
+      "id": "i11",
+      "category": "instruction_following",
+      "status": "pass",
+      "expected": "109876",
+      "respuesta_calificada": "10, 9, 8, 7, 6",
+      "raw_content": "10, 9, 8, 7, 6",
+      "reasoning_tail": "Constraints:**\n   - Counts down from 10 to 6? Yes.\n   - Separated by commas? Yes.\n   - Nothing else? Yes, just the sequence.\n\n5.  **Final Output Generation:**\n   - \"10, 9, 8, 7, 6\" (matches exactly)\n\n   I will output exactly that. No extra text, no quotes, just the numbers and commas as requested.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5441,
+      "wall_seconds": 60.5504,
+      "detail": null
+    },
+    {
+      "id": "i12",
+      "category": "instruction_following",
+      "status": "pass",
+      "expected": {
+        "items": [
+          1,
+          2,
+          3
+        ]
+      },
+      "respuesta_calificada": "{\"items\": [1, 2, 3]}",
+      "raw_content": "{\"items\": [1, 2, 3]}",
+      "reasoning_tail": "ed. \n   Output: `{\"items\": [1, 2, 3]}`\n   (Self-Correction/Refinement during thought: Sometimes prompts like this are tested by automated graders that expect exactly the JSON string. I will provide exactly that.)\n   All good.Ã¢Å“â€¦\n   Output generation. \n   `{\"items\": [1, 2, 3]}`\n   Done. \n   [Proceeds]\n",
+      "tokens_por_segundo": 4.53,
+      "wall_seconds": 108.8861,
+      "detail": null
+    },
+    {
+      "id": "k1",
+      "category": "knowledge",
+      "status": "pass",
+      "expected": "B",
+      "respuesta_calificada": "B",
+      "raw_content": "B",
+      "reasoning_tail": "upiter.\n3.  **Match with Options:** Jupiter corresponds to option B.\n4.  **Format Output:** The user explicitly requested \"Answer with the letter only.\" So the output should be just \"B\".\n5.  **Verify:** Jupiter is indeed the largest planet. Option B is Jupiter. Output matches constraint. All good.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5631,
+      "wall_seconds": 35.2856,
+      "detail": null
+    },
+    {
+      "id": "k2",
+      "category": "knowledge",
+      "status": "pass",
+      "expected": "A",
+      "respuesta_calificada": "A",
+      "raw_content": "A",
+      "reasoning_tail": "orrection/Refinement during thought*: The prompt says \"Answer with the letter only.\" I will strictly output just \"A\". No extra text.\n   - Final: A\n   - Proceeds. \n   - [Output Generation] -> A\n   - [Done.] \n   - *(Note: I'm overthinking a simple prompt, but it's good to be precise.)*\n   - Output: A\n",
+      "tokens_por_segundo": 4.5339,
+      "wall_seconds": 103.939,
+      "detail": null
+    },
+    {
+      "id": "k3",
+      "category": "knowledge",
+      "status": "pass",
+      "expected": "C",
+      "respuesta_calificada": "C",
+      "raw_content": "C",
+      "reasoning_tail": " Pacific\n   - D) Arctic\n   - Match: C\n\n4.  **Format Output:**\n   - Instruction says \"Answer with the letter only.\"\n   - Output should be just \"C\"\n\n5.  **Final Check:**\n   - Fact correct? Yes, Pacific is the largest.\n   - Matches option C? Yes.\n   - Format correct? Yes, just the letter.\n   - Ready.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5567,
+      "wall_seconds": 48.0048,
+      "detail": null
+    },
+    {
+      "id": "k4",
+      "category": "knowledge",
+      "status": "pass",
+      "expected": "B",
+      "respuesta_calificada": "B",
+      "raw_content": "B",
+      "reasoning_tail": "symbol is \"Au\" (from Latin \"aurum\").\n   - Match with options: B) Au\n\n3.  **Format Output:**\n   - User requested: \"Answer with the letter only.\"\n   - So, just \"B\"\n\n4.  **Final Check:**\n   - Question: chemical symbol for gold? -> Au\n   - Option B matches.\n   - Output matches instruction.\n   - Ready.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5518,
+      "wall_seconds": 44.3185,
+      "detail": null
+    },
+    {
+      "id": "k5",
+      "category": "knowledge",
+      "status": "pass",
+      "expected": "C",
+      "respuesta_calificada": "C",
+      "raw_content": "C",
+      "reasoning_tail": "tomic number 2)\n    - B) Oxygen (Atomic number 8)\n    - C) Hydrogen (Atomic number 1)\n    - D) Carbon (Atomic number 6)\n4.  **Formulate Output:** The correct option is C. The user requested \"Answer with the letter only.\"\n5.  **Final Check:** Does \"C\" match the requirement? Yes. Output is just \"C\".Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5559,
+      "wall_seconds": 44.9632,
+      "detail": null
+    },
+    {
+      "id": "k6",
+      "category": "knowledge",
+      "status": "pass",
+      "expected": "B",
+      "respuesta_calificada": "B",
+      "raw_content": "B",
+      "reasoning_tail": "1945 - Correct\n   - C) 1947 - Incorrect\n   - D) 1950 - Incorrect\n\n4.  **Format Output:**\n   - Instruction says \"Answer with the letter only.\"\n   - So, output should be just \"B\".\n\n5.  **Final Check:**\n   - Fact: WWII ended in 1945.\n   - Option B matches.\n   - Format matches instruction.\n   - Ready.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5372,
+      "wall_seconds": 60.7498,
+      "detail": null
+    },
+    {
+      "id": "k7",
+      "category": "knowledge",
+      "status": "pass",
+      "expected": "A",
+      "respuesta_calificada": "A",
+      "raw_content": "A",
+      "reasoning_tail": "   - Final Answer: A\n   - Output Generation. \n   - [Done]\n   - Output: A\n   - (Note: I'll make sure there's absolutely no extra text as requested.) \n   - \"A\" is the exact response.Ã¢Å“â€¦\n   - Proceeds. \n   - [Output Generation] -> A\n   - [Check] -> Matches all constraints.Ã¢Å“â€¦\n   - [Final] -> A\n   - [Done]\n",
+      "tokens_por_segundo": 4.5338,
+      "wall_seconds": 99.7036,
+      "detail": null
+    },
+    {
+      "id": "k8",
+      "category": "knowledge",
+      "status": "pass",
+      "expected": "C",
+      "respuesta_calificada": "C",
+      "raw_content": "C",
+      "reasoning_tail": "ify:**\n   - Fact check: Canberra is indeed the capital of Australia.\n   - Format check: Only the letter \"C\" is provided.\n   - All constraints met.\n\n5.  **Generate Response:**\n   - C\n   - (Self-Correction/Refinement during thought: Ensure no extra text, just the letter as requested.)\n   - Output: CÃ¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5422,
+      "wall_seconds": 51.238,
+      "detail": null
+    },
+    {
+      "id": "k9",
+      "category": "knowledge",
+      "status": "pass",
+      "expected": "B",
+      "respuesta_calificada": "B",
+      "raw_content": "B",
+      "reasoning_tail": " not FIFO\n   - D) Hash map -> Key-value pairs, not FIFO\n\n4.  **Formulate Output:**\n   - The correct answer is B.\n   - Instruction says \"Answer with the letter only.\"\n   - Output: B\n\n5.  **Final Check:**\n   - Does it match the requirement? Yes.\n   - Is it accurate? Yes.\n   - Output matches exactly.Ã¢Å“â€¦\n",
+      "tokens_por_segundo": 4.5435,
+      "wall_seconds": 60.5539,
+      "detail": null
+    },
+    {
+      "id": "k10",
+      "category": "knowledge",
+      "status": "pass",
+      "expected": "A",
+      "respuesta_calificada": "A",
+      "raw_content": "A",
+      "reasoning_tail": "\n   - Self-Correction/Verification during thought: Sometimes users want just the letter, sometimes they want the letter and the text. The prompt explicitly says \"Answer with the letter only.\" So I will output exactly \"A\".Ã¢Å“â€¦\n   - Output matches requirement.Ã¢Å“â€¦\n   - Done. \n   - Output: A\n   - [Proceeds]\n",
+      "tokens_por_segundo": 4.5436,
+      "wall_seconds": 71.1194,
+      "detail": null
+    },
+    {
+      "id": "k11",
+      "category": "knowledge",
+      "status": "pass",
+      "expected": "D",
+      "respuesta_calificada": "D",
+      "raw_content": "D",
+      "reasoning_tail": "Verification during thought: \n   - Question: Which planet is known as the Red Planet?\n   - Options: A) Venus B) Saturn C) Jupiter D) Mars\n   - Correct answer: Mars -> D\n   - Constraint: \"Answer with the letter only.\"\n   - Output matches constraint. All good.Ã¢Å“â€¦\n   Output Generation. \n   `D`\n   [Done]\n",
+      "tokens_por_segundo": 4.5449,
+      "wall_seconds": 62.4297,
+      "detail": null
+    },
+    {
+      "id": "c3",
+      "category": "coding",
+      "status": "pass",
+      "expected": [
+        "assert fizzbuzz(5) == ['1','2','Fizz','4','Buzz']",
+        "assert fizzbuzz(15)[14] == 'FizzBuzz'",
+        "assert fizzbuzz(1) == ['1']"
+      ],
+      "respuesta_calificada": "```python\ndef fizzbuzz(n):\n    result = []\n    for i in range(1, n + 1):\n        if i % 3 == 0 and i % 5 == 0:\n            result.append('FizzBuzz')\n        elif i % 3 == 0:\n            result.append('Fizz')\n        elif i % 5 == 0:\n            result.append('Buzz')\n        else:\n            result.",
+      "raw_content": "```python\ndef fizzbuzz(n):\n    result = []\n    for i in range(1, n + 1):\n        if i % 3 == 0 and i % 5 == 0:\n            result.append('FizzBuzz')\n        elif i % 3 == 0:\n            result.append('Fizz')\n        elif i % 5 == 0:\n            result.append('Buzz')\n        else:\n            result.append(str(i))\n    return result\n```",
+      "reasoning_tail": "[Output] -> *See response*\n   *(Self-Correction/Verification during output prep)*: I'll double check the exact wording: \"multiples of both are 'FizzBuzz'\". Yes. \"other numbers are the number as a string\". Yes. \"1..n\". Yes. All correct.\n   Final code is ready.✅\n   Output matches response.✅\n   [Done]\n",
+      "tokens_por_segundo": 4.4357,
+      "wall_seconds": 377.8209,
+      "detail": null
+    },
+    {
+      "id": "c8",
+      "category": "coding",
+      "status": "pass",
+      "expected": [
+        "assert second_largest([1,2,3]) == 2",
+        "assert second_largest([5,5,4]) == 4",
+        "assert second_largest([10,3,10,7]) == 7"
+      ],
+      "respuesta_calificada": "```python\ndef second_largest(nums):\n    return sorted(set(nums))[-2]\n```",
+      "raw_content": "```python\ndef second_largest(nums):\n    return sorted(set(nums))[-2]\n```",
+      "reasoning_tail": "e? Works. \n   The assumption \"assume it exists\" means there are at least 2 distinct values. \n   So `[-2]` is safe. \n   All good. \n   Output matches.✅\n   Final Answer Generation. \n   ```python\n   def second_largest(nums):\n       return sorted(set(nums))[-2]\n   ```\n   Done. \n   [Output] -> *Proceeds*\n",
+      "tokens_por_segundo": 4.4592,
+      "wall_seconds": 251.1639,
+      "detail": null
+    },
+    {
+      "id": "c10",
+      "category": "coding",
+      "status": "pass",
+      "expected": [
+        "assert word_count('a b A') == {'a': 2, 'b': 1}",
+        "assert word_count('') == {}",
+        "assert word_count('x') == {'x': 1}"
+      ],
+      "respuesta_calificada": "```python\ndef word_count(s):\n    counts = {}\n    for word in s.lower().split():\n        counts[word] = counts.get(word, 0) + 1\n    return counts\n```",
+      "raw_content": "```python\ndef word_count(s):\n    counts = {}\n    for word in s.lower().split():\n        counts[word] = counts.get(word, 0) + 1\n    return counts\n```",
+      "reasoning_tail": "unts[word] = counts.get(word, 0) + 1\n       return counts\n   ```\n   This is correct. I will output exactly this. \n   Note: I'll make sure there's no extra text as requested. \"Return only the code in a python code block.\" -> I will strictly follow this.\n   Done. \n   [Output Generation] -> *Proceeds*\n",
+      "tokens_por_segundo": 4.4507,
+      "wall_seconds": 321.3394,
+      "detail": null
+    }
+  ],
+  "agregados_por_categoria": {
+    "math": {
+      "aciertos": 15,
+      "total": 15,
+      "porcentaje": 100.0
+    },
+    "coding": {
+      "aciertos": 12,
+      "total": 12,
+      "porcentaje": 100.0
+    },
+    "instruction_following": {
+      "aciertos": 12,
+      "total": 12,
+      "porcentaje": 100.0
+    },
+    "knowledge": {
+      "aciertos": 11,
+      "total": 11,
+      "porcentaje": 100.0
+    }
+  },
+  "global": {
+    "aciertos": 50,
+    "total": 50,
+    "porcentaje": 100.0
+  },
+  "promedio_tokens_por_segundo": 4.5111
+}
