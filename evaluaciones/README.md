@@ -84,6 +84,13 @@ Features implementadas en rag-local (rama `feat/knowledge-contract`, 110/110 tes
 
 **Coda — Bonsai 27B sobre el mismo retrieval final**: **14/14 (100%)**, incluido a3 ("Monday" correcto con el contexto ruidoso donde el 1B dice "Tuesday") — el último 9% es techo de parámetros, no de sistema. Costo: ~93 s por respuesta (vs 3-10 s del 1B). Evidencia: `sintesis_bonsai_R_results.json`. Regla operativa final: 1B para lookup y síntesis simple (91%), Bonsai cuando la síntesis con aritmética debe ser infalible.
 
+## 10. ¿Herramientas? Precisión/recall de invocación — 1B vs Bonsai, tags vs nativo
+
+| Archivo | Resultado clave |
+|---|---|
+| [TOOLS-AB-REPORT.md](TOOLS-AB-REPORT.md) | 16 ítems (8 tool-apropiados, 8 no) × 3 brazos. **Bonsai: CERO falsos positivos en ambos protocolos (16/16 no_call limpios)** vs 1B con 2/8 FP (inventó `[FETCH:]` a una URL inexistente teniendo el dato en contexto, e inventó un tool `[ROUND:]` que no existe). Recall: Bonsai nativo 6/8 — y los 2 fails son de dialecto de expresión (`sqrt(7396)`, `2^23`: decisión correcta, sintaxis fuera del contrato del calculador), no de juicio. Regla final: **1B responde, Bonsai actúa** — con tools nativos y descripciones que especifiquen el dialecto de expresiones. |
+| `tools_oracle.json` / `tools_ab.py` / `tools_ab_results.json` | Oráculo congelado con grading matizado (pass_directo, abstención honesta), harness de 3 brazos y 48 evaluaciones crudas. |
+
 ## Código derivado (mergeado en GitHub)
 
 - [PR #4](https://github.com/MauricioPerera/micro-expert/pull/4): gates de tool-format + opción `builtinTools` + 16 tests. **Mergeado.**

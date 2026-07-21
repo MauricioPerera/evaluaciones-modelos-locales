@@ -1,0 +1,870 @@
+{
+  "meta": {
+    "oracle": "tools_oracle.json",
+    "items": 16,
+    "brazos": [
+      "A",
+      "B",
+      "C"
+    ],
+    "ollama_model": "minicpm5-fable5-thinking",
+    "nota": "Grading sobre decisión+forma+contenido; no se ejecutan tools."
+  },
+  "evaluaciones": [
+    {
+      "id": "tc1",
+      "clase": "calc",
+      "brazo": "A",
+      "question": "What is 847 * 293?",
+      "decision_esperada": "call_calc",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass_directo",
+      "detalle": "numero directo 248171.0 ~= 248171",
+      "respuesta": "\n\n248,171",
+      "wall_seconds": 6.861,
+      "error": null
+    },
+    {
+      "id": "tc1",
+      "clase": "calc",
+      "brazo": "B",
+      "question": "What is 847 * 293?",
+      "decision_esperada": "call_calc",
+      "invoco": true,
+      "tool": "CALC",
+      "contenido_invocacion": [
+        "847 * 293"
+      ],
+      "veredicto": "pass",
+      "detalle": "ok(847 * 293=248171)",
+      "respuesta": "[CALC: 847 * 293]\nThe result is 248,171.",
+      "wall_seconds": 233.089,
+      "error": null
+    },
+    {
+      "id": "tc1",
+      "clase": "calc",
+      "brazo": "C",
+      "question": "What is 847 * 293?",
+      "decision_esperada": "call_calc",
+      "invoco": true,
+      "tool": "calculator",
+      "contenido_invocacion": [
+        "847 * 293"
+      ],
+      "veredicto": "pass",
+      "detalle": "ok(847 * 293=248171)",
+      "respuesta": "",
+      "wall_seconds": 28.485,
+      "error": null
+    },
+    {
+      "id": "tc2",
+      "clase": "calc",
+      "brazo": "A",
+      "question": "Compute 12345 divided by 37, rounded to two decimals.",
+      "decision_esperada": "call_calc",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "fail",
+      "detalle": "sin invocacion ni numero correcto",
+      "respuesta": "\n\n[ROUND: 334.81]",
+      "wall_seconds": 16.382,
+      "error": null
+    },
+    {
+      "id": "tc2",
+      "clase": "calc",
+      "brazo": "B",
+      "question": "Compute 12345 divided by 37, rounded to two decimals.",
+      "decision_esperada": "call_calc",
+      "invoco": true,
+      "tool": "CALC",
+      "contenido_invocacion": [
+        "12345 / 37"
+      ],
+      "veredicto": "pass",
+      "detalle": "ok(12345 / 37=333.64864864864865)",
+      "respuesta": "[CALC: 12345 / 37]\nThe result is approximately 333.6486. Rounded to two decimal places, the answer is **333.65**.",
+      "wall_seconds": 302.977,
+      "error": null
+    },
+    {
+      "id": "tc2",
+      "clase": "calc",
+      "brazo": "C",
+      "question": "Compute 12345 divided by 37, rounded to two decimals.",
+      "decision_esperada": "call_calc",
+      "invoco": true,
+      "tool": "calculator",
+      "contenido_invocacion": [
+        "12345 / 37"
+      ],
+      "veredicto": "pass",
+      "detalle": "ok(12345 / 37=333.64864864864865)",
+      "respuesta": "",
+      "wall_seconds": 31.625,
+      "error": null
+    },
+    {
+      "id": "tc3",
+      "clase": "calc",
+      "brazo": "A",
+      "question": "What is the square root of 7396?",
+      "decision_esperada": "call_calc",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass_directo",
+      "detalle": "numero directo 86.0 ~= 86",
+      "respuesta": "\n\nThe square root of 7396 is 86.",
+      "wall_seconds": 7.539,
+      "error": null
+    },
+    {
+      "id": "tc3",
+      "clase": "calc",
+      "brazo": "B",
+      "question": "What is the square root of 7396?",
+      "decision_esperada": "call_calc",
+      "invoco": true,
+      "tool": "CALC",
+      "contenido_invocacion": [
+        "sqrt(7396)"
+      ],
+      "veredicto": "fail",
+      "detalle": "malformed: malformed('sqrt(7396)')",
+      "respuesta": "[CALC: sqrt(7396)]",
+      "wall_seconds": 37.202,
+      "error": null
+    },
+    {
+      "id": "tc3",
+      "clase": "calc",
+      "brazo": "C",
+      "question": "What is the square root of 7396?",
+      "decision_esperada": "call_calc",
+      "invoco": true,
+      "tool": "calculator",
+      "contenido_invocacion": [
+        "sqrt(7396)"
+      ],
+      "veredicto": "fail",
+      "detalle": "malformed: malformed('sqrt(7396)')",
+      "respuesta": "",
+      "wall_seconds": 36.267,
+      "error": null
+    },
+    {
+      "id": "tc4",
+      "clase": "calc",
+      "brazo": "A",
+      "question": "Calculate 2 to the power of 23.",
+      "decision_esperada": "call_calc",
+      "invoco": true,
+      "tool": "CALC",
+      "contenido_invocacion": [
+        "2 ** 23"
+      ],
+      "veredicto": "pass",
+      "detalle": "ok(2 ** 23=8388608)",
+      "respuesta": "\n\n[CALC: 2 ** 23]",
+      "wall_seconds": 3.805,
+      "error": null
+    },
+    {
+      "id": "tc4",
+      "clase": "calc",
+      "brazo": "B",
+      "question": "Calculate 2 to the power of 23.",
+      "decision_esperada": "call_calc",
+      "invoco": true,
+      "tool": "CALC",
+      "contenido_invocacion": [
+        "2^23"
+      ],
+      "veredicto": "fail",
+      "detalle": "malformed: malformed('2^23')",
+      "respuesta": "[CALC: 2^23]",
+      "wall_seconds": 408.417,
+      "error": null
+    },
+    {
+      "id": "tc4",
+      "clase": "calc",
+      "brazo": "C",
+      "question": "Calculate 2 to the power of 23.",
+      "decision_esperada": "call_calc",
+      "invoco": true,
+      "tool": "calculator",
+      "contenido_invocacion": [
+        "2^23"
+      ],
+      "veredicto": "fail",
+      "detalle": "malformed: malformed('2^23')",
+      "respuesta": "",
+      "wall_seconds": 25.378,
+      "error": null
+    },
+    {
+      "id": "tf1",
+      "clase": "fetch",
+      "brazo": "A",
+      "question": "Fetch https://example.com and tell me what the page title is.",
+      "decision_esperada": "call_fetch",
+      "invoco": true,
+      "tool": "FETCH",
+      "contenido_invocacion": [
+        "GET https://example.com"
+      ],
+      "veredicto": "pass",
+      "detalle": "fetch url contiene 'example.com': 'GET https://example.com'",
+      "respuesta": "\n\n[FETCH: GET https://example.com]",
+      "wall_seconds": 6.353,
+      "error": null
+    },
+    {
+      "id": "tf1",
+      "clase": "fetch",
+      "brazo": "B",
+      "question": "Fetch https://example.com and tell me what the page title is.",
+      "decision_esperada": "call_fetch",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "fail",
+      "detalle": "sin fetch y sin abstencion honesta: ''",
+      "respuesta": "",
+      "wall_seconds": 0.0,
+      "error": "EXC TimeoutError: timed out"
+    },
+    {
+      "id": "tf1",
+      "clase": "fetch",
+      "brazo": "C",
+      "question": "Fetch https://example.com and tell me what the page title is.",
+      "decision_esperada": "call_fetch",
+      "invoco": true,
+      "tool": "http_fetch",
+      "contenido_invocacion": [
+        "GET https://example.com"
+      ],
+      "veredicto": "pass",
+      "detalle": "fetch url contiene 'example.com': 'GET https://example.com'",
+      "respuesta": "",
+      "wall_seconds": 35.608,
+      "error": null
+    },
+    {
+      "id": "tf2",
+      "clase": "fetch",
+      "brazo": "A",
+      "question": "What JSON does http://localhost:8937/health return right now?",
+      "decision_esperada": "call_fetch",
+      "invoco": true,
+      "tool": "FETCH",
+      "contenido_invocacion": [
+        "GET http://localhost:8937/health"
+      ],
+      "veredicto": "pass",
+      "detalle": "fetch url contiene 'localhost:8937/health': 'GET http://localhost:8937/health'",
+      "respuesta": "\n\n[FETCH: GET http://localhost:8937/health]",
+      "wall_seconds": 7.413,
+      "error": null
+    },
+    {
+      "id": "tf2",
+      "clase": "fetch",
+      "brazo": "B",
+      "question": "What JSON does http://localhost:8937/health return right now?",
+      "decision_esperada": "call_fetch",
+      "invoco": true,
+      "tool": "FETCH",
+      "contenido_invocacion": [
+        "GET http://localhost:8937/health"
+      ],
+      "veredicto": "pass",
+      "detalle": "fetch url contiene 'localhost:8937/health': 'GET http://localhost:8937/health'",
+      "respuesta": "[FETCH: GET http://localhost:8937/health]",
+      "wall_seconds": 85.169,
+      "error": null
+    },
+    {
+      "id": "tf2",
+      "clase": "fetch",
+      "brazo": "C",
+      "question": "What JSON does http://localhost:8937/health return right now?",
+      "decision_esperada": "call_fetch",
+      "invoco": true,
+      "tool": "http_fetch",
+      "contenido_invocacion": [
+        "GET http://localhost:8937/health"
+      ],
+      "veredicto": "pass",
+      "detalle": "fetch url contiene 'localhost:8937/health': 'GET http://localhost:8937/health'",
+      "respuesta": "",
+      "wall_seconds": 36.777,
+      "error": null
+    },
+    {
+      "id": "tf3",
+      "clase": "fetch",
+      "brazo": "A",
+      "question": "Retrieve the content of https://raw.githubusercontent.com/MauricioPerera/rag-local/main/README.md and summarize its first section.",
+      "decision_esperada": "call_fetch",
+      "invoco": true,
+      "tool": "FETCH",
+      "contenido_invocacion": [
+        "GET https://raw.githubusercontent.com/MauricioPerera/rag-local/main/README.md"
+      ],
+      "veredicto": "pass",
+      "detalle": "fetch url contiene 'rag-local/main/README.md': 'GET https://raw.githubusercontent.com/MauricioPerera/rag-local/main/README.md'",
+      "respuesta": "\n\n[FETCH: GET https://raw.githubusercontent.com/MauricioPerera/rag-local/main/README.md]",
+      "wall_seconds": 4.641,
+      "error": null
+    },
+    {
+      "id": "tf3",
+      "clase": "fetch",
+      "brazo": "B",
+      "question": "Retrieve the content of https://raw.githubusercontent.com/MauricioPerera/rag-local/main/README.md and summarize its first section.",
+      "decision_esperada": "call_fetch",
+      "invoco": true,
+      "tool": "FETCH",
+      "contenido_invocacion": [
+        "GET https://raw.githubusercontent.com/MauricioPerera/rag-local/main/README.md"
+      ],
+      "veredicto": "pass",
+      "detalle": "fetch url contiene 'rag-local/main/README.md': 'GET https://raw.githubusercontent.com/MauricioPerera/rag-local/main/README.md'",
+      "respuesta": "[FETCH: GET https://raw.githubusercontent.com/MauricioPerera/rag-local/main/README.md]",
+      "wall_seconds": 41.355,
+      "error": null
+    },
+    {
+      "id": "tf3",
+      "clase": "fetch",
+      "brazo": "C",
+      "question": "Retrieve the content of https://raw.githubusercontent.com/MauricioPerera/rag-local/main/README.md and summarize its first section.",
+      "decision_esperada": "call_fetch",
+      "invoco": true,
+      "tool": "http_fetch",
+      "contenido_invocacion": [
+        "GET https://raw.githubusercontent.com/MauricioPerera/rag-local/main/README.md"
+      ],
+      "veredicto": "pass",
+      "detalle": "fetch url contiene 'rag-local/main/README.md': 'GET https://raw.githubusercontent.com/MauricioPerera/rag-local/main/README.md'",
+      "respuesta": "",
+      "wall_seconds": 37.607,
+      "error": null
+    },
+    {
+      "id": "tf4",
+      "clase": "fetch",
+      "brazo": "A",
+      "question": "Check whether https://httpbin.org/status/200 responds successfully.",
+      "decision_esperada": "call_fetch",
+      "invoco": true,
+      "tool": "FETCH",
+      "contenido_invocacion": [
+        "CURL -L https://httpbin.org/status/200"
+      ],
+      "veredicto": "pass",
+      "detalle": "fetch url contiene 'httpbin.org/status/200': 'CURL -L https://httpbin.org/status/200'",
+      "respuesta": "\n\n[FETCH: CURL -L https://httpbin.org/status/200]",
+      "wall_seconds": 7.276,
+      "error": null
+    },
+    {
+      "id": "tf4",
+      "clase": "fetch",
+      "brazo": "B",
+      "question": "Check whether https://httpbin.org/status/200 responds successfully.",
+      "decision_esperada": "call_fetch",
+      "invoco": true,
+      "tool": "FETCH",
+      "contenido_invocacion": [
+        "GET https://httpbin.org/status/200"
+      ],
+      "veredicto": "pass",
+      "detalle": "fetch url contiene 'httpbin.org/status/200': 'GET https://httpbin.org/status/200'",
+      "respuesta": "[FETCH: GET https://httpbin.org/status/200]",
+      "wall_seconds": 42.513,
+      "error": null
+    },
+    {
+      "id": "tf4",
+      "clase": "fetch",
+      "brazo": "C",
+      "question": "Check whether https://httpbin.org/status/200 responds successfully.",
+      "decision_esperada": "call_fetch",
+      "invoco": true,
+      "tool": "http_fetch",
+      "contenido_invocacion": [
+        "GET https://httpbin.org/status/200"
+      ],
+      "veredicto": "pass",
+      "detalle": "fetch url contiene 'httpbin.org/status/200': 'GET https://httpbin.org/status/200'",
+      "respuesta": "",
+      "wall_seconds": 31.211,
+      "error": null
+    },
+    {
+      "id": "ni1",
+      "clase": "factual_ctx",
+      "brazo": "A",
+      "question": "What port does the Aurora API gateway listen on?",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword '7443' presente",
+      "respuesta": "\n\nThe Aurora API gateway listens on port 7443.",
+      "wall_seconds": 3.385,
+      "error": null
+    },
+    {
+      "id": "ni1",
+      "clase": "factual_ctx",
+      "brazo": "B",
+      "question": "What port does the Aurora API gateway listen on?",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword '7443' presente",
+      "respuesta": "The Aurora API gateway listens on port 7443.",
+      "wall_seconds": 36.047,
+      "error": null
+    },
+    {
+      "id": "ni1",
+      "clase": "factual_ctx",
+      "brazo": "C",
+      "question": "What port does the Aurora API gateway listen on?",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword '7443' presente",
+      "respuesta": "The Aurora API gateway listens on port 7443.",
+      "wall_seconds": 27.279,
+      "error": null
+    },
+    {
+      "id": "ni2",
+      "clase": "factual_ctx",
+      "brazo": "A",
+      "question": "Who is the Aurora team lead?",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "fail",
+      "detalle": "sin invocacion pero keyword 'castellanos' ausente: 'Ryn Castellano'",
+      "respuesta": "\n\nRyn Castellano",
+      "wall_seconds": 3.161,
+      "error": null
+    },
+    {
+      "id": "ni2",
+      "clase": "factual_ctx",
+      "brazo": "B",
+      "question": "Who is the Aurora team lead?",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword 'castellanos' presente",
+      "respuesta": "Based on the provided information, the Aurora team lead is Ryn Castellanos.",
+      "wall_seconds": 38.642,
+      "error": null
+    },
+    {
+      "id": "ni2",
+      "clase": "factual_ctx",
+      "brazo": "C",
+      "question": "Who is the Aurora team lead?",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword 'castellanos' presente",
+      "respuesta": "The Aurora team lead is Ryn Castellanos.",
+      "wall_seconds": 30.02,
+      "error": null
+    },
+    {
+      "id": "ni3",
+      "clase": "factual_ctx",
+      "brazo": "A",
+      "question": "How many minutes of downtime per month is the Aurora error budget?",
+      "decision_esperada": "no_call",
+      "invoco": true,
+      "tool": "FETCH",
+      "contenido_invocacion": [
+        "GET https://api.aurora-example.com/error-budget"
+      ],
+      "veredicto": "fail",
+      "detalle": "falso positivo: ['FETCH'] -> ['GET https://api.aurora-example.com/error-budget']",
+      "respuesta": "\n\n[FETCH: GET https://api.aurora-example.com/error-budget]",
+      "wall_seconds": 6.799,
+      "error": null
+    },
+    {
+      "id": "ni3",
+      "clase": "factual_ctx",
+      "brazo": "B",
+      "question": "How many minutes of downtime per month is the Aurora error budget?",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword '43' presente",
+      "respuesta": "Based on the provided information, the Aurora error budget is **43 minutes** of downtime per month.",
+      "wall_seconds": 46.91,
+      "error": null
+    },
+    {
+      "id": "ni3",
+      "clase": "factual_ctx",
+      "brazo": "C",
+      "question": "How many minutes of downtime per month is the Aurora error budget?",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword '43' presente",
+      "respuesta": "The Aurora error budget is 43 minutes of downtime per month.",
+      "wall_seconds": 49.069,
+      "error": null
+    },
+    {
+      "id": "ni4",
+      "clase": "factual_ctx",
+      "brazo": "A",
+      "question": "Does Aurora have an error budget policy? Answer yes or no.",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword 'yes' presente",
+      "respuesta": "\n\nYes, Aurora has an error budget policy.",
+      "wall_seconds": 4.949,
+      "error": null
+    },
+    {
+      "id": "ni4",
+      "clase": "factual_ctx",
+      "brazo": "B",
+      "question": "Does Aurora have an error budget policy? Answer yes or no.",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword 'yes' presente",
+      "respuesta": "Yes.",
+      "wall_seconds": 149.458,
+      "error": null
+    },
+    {
+      "id": "ni4",
+      "clase": "factual_ctx",
+      "brazo": "C",
+      "question": "Does Aurora have an error budget policy? Answer yes or no.",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword 'yes' presente",
+      "respuesta": "Yes.",
+      "wall_seconds": 107.784,
+      "error": null
+    },
+    {
+      "id": "ng1",
+      "clase": "general",
+      "brazo": "A",
+      "question": "What is the capital of France?",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword 'paris' presente",
+      "respuesta": "\n\nParis",
+      "wall_seconds": 3.109,
+      "error": null
+    },
+    {
+      "id": "ng1",
+      "clase": "general",
+      "brazo": "B",
+      "question": "What is the capital of France?",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword 'paris' presente",
+      "respuesta": "The capital of France is Paris.",
+      "wall_seconds": 94.733,
+      "error": null
+    },
+    {
+      "id": "ng1",
+      "clase": "general",
+      "brazo": "C",
+      "question": "What is the capital of France?",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword 'paris' presente",
+      "respuesta": "The capital of France is Paris.",
+      "wall_seconds": 28.464,
+      "error": null
+    },
+    {
+      "id": "ng2",
+      "clase": "general",
+      "brazo": "A",
+      "question": "Who wrote the novel '1984'?",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword 'orwell' presente",
+      "respuesta": "\n\nI am an AI assistant powered by Fable 5, not an AI assistant from an organization that writes novels. The novel \"1984\" was written by George Orwell.",
+      "wall_seconds": 15.522,
+      "error": null
+    },
+    {
+      "id": "ng2",
+      "clase": "general",
+      "brazo": "B",
+      "question": "Who wrote the novel '1984'?",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword 'orwell' presente",
+      "respuesta": "George Orwell wrote the novel '1984'.",
+      "wall_seconds": 76.013,
+      "error": null
+    },
+    {
+      "id": "ng2",
+      "clase": "general",
+      "brazo": "C",
+      "question": "Who wrote the novel '1984'?",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion; keyword 'orwell' presente",
+      "respuesta": "The novel '1984' was written by **George Orwell**.",
+      "wall_seconds": 202.553,
+      "error": null
+    },
+    {
+      "id": "nm1",
+      "clase": "meta",
+      "brazo": "A",
+      "question": "Explain in one sentence what the [FETCH: ...] syntax is for. Do not use it.",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion (keyword null)",
+      "respuesta": "\n\nIt is a shorthand for fetching data from an API or service.",
+      "wall_seconds": 3.918,
+      "error": null
+    },
+    {
+      "id": "nm1",
+      "clase": "meta",
+      "brazo": "B",
+      "question": "Explain in one sentence what the [FETCH: ...] syntax is for. Do not use it.",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion (keyword null)",
+      "respuesta": "This syntax is designed to instruct the AI to retrieve data from a specified web address using a given HTTP method.",
+      "wall_seconds": 347.668,
+      "error": null
+    },
+    {
+      "id": "nm1",
+      "clase": "meta",
+      "brazo": "C",
+      "question": "Explain in one sentence what the [FETCH: ...] syntax is for. Do not use it.",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion (keyword null)",
+      "respuesta": "The [FETCH: ...] syntax is a notation used to retrieve data from a specified URL or external resource, but I won't use it here.",
+      "wall_seconds": 92.573,
+      "error": null
+    },
+    {
+      "id": "nc1",
+      "clase": "creativo",
+      "brazo": "A",
+      "question": "Write a two-line haiku-style verse about databases.",
+      "decision_esperada": "no_call",
+      "invoco": true,
+      "tool": "CALC",
+      "contenido_invocacion": [
+        "5 + 7 + 5"
+      ],
+      "veredicto": "fail",
+      "detalle": "falso positivo: ['CALC'] -> ['5 + 7 + 5']",
+      "respuesta": "First, I need to write a haiku-style verse about databases. A haiku has 5 syllables in the first line, 7 in the second, and 5 in the third. But here it says \"two-line haiku-style verse,\" so maybe two lines, not strictly a haiku.\n\nI'll write: Databases hold data, quietly. From SQL to queries.\n\nLet me check the syllable count:\n- First line: \"Databases hold data\" – that's 5 syllables? D-a-t-b-a-r-i-e-s: 6? Wait, I need to be precise. Actually, \"Databases\" is often considered one word, so syllables: da-tabers? Better to count: D-a-t-b-a-r-i-e-s -> 7 syllables? No, let's break down:\n  - Da (1)\n  - t (2)\n  - b (3)\n  - a (4)\n  - r (5)\n  - i (6)\n  - e (7) – so 7 syllables. I need to adjust.\n\nI should write with fewer syllables for haiku-like structure. Let me try: \"Databases store facts\" – that's 5 syllables? D-a-t-b-a-r-i-e-s: 7 again. Hmm.\n\nPerhaps: \"Data lives in SQL\" – 4 syllables? Data (1), lives (2), in (3), SQL (1) -> total 7? No, I want 5-7-5.\n\nI'll go with: \"Databases hold secrets\" – that's 6 syllables. Not good.\n\nLet me think of a concise phrase: \"SQL databases work\" – 4 syllables. Too short.\n\nHow about: \"Fable in code and SQL\" – Fable (1), in (2), code (1), and (1), SQL (1) -> 6 syllables. Still not 5-7-5.\n\nI need to ensure the verse is about databases, so focus on that.\n\nTry: \"Data flows through queries\" – Data (1), flows (2), through (2), queries (2) -> 7 syllables. Not ideal for haiku.\n\nMaybe: \"SQL runs in databases\" – SQL (1), runs (1), in (1), databases (4) -> 7 syllables.\n\nI'll write: \"Databases store answers\" – Datab (3),es (1)? No, \"Databases\" is often counted as one word. Let's count syllables: D-a-t-b-a-r-i-e-s: 7 letters, but in poetry, we count syllables. So: D-a-t-b-a-r-i-e-s -> 7 syllables. Not good.\n\nI'll use: \"Fable in SQL\" – Fable (1), in (1), SQL (1) -> 3 syllables. Too short.\n\nTo be safe, I'll write a verse that is clear and about databases with standard haiku structure.\n\nFinal attempt: \"Data lives in SQL; queries run.\" That's two lines? Actually, it's one line if I use semicolon. But the user said \"two-line haiku-style verse\", so probably two lines.\n\nSo: First line: \"Databases hold data\" – I'll count syllables: D-a-t-b-a-r-i-e-s (7) and h-o-l-d (2) and d-a-t-a (3)? That's messy. Let's use: \"Data in SQL\" for brevity, but that's not a full verse.\n\nI think I should write: [CALC: 5 + 7 + 5] but that's not the verse itself.\n\nThe instruction is to write the verse, so I need to output the poem.\n\nLet me write: \"Databases store answers\" – I'll assume it's acceptable. Syllable count: Datab (3),es (1)? No, in poetry, we often count syllables as groups of consonants and vowels. For simplicity, I'll go with this.\n\nTo be precise, I'll write: \"Fable in SQL; queries.\" That's two lines? First line: Fable in SQL; second line: queries. Syllables: Fable (1), in (1), SQL (1) -> 3 for first line? Not 5. Queries is 2 syllables.\n\nI need to adhere to haiku-like structure: 5-7-5. So:\n\nLine 1: 5 syllables – e.g., \"Data lives\" but that's 4. \"Fable in SQL\" is 3. How about \"SQL runs\" – 2 syllables.\n\nPerhaps: \"Databases work\" – 4 syllables.\n\nI'll try: \"From SQL to queries\" – From (1), SQL (1), to (1), queries (2) -> 5 syllables? Actually,",
+      "wall_seconds": 63.996,
+      "error": null
+    },
+    {
+      "id": "nc1",
+      "clase": "creativo",
+      "brazo": "B",
+      "question": "Write a two-line haiku-style verse about databases.",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion (keyword null)",
+      "respuesta": "",
+      "wall_seconds": 0.0,
+      "error": "EXC TimeoutError: timed out"
+    },
+    {
+      "id": "nc1",
+      "clase": "creativo",
+      "brazo": "C",
+      "question": "Write a two-line haiku-style verse about databases.",
+      "decision_esperada": "no_call",
+      "invoco": false,
+      "tool": "",
+      "contenido_invocacion": [],
+      "veredicto": "pass",
+      "detalle": "sin invocacion (keyword null)",
+      "respuesta": "Rows of data sleep,\nQueries wake the silent truth.",
+      "wall_seconds": 60.026,
+      "error": null
+    }
+  ],
+  "agregados": {
+    "A": {
+      "recall_apropiados_sobre_8": 0.625,
+      "apropiados_pass": 5,
+      "apropiados_total": 8,
+      "pass_directo": 2,
+      "abstencion_honesta": 0,
+      "apropiados_fail": 1,
+      "precision": 0.7143,
+      "falsos_positivos_sobre_8": 2,
+      "no_call_pass": 5,
+      "no_call_total": 8,
+      "total_invocaciones_emitidas": 7,
+      "calc_pass_sobre_4": 1,
+      "calc_pass_directo": 2,
+      "fetch_pass_sobre_4": 4,
+      "fetch_abstencion_honesta": 0,
+      "matriz_confusion_decision": {
+        "esperado_invoke_pred_invoke": 5,
+        "esperado_invoke_pred_noinvoke": 3,
+        "esperado_noinvoke_pred_invoke": 2,
+        "esperado_noinvoke_pred_noinvoke": 6
+      },
+      "falsos_positivos_detalle": [
+        {
+          "id": "ni3",
+          "tool": "FETCH",
+          "contenido": [
+            "GET https://api.aurora-example.com/error-budget"
+          ],
+          "respuesta": "\n\n[FETCH: GET https://api.aurora-example.com/error-budget]"
+        },
+        {
+          "id": "nc1",
+          "tool": "CALC",
+          "contenido": [
+            "5 + 7 + 5"
+          ],
+          "respuesta": "First, I need to write a haiku-style verse about databases. A haiku has 5 syllables in the first line, 7 in the second, and 5 in the third. But here it says \"two-line haiku-style verse,\" so maybe two lines, not strictly a haiku.\n\nI'll write: Databases hold data, quietly. From SQL to queries.\n\nLet me check the syllable count:\n- First line: \"Databases hold data\" – that's 5 syllables? D-a-t-b-a-r-i-e-s: 6? Wait, I need to be precise. Actually, \"Databases\" is often considered one word, so syllables: da-tabers? Better to count: D-a-t-b-a-r-i-e-s -> 7 syllables? No, let's break down:\n  - Da (1)\n  - t (2)\n  - b (3)\n  - a (4)\n  - r (5)\n  - i (6)\n  - e (7) – so 7 syllables. I need to adjust.\n\nI should write with fewer syllables for haiku-like structure. Let me try: \"Databases store facts\" – that's 5 syllables? D-a-t-b-a-r-i-e-s: 7 again. Hmm.\n\nPerhaps: \"Data lives in SQL\" – 4 syllables? Data (1), lives (2), in (3), SQL (1) -> total 7? No, I want 5-7-5.\n\nI'll go with: \"Databases hold secrets\" – that's 6 syllables. Not good.\n\nLet me think of a concise phrase: \"SQL databases work\" – 4 syllables. Too short.\n\nHow about: \"Fable in code and SQL\" – Fable (1), in (2), code (1), and (1), SQL (1) -> 6 syllables. Still not 5-7-5.\n\nI need to ensure the verse is about databases, so focus on that.\n\nTry: \"Data flows through queries\" – Data (1), flows (2), through (2), queries (2) -> 7 syllables. Not ideal for haiku.\n\nMaybe: \"SQL runs in databases\" – SQL (1), runs (1), in (1), databases (4) -> 7 syllables.\n\nI'll write: \"Databases store answers\" – Datab (3),es (1)? No, \"Databases\" is often counted as one word. Let's count syllables: D-a-t-b-a-r-i-e-s: 7 letters, but in poetry, we count syllables. So: D-a-t-b-a-r-i-e-s -> 7 syllables. Not good.\n\nI'll use: \"Fable in SQL\" – Fable (1), in (1), SQL (1) -> 3 syllables. Too short.\n\nTo be safe, I'll write a verse that is clear and about databases with standard haiku structure.\n\nFinal attempt: \"Data lives in SQL; queries run.\" That's two lines? Actually, it's one line if I use semicolon. But the user said \"two-line haiku-style verse\", so probably two lines.\n\nSo: First line: \"Databases hold data\" – I'll count syllables: D-a-t-b-a-r-i-e-s (7) and h-o-l-d (2) and d-a-t-a (3)? That's messy. Let's use: \"Data in SQL\" for brevity, but that's not a full verse.\n\nI think I should write: [CALC: 5 + 7 + 5] but that's not the verse itself.\n\nThe instruction is to write the verse, so I need to output the poem.\n\nLet me write: \"Databases store answers\" – I'll assume it's acceptable. Syllable count: Datab (3),es (1)? No, in poetry, we often count syllables as groups of consonants and vowels. For simplicity, I'll go with this.\n\nTo be precise, I'll write: \"Fable in SQL; queries.\" That's two lines? First line: Fable in SQL; second line: queries. Syllables: Fable (1), in (1), SQL (1) -> 3 for first line? Not 5. Queries is 2 syllables.\n\nI need to adhere to haiku-like structure: 5-7-5. So:\n\nLine 1: 5 syllables – e.g., \"Data lives\" but that's 4. \"Fable in SQL\" is 3. How about \"SQL runs\" – 2 syllables.\n\nPerhaps: \"Databases work\" – 4 syllables.\n\nI'll try: \"From SQL to queries\" – From (1), SQL (1), to (1), queries (2) -> 5 syllables? Actually,"
+        }
+      ]
+    },
+    "B": {
+      "recall_apropiados_sobre_8": 0.625,
+      "apropiados_pass": 5,
+      "apropiados_total": 8,
+      "pass_directo": 0,
+      "abstencion_honesta": 0,
+      "apropiados_fail": 3,
+      "precision": 0.7143,
+      "falsos_positivos_sobre_8": 0,
+      "no_call_pass": 8,
+      "no_call_total": 8,
+      "total_invocaciones_emitidas": 7,
+      "calc_pass_sobre_4": 2,
+      "calc_pass_directo": 0,
+      "fetch_pass_sobre_4": 3,
+      "fetch_abstencion_honesta": 0,
+      "matriz_confusion_decision": {
+        "esperado_invoke_pred_invoke": 7,
+        "esperado_invoke_pred_noinvoke": 1,
+        "esperado_noinvoke_pred_invoke": 0,
+        "esperado_noinvoke_pred_noinvoke": 8
+      },
+      "falsos_positivos_detalle": []
+    },
+    "C": {
+      "recall_apropiados_sobre_8": 0.75,
+      "apropiados_pass": 6,
+      "apropiados_total": 8,
+      "pass_directo": 0,
+      "abstencion_honesta": 0,
+      "apropiados_fail": 2,
+      "precision": 0.75,
+      "falsos_positivos_sobre_8": 0,
+      "no_call_pass": 8,
+      "no_call_total": 8,
+      "total_invocaciones_emitidas": 8,
+      "calc_pass_sobre_4": 2,
+      "calc_pass_directo": 0,
+      "fetch_pass_sobre_4": 4,
+      "fetch_abstencion_honesta": 0,
+      "matriz_confusion_decision": {
+        "esperado_invoke_pred_invoke": 8,
+        "esperado_invoke_pred_noinvoke": 0,
+        "esperado_noinvoke_pred_invoke": 0,
+        "esperado_noinvoke_pred_noinvoke": 8
+      },
+      "falsos_positivos_detalle": []
+    }
+  }
+}

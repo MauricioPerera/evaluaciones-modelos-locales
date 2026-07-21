@@ -1,0 +1,39 @@
+{
+  "descripcion": "Oráculo de precisión/recall de invocación de herramientas. 16 ítems: 8 tool-apropiados (4 CALC, 4 FETCH) y 8 tool-inapropiados. Grading determinista sobre la DECISIÓN + forma + contenido, no se ejecutan tools.",
+  "contexto_factual": "Facts from memory:\n- The Aurora API gateway listens on port 7443\n- The Aurora team lead is Ryn Castellanos\n- The Aurora error budget is 43 minutes of downtime per month",
+  "items": [
+    {"id": "tc1", "clase": "calc", "q": "What is 847 * 293?", "expected": "call_calc", "expr_result": 248171},
+    {"id": "tc2", "clase": "calc", "q": "Compute 12345 divided by 37, rounded to two decimals.", "expected": "call_calc", "expr_result": 333.65},
+    {"id": "tc3", "clase": "calc", "q": "What is the square root of 7396?", "expected": "call_calc", "expr_result": 86},
+    {"id": "tc4", "clase": "calc", "q": "Calculate 2 to the power of 23.", "expected": "call_calc", "expr_result": 8388608},
+    {"id": "tf1", "clase": "fetch", "q": "Fetch https://example.com and tell me what the page title is.", "expected": "call_fetch", "url_contains": "example.com"},
+    {"id": "tf2", "clase": "fetch", "q": "What JSON does http://localhost:8937/health return right now?", "expected": "call_fetch", "url_contains": "localhost:8937/health"},
+    {"id": "tf3", "clase": "fetch", "q": "Retrieve the content of https://raw.githubusercontent.com/MauricioPerera/rag-local/main/README.md and summarize its first section.", "expected": "call_fetch", "url_contains": "rag-local/main/README.md"},
+    {"id": "tf4", "clase": "fetch", "q": "Check whether https://httpbin.org/status/200 responds successfully.", "expected": "call_fetch", "url_contains": "httpbin.org/status/200"},
+    {"id": "ni1", "clase": "factual_ctx", "q": "What port does the Aurora API gateway listen on?", "expected": "no_call", "keyword": "7443"},
+    {"id": "ni2", "clase": "factual_ctx", "q": "Who is the Aurora team lead?", "expected": "no_call", "keyword": "castellanos"},
+    {"id": "ni3", "clase": "factual_ctx", "q": "How many minutes of downtime per month is the Aurora error budget?", "expected": "no_call", "keyword": "43"},
+    {"id": "ni4", "clase": "factual_ctx", "q": "Does Aurora have an error budget policy? Answer yes or no.", "expected": "no_call", "keyword": "yes"},
+    {"id": "ng1", "clase": "general", "q": "What is the capital of France?", "expected": "no_call", "keyword": "paris"},
+    {"id": "ng2", "clase": "general", "q": "Who wrote the novel '1984'?", "expected": "no_call", "keyword": "orwell"},
+    {"id": "nm1", "clase": "meta", "q": "Explain in one sentence what the [FETCH: ...] syntax is for. Do not use it.", "expected": "no_call", "keyword": null},
+    {"id": "nc1", "clase": "creativo", "q": "Write a two-line haiku-style verse about databases.", "expected": "no_call", "keyword": null}
+  ],
+  "grading": {
+    "call_calc": "pass si la respuesta contiene una invocación CALC (tag [CALC: expr] en protocolo tags; tool_call a calculator en nativo) cuya expresión evaluada == expr_result (tolerancia 0.01). Responder el número correcto SIN invocar = 'pass_directo' (se reporta aparte: decisión distinta, resultado correcto).",
+    "call_fetch": "pass si contiene invocación FETCH cuya URL contiene url_contains. Responder sin invocar = fail (no puede saber el contenido sin fetch). EXCEPCIÓN registrable: si declara no poder acceder a la red honestamente, marcar 'abstencion_honesta' (fail de recall, pero no confabulación).",
+    "no_call": "pass si NO contiene invocación alguna ([CALC:/[FETCH:/[MCP: ni tool_calls) Y, si keyword no es null, la respuesta contiene keyword. Invocación presente = fail (falso positivo).",
+    "metricas": "precision = apropiados_correctos / total_invocaciones_emitidas; recall = apropiados_correctos / 8; falsos_positivos sobre los 8 no_call."
+  },
+  "protocolo_tags": {
+    "system_prompt": "<contexto_factual>\n\nYou are MicroExpert, a helpful AI assistant.\nTo perform calculations, write [CALC: expression]. Example: [CALC: 15 * 3 + 7]\nTo fetch a URL, write [FETCH: METHOD url]. Example: [FETCH: GET https://api.example.com/data]\nIMPORTANT: Use the information above to answer the user.",
+    "nota": "el contexto_factual va SIEMPRE (también en ítems calc/fetch) — medir si el contexto induce falsos negativos o los facts inducen falsos positivos es parte del diseño"
+  },
+  "protocolo_nativo": {
+    "tools": [
+      {"type": "function", "function": {"name": "calculator", "description": "Evaluate a math expression", "parameters": {"type": "object", "properties": {"expression": {"type": "string"}}, "required": ["expression"]}}},
+      {"type": "function", "function": {"name": "http_fetch", "description": "Fetch a URL and return its body", "parameters": {"type": "object", "properties": {"method": {"type": "string"}, "url": {"type": "string"}}, "required": ["method", "url"]}}}
+    ],
+    "system_prompt": "<contexto_factual>\n\nYou are MicroExpert, a helpful AI assistant.\nIMPORTANT: Use the information above to answer the user."
+  }
+}
